@@ -1,0 +1,52 @@
+//*********************************************************************************
+//
+//  Copyright(c) 2008,2018 Kevin Willows. All Rights Reserved
+//
+//	License: Proprietary
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+//*********************************************************************************
+
+'use strict';
+
+const fs        = require('fs');
+const path      = require('path');
+const readline  = require('readline');
+const net       = require('net');
+
+var client = new net.Socket();
+
+client.connect(12007, '192.168.2.18', function() {
+    console.log('Connected');
+    
+    let arr:Uint32Array = new Uint32Array(1);
+    
+    let str:Buffer = Buffer.from("{'test':'value', 'test2':}","UTF8")
+
+    arr[0] = str.length;
+
+    let buffer:Buffer = new Buffer(arr.buffer);
+
+    client.write(buffer);
+    client.write(str);
+
+
+
+	// client.write('Hello, server! Love, Client.');
+});
+
+client.on('data', function(data:any) {
+	console.log('Received: ' + data);
+	//client.destroy(); // kill client after server's response
+});
+
+client.on('close', function() {
+	console.log('Connection closed');
+});

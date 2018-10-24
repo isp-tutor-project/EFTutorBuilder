@@ -1,0 +1,159 @@
+{
+	"SScene1": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>There   are,  <b>multiple</b> {{var1}} <span>which can be     {{var2}} </span>  when using SSML.</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						},
+						"var2": {
+							"values": {
+								"valname1": "evaluated",
+								"valname2": "ignored",
+								"valname3": "attempted"
+							},
+							"notes": ""
+						}
+					}
+				}
+			},
+			"track2": {
+				"en": {
+					"html": "<p>{{var1}}There are many properties.{{var2}}</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						},
+						"var2": {
+							"values": {
+								"valname1": "evaluated",
+								"valname2": "ignored",
+								"valname3": "attempted"
+							},
+							"notes": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"SScene2": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>There are many {{var1}} properties.</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"SScene3": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>{{var1}}</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"SScene4": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>This is just plain text no templates.</p>"
+				}
+			}
+		}
+    },
+	"SScene5": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": ""
+				}
+			}
+		}
+	}
+    
+},
+
+
+{
+	"SScene1": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>There   are{{var1}}  <span id='item1'>speech</span> parameters which can be manipulated   when  using  SSML.</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "multiple",
+								"valname2": "several",
+								"valname3": "some"
+							},
+							"volume": 0.8,
+							"notes": ""
+						}
+					},
+					"text": "There are{{var1}}speech parameters which can be manipulated when using SSML.",
+					"cueSet": "a................b.....................................................z",
+					"segments": [],
+					"timedSet": [],
+					"trim": [
+						70,
+						0,
+						0
+					],
+					"volume": 1
+				}
+            },
+			"track2": {
+				"en": {
+					"html": "$EFL.eftext.templateVal1",
+					"templates": {},
+					"text": "There are{{var1}}speech parameters which can be manipulated when using SSML.",
+					"cueSet": "a................b.....................................................z",
+					"segments": [],
+					"timedSet": [],
+					"trim": [
+						70,
+						0,
+						0
+					],
+					"volume": 1
+				}
+			}            
+		}
+	}
+}

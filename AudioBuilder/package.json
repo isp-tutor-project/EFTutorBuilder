@@ -1,0 +1,20 @@
+{
+  "name": "@edforge/audio_builder",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Propietary",
+  "author": "Kevin Willows",
+  "repository": "",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^0.1.0",
+    "lamejs": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.1.2",
+    "@google-cloud/nodejs-repo-tools": "2.1.1"
+  }
+}

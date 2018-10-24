@@ -1,0 +1,23 @@
+{
+  "name": "edforge_module_compiler",
+  "version": "0.1.0",
+  "description": "Nodejs GUID generator/modifier for AnimateCC projects",
+  "main": "generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Willows",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "jsdom": "^11.11.0",
+    "@types/node": "^10.1.2",
+    "@types/xmldom": "^0.1.29",
+    "@types/json5": "0.0.29"
+  },
+  "dependencies": {
+    "@types/jsdom": "^11.0.6",
+    "json5": "^1.0.1",
+    "typescript": "^2.8.3",
+    "xmldom": "^0.1.27"
+  }
+}

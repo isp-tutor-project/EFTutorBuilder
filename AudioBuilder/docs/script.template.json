@@ -1,0 +1,99 @@
+{
+	"SScene1": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>There   are,  <b>multiple</b> {{var1}} <span>which can be     {{var2}} </span>  when using SSML.</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						},
+						"var2": {
+							"values": {
+								"valname1": "evaluated",
+								"valname2": "ignored",
+								"valname3": "attempted"
+							},
+							"notes": ""
+						}
+					}
+				}
+			},
+			"track2": {
+				"en": {
+					"html": "<p>{{var1}}There are many properties.{{var2}}</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						},
+						"var2": {
+							"values": {
+								"valname1": "evaluated",
+								"valname2": "ignored",
+								"valname3": "attempted"
+							},
+							"notes": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"SScene2": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>There are many {{var1}} properties.</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"SScene3": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>{{var1}}</p>",
+					"templates": {
+						"var1": {
+							"values": {
+								"valname1": "ways",
+								"valname2": "things",
+								"valname3": "possibilities"
+							},
+							"notes": ""
+						}
+					}
+				}
+			}
+		}
+	},
+	"SScene4": {
+		"tracks": {
+			"track1": {
+				"en": {
+					"html": "<p>This is just plain text no templates.</p>"
+				}
+			}
+		}
+	}
+}

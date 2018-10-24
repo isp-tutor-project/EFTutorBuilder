@@ -1,0 +1,13 @@
+{
+  "name": "eftutor-builder",
+  "version": "0.1.0",
+  "description": "",
+  "main": "builder.js",
+  "scripts": {},
+  "author": "Kevin Willows",
+  "license": "none",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.5.2"
+  }
+}
