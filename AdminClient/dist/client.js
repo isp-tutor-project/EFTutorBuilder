@@ -48,7 +48,8 @@ class ClientSocket {
         // If the expected state is in the message then trim it and continue
         // 
         if (str.startsWith(state)) {
-            // console.log('Received State: ' + str);                        
+            if (state === 'STATE1')
+                console.log('Entering Wait State');
             data = data.slice(state.length);
         }
         else {
@@ -117,7 +118,7 @@ class ClientSocket {
                     this.bytesSent += this.size;
                     if (this.size > 0)
                         this.client.write(this.chunk);
-                    //console.log("Bytes Written/Sent: " + this.bytesSent + " :: "+ this.client.bytesWritten); 
+                    console.log("Bytes Written/Sent: " + this.bytesSent + " :: " + this.client.bytesWritten);
                     this.clientState = ClientSocket.COMMAND_SENDACK;
                 }
                 if (this.bytesAvail <= 0) {
@@ -133,7 +134,7 @@ class ClientSocket {
             case ClientSocket.COMMAND_RECVSTART:
                 datacheck = false;
                 this.recvSize = parseInt(data.toString(), 10);
-                //console.log('Receiving Data Size: ' + this.recvSize);                     
+                console.log('Receiving Data Size: ' + this.recvSize);
                 this.client.write("ACK");
                 this.clientState = ClientSocket.COMMAND_RECVDATA;
                 break;

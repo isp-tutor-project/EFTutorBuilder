@@ -1,0 +1,30 @@
+{
+    "commands": [
+        {
+            "command": "PULL",
+            "from": "/EdForge_DATA/userfolder",
+            "to": "/EFdata/userid",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        },
+        {
+            "command": "INSTALL",
+            "from": "EFhomeScreen.apk",
+            "to": "",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        },
+        {
+            "command": "PUSH",
+            "from": "EdForge.zip",
+            "to": "/EdForge/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        }
+    ],
+    "targets": "all",
+    "tabletIDs": []
+}

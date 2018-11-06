@@ -1,0 +1,20 @@
+
+
+var client = new ClientSocket();
+
+// client.pushCommand('{"command":"INSTALL", filename:"Edforge123.apk", "size":20315012}');
+// client.pushCommand('{"command":"PULL", filename:"Edforge123.apk", "size":122}');
+// client.pushCommand('{"command":"PULL", folder:"Edforge_DATA", filename:"userdata.zip"}');
+//  client.pushCommand('{"command":"PUSH", folder:"Edforge_LOGS", filename:"userdata.zip", "size":3423444122}');
+
+client.pushCommand('{"command":"PUSH", "from":"robotutor.apk",  "to":"/EdForge_UPDATE/", "compress":false, "extract":false, "recurse":true, "size":31101126}');
+// client.pushCommand('{"command":"PUSH", "from":"test3.zip",  "to":"/EdForge_DATA/", "compress":false, "extract":true, "recurse":true, "size":109998}');
+
+// client.pushCommand('{"command":"PULL", "from":"/EdForge/dist",              "to":"test2.zip", "compress":true, "recurse":true}');
+// client.pushCommand('{"command":"PULL", "from":"/EdForge/EFMod_Algae",       "to":"test3.zip", "compress":true, "recurse":true}');
+// client.pushCommand('{"command":"PULL", "from":"/EdForge/node_modules",      "to":"test4.zip", "compress":true, "recurse":true}');
+
+
+client.connect(12007, "192.168.2.18");      //192.168.2.18  192.168.2.128  10.0.0.132
+
+

@@ -5,7 +5,55 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name":"Debug test",
+            "name":"Debug SCAN",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SCAN"
+			]
+        },
+
+        {
+            "name":"Debug SEND",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","test_setup"
+			]
+        },
+
+        {
+            "name":"Debug RETRY",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "RETRY","test_setup"
+			]
+        },
+
+        {
+            "name":"Debug DEFAULT",
             "sourceMaps": true,
             "type": "node",
             "request": "launch",

@@ -359,12 +359,13 @@ function synthesizeVOICE(_request:any) : Promise<any>  {
         // process.stdout.write(`\rFiles Requested: ${filesRequested} -- Files Processed: ${filesProcessed}`);
         // console.log(`Files Requested: ${filesRequested} -- Files Processed: ${filesProcessed}`);          
 
-        fs.writeFileSync(outputFile+TYPE_WAV, response[0].audioContent, 'binary', (err:string) => {
-          if (err) {
-            console.error('ERROR:', err);
-            return;
-          }
-        });
+        // TODO: Make wav output conditional on script attribute  e.g. "wav":true/false
+        // fs.writeFileSync(outputFile+TYPE_WAV, response[0].audioContent, 'binary', (err:string) => {
+        //   if (err) {
+        //     console.error('ERROR:', err);
+        //     return;
+        //   }
+        // });
 
     }).catch((err:any) => {
         console.error('ERROR:', err);
