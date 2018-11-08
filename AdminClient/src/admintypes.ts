@@ -8,4 +8,5 @@ export interface CEF_Command  {
     size:number;
     compress:boolean;
     extract:boolean;
+    tabletId?:number;
 }

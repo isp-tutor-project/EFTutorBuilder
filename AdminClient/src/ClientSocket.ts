@@ -69,6 +69,7 @@ export class ClientSocket
     private cmdJson:string;
     private command:CEF_Command;
     private recvSize:number = -1;
+    private recvPath:string;
     private cwd:string;
 
     private cmdPacket:Buffer;
@@ -144,6 +145,22 @@ export class ClientSocket
     }
 
 
+    private validatePath(root:string, pathArr:string[]) {
+        
+        for(let i1 = 0 ; i1 < pathArr.length ; i1++) {
+
+            root = path.join(root, pathArr[i1]);
+            
+            try {
+                if(!fs.existsSync(root))
+                            fs.mkdirSync(root);
+            }
+            catch(e) {                
+            }    
+        }
+    }
+
+
     private onData(data:any) : void  {    
 
         let arr:Uint32Array   = new Uint32Array(1);        
@@ -215,8 +232,18 @@ export class ClientSocket
                         break;
 
                     case "PULL":
+                        let pathparts:string[] = this.command.to.split("/");
+                        let tablPart = "tablet_"+this.command.tabletId;
+                        let pathArr:string[] = pathparts.slice(0,pathparts.length - 1);
+                        pathArr.push(tablPart);
+
+                        this.validatePath(this.cwd, pathArr);
+
+                        let filePart = pathparts.slice(pathparts.length - 1).join();
+                        this.recvPath = path.join(pathArr.join("/"), filePart);
+
                         this.clientState = ClientSocket.COMMAND_RECVSTART;
-                        this.wstream     = fs.createWriteStream(path.join(this.cwd, this.command.to));
+                        this.wstream     = fs.createWriteStream(path.join(this.cwd, this.recvPath));
                         break;
 
                 }
@@ -281,7 +308,7 @@ export class ClientSocket
                 }
 
                 if(this.recvSize <= 0) {
-                    console.log('File Complete: ' + this.command.to);                     
+                    console.log('File Complete: ' + this.recvPath);                     
 
                     this.wstream.end();
                     this.clientState = ClientSocket.COMMAND_WAIT;
@@ -305,19 +332,19 @@ export class ClientSocket
     }
 
     private onClose(e:any) {
-        // console.log('Connection closed: ' + e);        
+        //  console.log('Connection closed: ' + e);        
     }
 
     private onError(e:any) {
-        // console.log('ERROR: Connection closed: ' + e);        
-    }
-
-    private onTimeout() {
-        console.log('ERROR: Connection timed out:');        
+        console.log('ERROR: Connection closed: ' + e);        
 
         // callback to process next device - fail this packet
         // 
         this.callback(false);                    
+    }
+
+    private onTimeout() {
+        // console.log('ERROR: Connection timed out:');        
     }
 
     public pushCommand(command:string) {

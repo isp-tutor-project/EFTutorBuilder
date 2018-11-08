@@ -28,6 +28,7 @@ import { FSWatcher } from 'fs';
 
 const INSTALL:string        = "INSTALL";
 const PUSH:string           = "PUSH";
+const PULL:string           = "PULL";
 const SEND:string           = "SEND";
 const RETRY:string          = "RETRY";
 const SCAN:string           = "SCAN";
@@ -59,6 +60,11 @@ let rwd:string;
 let cwd:string;
 
 
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 /**
  * When debugging the module may not be defined as an argument. 
  * (You may use a vscode launch configuration to set args[] to define a target)
@@ -82,13 +88,13 @@ function processCommandLine() {
                     readIPs();
                     break;
 
-
                 case RETRY: 
                     // Do a SEND but only to failed tablets.
                     // 
                     fRetryOnly = true;
 
                 case SEND: 
+                case PULL:
 
                     // This is kept alive by the client socket which will continually process the 
                     // tablet queue until it is exhausted when the process will terminate as there 
@@ -141,14 +147,14 @@ function queueDevices() {
 
     if(comSet.targets === "all") {
 
-        for(let i1 = 0 ; i1 < tabletList.length ; i1++) {
+        for(let i1 = tabletList.length-1 ; i1 >= 0  ; i1--) {
             deviceQueue.push(i1);
         }
     }
     else {
         let tdev:number[] = comSet.tabletIDs;
 
-        for(let i1 = 0; i1 < tdev.length ; i1++) {
+        for(let i1 = tdev.length-1; i1 >= 0 ; i1--) {
 
             for(let i2 = 0 ; i2 < tabletList.length ; i2++) {
                 if(tdev[i1] == tabletList[i2].Id) {
@@ -178,11 +184,13 @@ function sendCommandSet(tabletNdx:number) {
         let Id = tabletList[tabletNdx].Id;
         let ip = tabletList[tabletNdx].ip;
 
-        console.log(`Processing Device: ${Id}::${ip}`);
+        console.log(`Processing Device ID: ${Id} :: ${ip}`);
 
         // push the command to the socket queue
         // 
         for(let com= 0 ; com < comSet.commands.length ; com++) {
+
+            comSet.commands[com].tabletId = Id;
 
             let command:string = JSON.stringify(comSet.commands[com], null, '\t');
 
@@ -195,37 +203,52 @@ function sendCommandSet(tabletNdx:number) {
 }
 
 
+// Callback from client socket
 function processNextDevice(success:boolean) {
+
+    let nextTablet:number;
 
     if(!success) {
         tabletList[tabletCurr].failed = true;
     }
     if(deviceQueue.length <= 0) {
 
-        console.log(`Processing Complete: All Devices Processed`);
+        console.log(`\n\n***********************************************\nProcessing Complete: All Devices Processed\n`);
 
         // If errors occurred save for retry
         // 
-        save_IpLibrary();                    
+        save_IpLibrary();      
+        return;              
     }
-
     // We only process one tablet per pass but in retry mode
     // all the non-failed need to be skipped
     // 
     else while(deviceQueue.length > 0) {
 
-        let nextTablet = deviceQueue.pop();
+        nextTablet = deviceQueue.pop();
 
         if(fRetryOnly && !tabletList[nextTablet].failed) {
             continue;
         }
         else {
-            sendCommandSet(nextTablet);    
             break;
         }
     }     
-}
 
+    rl.question('\n\n***********************************************\nProcess TabletID:' + tabletList[nextTablet].Id +"? Y/N> ", (answer:string) => {
+
+        if(answer.toLowerCase() === "y") {
+
+            sendCommandSet(nextTablet);    
+        }
+        else {
+
+            tabletCurr = nextTablet;
+            processNextDevice(false);
+        }
+    });      
+
+}
 
 function readIPs() {
 

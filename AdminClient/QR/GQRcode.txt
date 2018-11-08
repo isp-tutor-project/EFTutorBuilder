@@ -1,0 +1,10 @@
+{
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME":
+"com.example.android.deviceowner/com.example.android.deviceowner.DeviceOwnerReceiver",
+
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM":
+"RUjP7G7pHnoGrHUKaeZOMSIVOqD9_2N9bcYt0M4Obr8=",
+  
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION":
+"https://www.edforge.org/EdForge/GdeviceOwner.apk"
+}

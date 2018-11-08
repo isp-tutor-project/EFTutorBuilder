@@ -37,6 +37,22 @@
         },
 
         {
+            "name":"Debug PULL",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "PULL","pull_test_setup"
+			]
+        },
+
+        {
             "name":"Debug RETRY",
             "sourceMaps": true,
             "type": "node",
@@ -49,6 +65,38 @@
             ],
             "args": [
                 "RETRY","test_setup"
+			]
+        },
+
+        {
+            "name":"INSTALLER",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","init_setup"
+			]
+        },
+
+        {
+            "name":"INSTALLER KW",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","kw_setup"
 			]
         },
 

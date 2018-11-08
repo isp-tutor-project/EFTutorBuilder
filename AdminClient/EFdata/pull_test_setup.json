@@ -1,0 +1,14 @@
+{
+     "commands": [
+        {
+            "command": "PULL",
+            "from": "/EdForge_DATA/",
+            "to": "EdForge_DATA/isp_userdata.zip",
+            "compress": true,
+            "extract": false,
+            "recurse": true
+        }
+    ],
+    "targets": "all",
+    "tabletIDs": [30,31]
+}

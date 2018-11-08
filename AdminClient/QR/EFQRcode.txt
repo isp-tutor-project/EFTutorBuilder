@@ -1,0 +1,10 @@
+{
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME":
+"org.edforge.efdeviceowner/org.edforge.efdeviceowner.DeviceOwnerReceiver",
+
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM":
+"AxJ3vgp1Q3y74BrtXkzUCKmdz9f9d92vdfIVdywQe2A=",
+  
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION":
+"https://www.edforge.org/EdForge/EFdeviceOwner.apk"
+}

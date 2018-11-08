@@ -1,0 +1,10 @@
+{
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME":
+"com.example.android.deviceowner/com.example.android.deviceowner.DeviceOwnerReceiver",
+
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM":
+"NDhhZDQxZjZlOTlkZGQ5ODc0MjljMWQ1NGJlNmU2MDI2MjIwNTJiMmE4NTJhZjVjZGNhYmJhMjE5NTUwNGMwNQ==",
+
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION":
+"http://192.168.2.115/QR_PROVISIONING/Application-release.apk"
+}

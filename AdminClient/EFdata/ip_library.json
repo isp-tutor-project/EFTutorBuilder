@@ -238,7 +238,8 @@
 			"ip": "",
 			"owner": "lab",
 			"created": "",
-			"lastseen": ""
+			"lastseen": "",
+			"failed": true
 		},
 		{
 			"Id": 31,
@@ -246,8 +247,8 @@
 			"ip": "10.0.0.132",
 			"owner": "kevin",
 			"created": "11/5/2018  6:00:38 PM",
-			"lastseen": "11/5/2018  6:31:41 PM",
-			"failed": true
+			"lastseen": "11/6/2018  7:08:20 PM",
+			"failed": false
 		}
 	]
 }

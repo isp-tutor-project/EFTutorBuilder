@@ -1,0 +1,199 @@
+// Info for EFdeviceOwner.apk
+
+Generate the signed APK: Move to jdk folder : run
+
+PS C:\Program Files\Java\jdk1.8.0_102\bin> ./keytool -list -printcert -jarfile EFDeviceOwner.apk
+
+
+generates:
+
+Signer #1:
+
+Signature:
+
+Owner: CN=Klahr Lab, OU=Psychology, O=CMU, L=PITTSBURGH, ST=PA, C=01
+Issuer: CN=Klahr Lab, OU=Psychology, O=CMU, L=PITTSBURGH, ST=PA, C=01
+Serial number: 2b00f63c
+Valid from: Tue Oct 30 12:58:53 EDT 2018 until: Sat Oct 24 12:58:53 EDT 2043
+Certificate fingerprints:
+         MD5:  1A:48:DA:10:BC:53:E2:1C:2C:BA:41:8D:C4:79:12:9B
+         SHA1: 4E:72:47:C2:C6:80:77:FC:D6:C9:DC:56:B0:A3:B7:6D:A3:81:03:84
+         SHA256: 03:12:77:BE:0A:75:43:7C:BB:E0:1A:ED:5E:4C:D4:08:A9:9D:CF:D7:FD:77:DD:AF:75:F2:15:77:2C:10:7B:60
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 4B 2B 88 EC A4 B1 53 9E   96 C4 5B 81 33 FB 68 33  K+....S...[.3.h3
+0010: F9 8A C4 B6                                        ....
+]
+]
+
+Enter the SHA256 as binary data in Visual Studio 2017: Base64 encode the file at: 
+
+https://www.motobit.com/util/base64-decoder-encoder.asp
+
+Produces:
+AxJ3vgp1Q3y74BrtXkzUCKmdz9f9d92vdfIVdywQe2A=
+
+Use the encoding as the PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM:
+
+
+Note: This is not neccesarily reversable at this site. i.e. their decoder does not 
+produce a correct value with the Google sample SHA.
+
+So far this gets us to downloading but: Oops can't install admin app. 
+Problem was testOnly=true in manifest --- now installs correctly
+
+===================================================================================================================================
+===================================================================================================================================
+===================================================================================================================================
+
+
+// Info for GdeviceOwner.apk  - the Google sample app
+
+Generate the signed APK: Move to jdk folder : run
+===================================================
+PS C:\Program Files\Java\jdk1.8.0_102\bin> ./keytool -list -printcert -jarfile GdeviceOwner.apk
+
+
+generates:
+=========================================================================
+Signer #1:
+
+Signature:
+
+Owner: CN=Klahr Lab, OU=Psychology, O=CMU, L=Pittsburgh, ST=PA, C=01
+Issuer: CN=Klahr Lab, OU=Psychology, O=CMU, L=Pittsburgh, ST=PA, C=01
+Serial number: 24f8c9c5
+Valid from: Wed Oct 31 14:54:39 EDT 2018 until: Sun Oct 25 14:54:39 EDT 2043
+Certificate fingerprints:
+         MD5:  D9:7D:7C:F4:DE:59:A2:25:7B:2E:A4:4F:D7:75:88:35
+         SHA1: F7:B0:45:32:B7:5B:20:76:97:52:2F:43:AD:40:36:B9:BF:B0:1E:1A
+         SHA256: 45:48:CF:EC:6E:E9:1E:7A:06:AC:75:0A:69:E6:4E:31:22:15:3A:A0:FD:FF:63:7D:6D:C6:2D:D0:CE:0E:6E:BF
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: FB EF 0F EE 0D FD 06 5A   7F 19 67 D8 50 5A 65 31  .......Z..g.PZe1
+0010: 4B E5 CA 54                                        K..T
+]
+]
+
+Enter the SHA256 as binary data in Visual Studio 2017: Base64 encode the file at: 
+
+https://www.motobit.com/util/base64-decoder-encoder.asp
+
+RUjP7G7pHnoGrHUKaeZOMSIVOqD9/2N9bcYt0M4Obr8=
+
+recoded to remove '/' as per https://tools.ietf.org/html/rfc4648  Android expects Table 2 encodings
+
+RUjP7G7pHnoGrHUKaeZOMSIVOqD9_2N9bcYt0M4Obr8=
+
+AfterUse the encoding as the PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM:
+
+Note: This is not neccesarily reversable at this site. i.e. their decoder does not 
+produce a correct value with the Google sample SHA.
+
+So far this gets us to downloading but: Oops can't install admin app.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Archival Info follows:
+----------------------------------------------------------------------------------------------------------
+
+Do initial connection on tether to get QR reader then switch to EdForge
+
+C:\Program Files\Java\jdk1.8.0_102\bin> ./keytool -list -printcert -jarfile EFDeviceOwner.apk
+
+Signer #1:
+
+Signature:
+
+Owner: CN=Klahr Lab, OU=Psychology, O=CMU, L=PITTSBURGH, ST=PA, C=01
+Issuer: CN=Klahr Lab, OU=Psychology, O=CMU, L=PITTSBURGH, ST=PA, C=01
+Serial number: 2b00f63c
+Valid from: Tue Oct 30 12:58:53 EDT 2018 until: Sat Oct 24 12:58:53 EDT 2043
+Certificate fingerprints:
+         MD5:  1A:48:DA:10:BC:53:E2:1C:2C:BA:41:8D:C4:79:12:9B
+         SHA1: 4E:72:47:C2:C6:80:77:FC:D6:C9:DC:56:B0:A3:B7:6D:A3:81:03:84
+         SHA256: 03:12:77:BE:0A:75:43:7C:BB:E0:1A:ED:5E:4C:D4:08:A9:9D:CF:D7:FD:77:DD:AF:75:F2:15:77:2C:10:7B:60
+         Signature algorithm name: SHA256withRSA
+         Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 4B 2B 88 EC A4 B1 53 9E   96 C4 5B 81 33 FB 68 33  K+....S...[.3.h3
+0010: F9 8A C4 B6                                        ....
+]
+]
+
+
+031277BE0A75437CBBE01AED5E4CD408A99DCFD7FD77DDAF75F215772C107B60
+24204ddbc224068eac25551774d3fd0b5b87c78df8e0c8de584b8c83c78f253c
+
+./keytool -list -printcert -jarfile ./EFDeviceOwner.apk | grep -Po "(?<=SHA256:) .*" | ./xxd -r -p | openssl base64 | tr -- '+' '-_'
+
+
+
+cat EFdeviceOwner.apk | openssl dgst -binary -sha256 | openssl base64 | tr -- '+' '-_'
+
+:PowerShell:
+get-filehash ./EFdeviceOwner.apk | Format-List
+
+:Windows:
+CertUtil -hashfile DeviceOwner.apk SHA256
+
+
+SHA256 hash of DeviceOwner.apk:
+
+48ad41f6e99ddd987429c1d54be6e602622052b2a852af5cdcabba2195504c05
+
+
+
+CertUtil: -hashfile command completed successfully.
+
+
+
+Result base64 encoded:
+NDhhZDQxZjZlOTlkZGQ5ODc0MjljMWQ1NGJlNmU2MDI2MjIwNTJiMmE4NTJhZjVjZGNhYmJhMjE5NTUwNGMwNQ==
+gJD2YwtOiWJHkSMkkIfLRlj-quNqG1fb6v100QmzM9w=
+
+
+
+CertUtil -hashfile TestDPC_4006.apk SHA256
+1ebbfc9b4ff0eb62294a7a7323abece8bf9e7098d3ae5d743c1da2d76754a1fc
+
+
+
+curl -s https://www.edforge.org/EdForge/EFdeviceOwner.apk | openssl dgst -binary -sha256 | openssl base64 | tr '+/' '-_' | tr -d '='

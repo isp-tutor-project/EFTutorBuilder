@@ -76,6 +76,17 @@ class ClientSocket {
         }
         return data;
     }
+    validatePath(root, pathArr) {
+        for (let i1 = 0; i1 < pathArr.length; i1++) {
+            root = path.join(root, pathArr[i1]);
+            try {
+                if (!fs.existsSync(root))
+                    fs.mkdirSync(root);
+            }
+            catch (e) {
+            }
+        }
+    }
     onData(data) {
         let arr = new Uint32Array(1);
         let datacheck = true;
@@ -123,8 +134,15 @@ class ClientSocket {
                         this.clientState = ClientSocket.COMMAND_SENDDATA;
                         break;
                     case "PULL":
+                        let pathparts = this.command.to.split("/");
+                        let tablPart = "tablet_" + this.command.tabletId;
+                        let pathArr = pathparts.slice(0, pathparts.length - 1);
+                        pathArr.push(tablPart);
+                        this.validatePath(this.cwd, pathArr);
+                        let filePart = pathparts.slice(pathparts.length - 1).join();
+                        this.recvPath = path.join(pathArr.join("/"), filePart);
                         this.clientState = ClientSocket.COMMAND_RECVSTART;
-                        this.wstream = fs.createWriteStream(path.join(this.cwd, this.command.to));
+                        this.wstream = fs.createWriteStream(path.join(this.cwd, this.recvPath));
                         break;
                 }
                 // Write simple acknowledgement
@@ -165,7 +183,7 @@ class ClientSocket {
                     this.recvSize -= data.length;
                 }
                 if (this.recvSize <= 0) {
-                    console.log('File Complete: ' + this.command.to);
+                    console.log('File Complete: ' + this.recvPath);
                     this.wstream.end();
                     this.clientState = ClientSocket.COMMAND_WAIT;
                 }
@@ -182,16 +200,16 @@ class ClientSocket {
         }
     }
     onClose(e) {
-        // console.log('Connection closed: ' + e);        
+        //  console.log('Connection closed: ' + e);        
     }
     onError(e) {
-        // console.log('ERROR: Connection closed: ' + e);        
-    }
-    onTimeout() {
-        console.log('ERROR: Connection timed out:');
+        console.log('ERROR: Connection closed: ' + e);
         // callback to process next device - fail this packet
         // 
         this.callback(false);
+    }
+    onTimeout() {
+        // console.log('ERROR: Connection timed out:');        
     }
     pushCommand(command) {
         this.cmdArray.push(command);
