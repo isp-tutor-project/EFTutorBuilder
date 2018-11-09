@@ -85,6 +85,22 @@
         },
 
         {
+            "name":"UPDATER",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","init_update"
+			]
+        },
+
+        {
             "name":"INSTALLER KW",
             "sourceMaps": true,
             "type": "node",
@@ -96,7 +112,7 @@
                 "${workspaceFolder}/dist/*.js"
             ],
             "args": [
-                "SEND","kw_setup"
+                "SEND","kwupdate_setup"
 			]
         },
 

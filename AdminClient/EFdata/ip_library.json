@@ -3,106 +3,106 @@
 		{
 			"Id": 1,
 			"mac": "4c:ed:fb:05:15:c5",
-			"ip": "",
+			"ip": "10.0.0.141",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  5:15:01 AM",
+			"lastseen": "11/9/2018  7:23:03 AM"
 		},
 		{
 			"Id": 2,
 			"mac": "4c:ed:fb:10:20:2c",
-			"ip": "",
+			"ip": "10.0.0.108",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:29:09 AM",
+			"lastseen": "11/9/2018  7:29:09 AM"
 		},
 		{
 			"Id": 3,
 			"mac": "4c:ed:fb:05:15:db",
-			"ip": "",
+			"ip": "10.0.0.137",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:28:31 AM",
+			"lastseen": "11/9/2018  7:28:31 AM"
 		},
 		{
 			"Id": 4,
-			"mac": "fc:ed:fb:10:1f:ee",
-			"ip": "",
+			"mac": "4c:ed:fb:10:1f:ee",
+			"ip": "10.0.0.107",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:38:24 AM",
+			"lastseen": "11/9/2018  7:38:24 AM"
 		},
 		{
 			"Id": 5,
 			"mac": "4c:ed:fb:10:1f:f8",
-			"ip": "",
+			"ip": "10.0.0.140",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:31:28 AM",
+			"lastseen": "11/9/2018  7:31:28 AM"
 		},
 		{
 			"Id": 6,
 			"mac": "4c:ed:fb:10:20:0a",
-			"ip": "",
+			"ip": "10.0.0.146",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  6:50:48 AM",
+			"lastseen": "11/9/2018  7:22:59 AM"
 		},
 		{
 			"Id": 7,
 			"mac": "4c:ed:fb:10:1f:f0",
-			"ip": "",
+			"ip": "10.0.0.143",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  5:21:24 AM",
+			"lastseen": "11/9/2018  7:25:41 AM"
 		},
 		{
 			"Id": 8,
 			"mac": "4c:ed:fb:10:20:30",
-			"ip": "",
+			"ip": "10.0.0.130",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:16:22 AM",
+			"lastseen": "11/9/2018  9:12:04 AM"
 		},
 		{
 			"Id": 9,
 			"mac": "4c:ed:fb:10:20:04",
-			"ip": "",
+			"ip": "10.0.0.138",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:29:42 AM",
+			"lastseen": "11/9/2018  7:29:42 AM"
 		},
 		{
 			"Id": 10,
 			"mac": "4c:ed:fb:10:20:36",
-			"ip": "",
+			"ip": "10.0.0.139",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:30:25 AM",
+			"lastseen": "11/9/2018  7:30:25 AM"
 		},
 		{
 			"Id": 11,
 			"mac": "4c:ed:fb:05:15:e3",
-			"ip": "",
+			"ip": "10.0.0.131",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:22:45 AM",
+			"lastseen": "11/9/2018  7:22:45 AM"
 		},
 		{
 			"Id": 12,
 			"mac": "4c:ed:fb:05:15:d9",
-			"ip": "",
+			"ip": "10.0.0.101",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:27:15 AM",
+			"lastseen": "11/9/2018  9:49:24 AM"
 		},
 		{
 			"Id": 13,
 			"mac": "4c:ed:fb:05:15:dd",
-			"ip": "",
+			"ip": "10.0.0.123",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:26:34 AM",
+			"lastseen": "11/9/2018  7:26:34 AM"
 		},
 		{
 			"Id": 14,
@@ -115,10 +115,10 @@
 		{
 			"Id": 15,
 			"mac": "4c:ed:fb:10:1f:fa",
-			"ip": "",
+			"ip": "10.0.0.124",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  7:32:11 AM",
+			"lastseen": "11/9/2018  7:32:11 AM"
 		},
 		{
 			"Id": 16,
@@ -130,19 +130,19 @@
 		},
 		{
 			"Id": 17,
-			"mac": "0c:9d:92:31:bc:d6",
-			"ip": "",
+			"mac": "b0:6e:bf:13:86:5b",
+			"ip": "10.0.0.103",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  8:47:14 AM",
+			"lastseen": "11/9/2018  9:03:14 AM"
 		},
 		{
 			"Id": 18,
 			"mac": "0c:9d:92:31:bd:88",
-			"ip": "",
+			"ip": "10.0.0.127",
 			"owner": "lab",
-			"created": "",
-			"lastseen": ""
+			"created": "11/9/2018  5:12:17 AM",
+			"lastseen": "11/9/2018  7:25:03 AM"
 		},
 		{
 			"Id": 19,
@@ -247,7 +247,7 @@
 			"ip": "10.0.0.132",
 			"owner": "kevin",
 			"created": "11/5/2018  6:00:38 PM",
-			"lastseen": "11/6/2018  7:08:20 PM",
+			"lastseen": "11/9/2018  5:11:46 AM",
 			"failed": false
 		}
 	]

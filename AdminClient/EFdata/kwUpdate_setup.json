@@ -1,0 +1,15 @@
+{
+    "commands": [
+        {
+            "command": "INSTALL",
+            "from": "/EFdata/EFdeviceOwnerB.apk",
+            "to": "/EdForge_XFER/EFdeviceOwnerB.apk",
+            "app_package":"org.edforge.efdeviceowner",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        }
+    ],
+    "targets": "some",
+    "tabletIDs": [31]
+}
