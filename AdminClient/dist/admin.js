@@ -152,38 +152,24 @@ function sendCommandSet(tabletNdx) {
 // Callback from client socket
 function processNextDevice(success) {
     let nextTablet;
-    if (!success) {
-        tabletList[tabletCurr].failed = true;
-    }
-    if (deviceQueue.length <= 0) {
-        console.log(`\n\n***********************************************\nProcessing Complete: All Devices Processed\n`);
-        // If errors occurred save for retry
-        // 
-        save_IpLibrary();
-        return;
-    }
-    // We only process one tablet per pass but in retry mode
-    // all the non-failed need to be skipped
-    // 
-    else
-        while (deviceQueue.length > 0) {
-            nextTablet = deviceQueue.pop();
-            if (fRetryOnly && !tabletList[nextTablet].failed) {
-                continue;
+    let inputError = false;
+    do {
+        rl.question('\n\n***********************************************\nEnter TabletID to process: > ', (answer) => {
+            nextTablet = parseInt(answer);
+            if (isNaN(nextTablet)) {
+                setTimeout(processNextDevice, 0, false);
             }
             else {
-                break;
+                if ((nextTablet >= 0) && (nextTablet < tabletList.length)) {
+                    sendCommandSet(nextTablet);
+                    inputError = false;
+                }
+                else {
+                    setTimeout(processNextDevice, 0, false);
+                }
             }
-        }
-    rl.question('\n\n***********************************************\nProcess TabletID:' + tabletList[nextTablet].Id + "? Y/N> ", (answer) => {
-        if (answer.toLowerCase() === "y") {
-            sendCommandSet(nextTablet);
-        }
-        else {
-            tabletCurr = nextTablet;
-            processNextDevice(false);
-        }
-    });
+        });
+    } while (inputError);
 }
 function readIPs() {
     var server = new ServerSocket_1.ServerSocket(resultCallback);

@@ -101,7 +101,7 @@
         },
 
         {
-            "name":"INSTALLER KW",
+            "name":"OWNER_INSTALLER",
             "sourceMaps": true,
             "type": "node",
             "request": "launch",
@@ -112,7 +112,7 @@
                 "${workspaceFolder}/dist/*.js"
             ],
             "args": [
-                "SEND","kwupdate_setup"
+                "SEND","INSTALL_owner"
 			]
         },
 

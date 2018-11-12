@@ -270,8 +270,11 @@ function buildScript() {
 
         console.log(_duplicates + "Templates Ignored.");
 
+        // This was set at request.length > 290 which would be the most in a minute but Google seems to have changed
+        // there calcs to not ever allowing a rate that would exceed the threshold not actually exceeding it.
+        // 
         if(requests.length) {
-            if(requests.length > 290) reqDelay = 240;
+            if(requests.length > 0) reqDelay = 240;
                                  else reqDelay = 0;
 
             setTimeout(renderRequest, 0, currRequest );

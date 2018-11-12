@@ -1,0 +1,15 @@
+{
+    "commands": [
+        {
+            "command": "INSTALL",
+            "from": "/EFdata/EFhomeScreen.apk",
+            "to": "/EdForge_XFER/EFhomeScreen.apk",
+            "app_package":"org.edforge.efhomescreen",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        }
+    ],
+    "targets": "some",
+    "tabletIDs": [31]
+}
