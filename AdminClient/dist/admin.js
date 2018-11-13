@@ -155,7 +155,7 @@ function processNextDevice(success) {
     let inputError = false;
     do {
         rl.question('\n\n***********************************************\nEnter TabletID to process: > ', (answer) => {
-            nextTablet = parseInt(answer);
+            nextTablet = parseInt(answer) - 1;
             if (isNaN(nextTablet)) {
                 setTimeout(processNextDevice, 0, false);
             }

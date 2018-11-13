@@ -213,7 +213,7 @@ function processNextDevice(success:boolean) {
 
         rl.question('\n\n***********************************************\nEnter TabletID to process: > ', (answer:string) => {
 
-            nextTablet = parseInt(answer);
+            nextTablet = parseInt(answer) - 1;
 
             if(isNaN(nextTablet)) {
 
