@@ -1,0 +1,28 @@
+{
+    "currUser": {
+        "userName": "DEBUG-Jan-25",
+        "currTutorNdx": 1,
+        "currScene": "SScene1",
+        "instructionSeq": "tutor_seq_dayone.json"
+    },
+    "users": [
+        {
+            "userName": "KEVINWI-Dec-27",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "null"
+        },
+        {
+            "userName": "DEBUGUS-Jan-25",
+            "currTutorNdx": 0,
+            "currScene": "SSceneStart",
+            "instructionSeq": "tutor_seq_choice.json"
+        },
+        {
+            "userName": "DEBUG-Jan-25",
+            "currTutorNdx": 1,
+            "currScene": "Scene0",
+            "instructionSeq": "tutor_seq_dayone.json"
+        }
+    ]
+}

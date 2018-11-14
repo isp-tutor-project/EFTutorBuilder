@@ -1,0 +1,40 @@
+{
+    "commands": [
+        {
+            "command": "INSTALL",
+            "from": "/EFdata/EFhomeScreen.apk",
+            "to": "/EdForge_XFER/EFhomeScreen.apk",
+            "app_package":"org.edforge.efhomescreen",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        },        
+        {
+            "command": "INSTALL",
+            "from": "/EFdata/EFandroidHost.apk",
+            "to": "/EdForge_XFER/EFandroidHost.apk",
+            "app_package":"org.edforge.androidhost",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        },
+        {
+            "command": "PUSH",
+            "from": "/EFdata/EdForge.zip",
+            "to": "/EdForge/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        },
+        {
+            "command": "PUSH",
+            "from": "/EFdata/EdForge_DATA.zip",
+            "to": "/EdForge_DATA/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        }
+    ],
+    "targets": "all",
+    "tabletIDs": []
+}

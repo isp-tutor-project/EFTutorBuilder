@@ -1,0 +1,1012 @@
+{
+    "scene": {
+        "SNavigator": {},
+        "SScene1": {
+            "rowsComplete": 4,
+            "$seq": [
+                {
+                    "prop": "rowsComplete",
+                    "value": 0,
+                    "time": 1542172304589
+                },
+                {
+                    "prop": "complete",
+                    "value": false,
+                    "time": 1542172304858
+                },
+                {
+                    "prop": "currentRow",
+                    "value": 1,
+                    "time": 1542172306590
+                },
+                {
+                    "prop": "correct",
+                    "value": true,
+                    "time": 1542172306590
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172306616
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172312218
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172312221
+                },
+                {
+                    "prop": "TVSel.col1",
+                    "value": 2,
+                    "time": 1542172314940
+                },
+                {
+                    "prop": "TVSel.col2",
+                    "value": 1,
+                    "time": 1542172318820
+                },
+                {
+                    "prop": "correct",
+                    "value": true,
+                    "time": 1542172318820
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172318845
+                },
+                {
+                    "prop": "rowsComplete",
+                    "value": 1,
+                    "time": 1542172318848
+                },
+                {
+                    "prop": "currentRow",
+                    "value": 0,
+                    "time": 1542172328693
+                },
+                {
+                    "prop": "currentRow",
+                    "value": 2,
+                    "time": 1542172328694
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172328695
+                },
+                {
+                    "prop": "VSel.col1",
+                    "value": null,
+                    "time": 1542172328696
+                },
+                {
+                    "prop": "VSel.col2",
+                    "value": null,
+                    "time": 1542172328697
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172328698
+                },
+                {
+                    "prop": "VSel.col1",
+                    "value": 2,
+                    "time": 1542172331231
+                },
+                {
+                    "prop": "VSel.col2",
+                    "value": 2,
+                    "time": 1542172333274
+                },
+                {
+                    "prop": "correct",
+                    "value": true,
+                    "time": 1542172333274
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172333302
+                },
+                {
+                    "prop": "rowsComplete",
+                    "value": 2,
+                    "time": 1542172333304
+                },
+                {
+                    "prop": "currentRow",
+                    "value": 3,
+                    "time": 1542172338964
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172338969
+                },
+                {
+                    "prop": "VSel.col1",
+                    "value": null,
+                    "time": 1542172338969
+                },
+                {
+                    "prop": "VSel.col2",
+                    "value": null,
+                    "time": 1542172338969
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172338970
+                },
+                {
+                    "prop": "VSel.col1",
+                    "value": 2,
+                    "time": 1542172341740
+                },
+                {
+                    "prop": "VSel.col2",
+                    "value": 2,
+                    "time": 1542172343344
+                },
+                {
+                    "prop": "correct",
+                    "value": true,
+                    "time": 1542172343344
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172343374
+                },
+                {
+                    "prop": "rowsComplete",
+                    "value": 3,
+                    "time": 1542172343377
+                },
+                {
+                    "prop": "currentRow",
+                    "value": 4,
+                    "time": 1542172349042
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172349056
+                },
+                {
+                    "prop": "VSel.col1",
+                    "value": null,
+                    "time": 1542172349057
+                },
+                {
+                    "prop": "VSel.col2",
+                    "value": null,
+                    "time": 1542172349057
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172349060
+                },
+                {
+                    "prop": "VSel.col1",
+                    "value": 2,
+                    "time": 1542172350984
+                },
+                {
+                    "prop": "VSel.col2",
+                    "value": 2,
+                    "time": 1542172352612
+                },
+                {
+                    "prop": "correct",
+                    "value": true,
+                    "time": 1542172352612
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172352673
+                },
+                {
+                    "prop": "rowsComplete",
+                    "value": 4,
+                    "time": 1542172352675
+                },
+                {
+                    "prop": "currentRow",
+                    "value": 5,
+                    "time": 1542172358385
+                },
+                {
+                    "prop": "complete",
+                    "value": true,
+                    "time": 1542172358389
+                },
+                {
+                    "prop": "correct",
+                    "value": false,
+                    "time": 1542172358399
+                }
+            ],
+            "complete": true,
+            "currentRow": 5,
+            "correct": false,
+            "TVSel": {
+                "col1": 2,
+                "col2": 1
+            },
+            "VSel": {
+                "col1": 2,
+                "col2": 2
+            }
+        },
+        "SScene2": {
+            "complete": false,
+            "$seq": [
+                {
+                    "prop": "complete",
+                    "value": false,
+                    "time": 1542172359121
+                }
+            ]
+        }
+    },
+    "module": {
+        "EFMod_TEDInstr": {
+            "selectedArea": {
+                "index": 4,
+                "ontologyKey": "STBL_A4|name"
+            },
+            "$seq": [
+                {
+                    "prop": "selectedArea.index",
+                    "value": 4,
+                    "time": 1542172304403
+                },
+                {
+                    "prop": "selectedArea.ontologyKey",
+                    "value": "STBL_A4|name",
+                    "time": 1542172304403
+                },
+                {
+                    "prop": "selectedTopic.index",
+                    "value": 1,
+                    "time": 1542172304403
+                },
+                {
+                    "prop": "selectedTopic.ontologyKey",
+                    "value": "STBL_A4_T1|name",
+                    "time": 1542172304403
+                },
+                {
+                    "prop": "selectedVariable.index",
+                    "value": 1,
+                    "time": 1542172304403
+                },
+                {
+                    "prop": "selectedVariable.ontologyKey",
+                    "value": "STBL_A4_T1_V1|name",
+                    "time": 1542172304403
+                },
+                {
+                    "prop": "TEDExptNonTarget",
+                    "value": [
+                        1,
+                        3,
+                        4
+                    ],
+                    "time": 1542172304551
+                },
+                {
+                    "prop": "TEDExptConfounds",
+                    "value": [
+                        3,
+                        4,
+                        1
+                    ],
+                    "time": 1542172304551
+                },
+                {
+                    "prop": "TEDExptDifferent",
+                    "value": [
+                        3,
+                        4,
+                        1,
+                        2
+                    ],
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptArea",
+                    "value": {
+                        "ontologyKey": "STBL_A4",
+                        "index": 4
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptTopic",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1",
+                        "index": 1
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptVariable",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V2",
+                        "index": 2
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptRQ",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_RQ2",
+                        "index": 2
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptVarNC1",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V1",
+                        "index": 1
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptVarNC2",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V3",
+                        "index": 3
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptVarNC3",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V4",
+                        "index": 4
+                    },
+                    "time": 1542172304552
+                },
+                {
+                    "prop": "TEDExptPOSTSequence",
+                    "value": [
+                        {
+                            "ontologyKey": "STBL_A4_T1_V1",
+                            "index": 1
+                        },
+                        {
+                            "ontologyKey": "STBL_A4_T1_V2",
+                            "index": 2
+                        },
+                        {
+                            "ontologyKey": "STBL_A4_T1_V3",
+                            "index": 3
+                        },
+                        {
+                            "ontologyKey": "STBL_A4_T1_V4",
+                            "index": 4
+                        }
+                    ],
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt1V1",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V1_A",
+                        "index": 1
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V1",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V1_A",
+                        "index": 1
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt1V2",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V2_A",
+                        "index": 2
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V2",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V2_A",
+                        "index": 2
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt1V3",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V3_A",
+                        "index": 3
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V3",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V3_A",
+                        "index": 3
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt1V4",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V4_A",
+                        "index": 4
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V4",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V4_A",
+                        "index": 4
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V3",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V3_B",
+                        "index": 3
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V4",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V4_B",
+                        "index": 4
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V1",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V1_B",
+                        "index": 1
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExpt2V2",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V2_B",
+                        "index": 2
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNC1SameDiff",
+                    "value": {
+                        "ontologyKey": "TED_E1_Q7NC1DIFF",
+                        "value": "diff",
+                        "index": 1
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNC1Confound",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V1",
+                        "index": 1
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNC2SameDiff",
+                    "value": {
+                        "ontologyKey": "TED_E1_Q7NC2DIFF",
+                        "value": "diff",
+                        "index": 3
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNC2Confound",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V3",
+                        "index": 3
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNC3SameDiff",
+                    "value": {
+                        "ontologyKey": "TED_E1_Q7NC3DIFF",
+                        "value": "diff",
+                        "index": 4
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNC3Confound",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V4",
+                        "index": 4
+                    },
+                    "time": 1542172304553
+                },
+                {
+                    "prop": "TEDExptNonTarget",
+                    "value": [
+                        1,
+                        3,
+                        4
+                    ],
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptConfounds",
+                    "value": [
+                        3,
+                        4,
+                        1
+                    ],
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptDifferent",
+                    "value": [
+                        3,
+                        4,
+                        1,
+                        2
+                    ],
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptArea",
+                    "value": {
+                        "ontologyKey": "STBL_A4",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptTopic",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptVariable",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V2",
+                        "index": 2
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptRQ",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_RQ2",
+                        "index": 2
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptVarNC1",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V1",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptVarNC2",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V3",
+                        "index": 3
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptVarNC3",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V4",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptPOSTSequence",
+                    "value": [
+                        {
+                            "ontologyKey": "STBL_A4_T1_V1",
+                            "index": 1
+                        },
+                        {
+                            "ontologyKey": "STBL_A4_T1_V2",
+                            "index": 2
+                        },
+                        {
+                            "ontologyKey": "STBL_A4_T1_V3",
+                            "index": 3
+                        },
+                        {
+                            "ontologyKey": "STBL_A4_T1_V4",
+                            "index": 4
+                        }
+                    ],
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt1V1",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V1_A",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V1",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V1_A",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt1V2",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V2_A",
+                        "index": 2
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V2",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V2_A",
+                        "index": 2
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt1V3",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V3_A",
+                        "index": 3
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V3",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V3_A",
+                        "index": 3
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt1V4",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V4_A",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V4",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V4_A",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V3",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V3_B",
+                        "index": 3
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V4",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V4_B",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V1",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V1_B",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExpt2V2",
+                    "value": {
+                        "ontologyKey": "S_A4_T1_V2_B",
+                        "index": 2
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptNC1SameDiff",
+                    "value": {
+                        "ontologyKey": "TED_E1_Q7NC1DIFF",
+                        "value": "diff",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptNC1Confound",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V1",
+                        "index": 1
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptNC2SameDiff",
+                    "value": {
+                        "ontologyKey": "TED_E1_Q7NC2DIFF",
+                        "value": "diff",
+                        "index": 3
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptNC2Confound",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V3",
+                        "index": 3
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptNC3SameDiff",
+                    "value": {
+                        "ontologyKey": "TED_E1_Q7NC3DIFF",
+                        "value": "diff",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "TEDExptNC3Confound",
+                    "value": {
+                        "ontologyKey": "STBL_A4_T1_V4",
+                        "index": 4
+                    },
+                    "time": 1542172304859
+                },
+                {
+                    "prop": "differentRow",
+                    "value": 1,
+                    "time": 1542172318848
+                },
+                {
+                    "prop": "independentVarN",
+                    "value": {
+                        "row": 2,
+                        "col": 0,
+                        "ontologyKey": "STBL_A4_T1_V2|name",
+                        "isText": true,
+                        "selectedValue": "Amount of Sunlight",
+                        "cell": {}
+                    },
+                    "time": 1542172328694
+                },
+                {
+                    "prop": "sameRow1",
+                    "value": 2,
+                    "time": 1542172333304
+                },
+                {
+                    "prop": "independentVarN",
+                    "value": {
+                        "row": 3,
+                        "col": 0,
+                        "ontologyKey": "STBL_A4_T1_V3|name",
+                        "isText": true,
+                        "selectedValue": "Amount of Fertilizer",
+                        "cell": {}
+                    },
+                    "time": 1542172338964
+                },
+                {
+                    "prop": "sameRow2",
+                    "value": 3,
+                    "time": 1542172343377
+                },
+                {
+                    "prop": "independentVarN",
+                    "value": {
+                        "row": 4,
+                        "col": 0,
+                        "ontologyKey": "STBL_A4_T1_V4|name",
+                        "isText": true,
+                        "selectedValue": "Type of Water",
+                        "cell": {}
+                    },
+                    "time": 1542172349043
+                },
+                {
+                    "prop": "sameRow3",
+                    "value": 4,
+                    "time": 1542172352675
+                },
+                {
+                    "prop": "independentVarN",
+                    "time": 1542172358385
+                }
+            ],
+            "selectedTopic": {
+                "index": 1,
+                "ontologyKey": "STBL_A4_T1|name"
+            },
+            "selectedVariable": {
+                "index": 1,
+                "ontologyKey": "STBL_A4_T1_V1|name"
+            },
+            "TEDExptNonTarget": [
+                1,
+                3,
+                4
+            ],
+            "TEDExptConfounds": [
+                3,
+                4,
+                1
+            ],
+            "TEDExptDifferent": [
+                3,
+                4,
+                1,
+                2
+            ],
+            "TEDExptArea": {
+                "ontologyKey": "STBL_A4",
+                "index": 4
+            },
+            "TEDExptTopic": {
+                "ontologyKey": "STBL_A4_T1",
+                "index": 1
+            },
+            "TEDExptVariable": {
+                "ontologyKey": "STBL_A4_T1_V2",
+                "index": 2
+            },
+            "TEDExptRQ": {
+                "ontologyKey": "S_A4_T1_RQ2",
+                "index": 2
+            },
+            "TEDExptVarNC1": {
+                "ontologyKey": "STBL_A4_T1_V1",
+                "index": 1
+            },
+            "TEDExptVarNC2": {
+                "ontologyKey": "STBL_A4_T1_V3",
+                "index": 3
+            },
+            "TEDExptVarNC3": {
+                "ontologyKey": "STBL_A4_T1_V4",
+                "index": 4
+            },
+            "TEDExptPOSTSequence": [
+                {
+                    "ontologyKey": "STBL_A4_T1_V1",
+                    "index": 1
+                },
+                {
+                    "ontologyKey": "STBL_A4_T1_V2",
+                    "index": 2
+                },
+                {
+                    "ontologyKey": "STBL_A4_T1_V3",
+                    "index": 3
+                },
+                {
+                    "ontologyKey": "STBL_A4_T1_V4",
+                    "index": 4
+                }
+            ],
+            "TEDExpt1V1": {
+                "ontologyKey": "S_A4_T1_V1_A",
+                "index": 1
+            },
+            "TEDExpt2V1": {
+                "ontologyKey": "S_A4_T1_V1_B",
+                "index": 1
+            },
+            "TEDExpt1V2": {
+                "ontologyKey": "S_A4_T1_V2_A",
+                "index": 2
+            },
+            "TEDExpt2V2": {
+                "ontologyKey": "S_A4_T1_V2_B",
+                "index": 2
+            },
+            "TEDExpt1V3": {
+                "ontologyKey": "S_A4_T1_V3_A",
+                "index": 3
+            },
+            "TEDExpt2V3": {
+                "ontologyKey": "S_A4_T1_V3_B",
+                "index": 3
+            },
+            "TEDExpt1V4": {
+                "ontologyKey": "S_A4_T1_V4_A",
+                "index": 4
+            },
+            "TEDExpt2V4": {
+                "ontologyKey": "S_A4_T1_V4_B",
+                "index": 4
+            },
+            "TEDExptNC1SameDiff": {
+                "ontologyKey": "TED_E1_Q7NC1DIFF",
+                "value": "diff",
+                "index": 1
+            },
+            "TEDExptNC1Confound": {
+                "ontologyKey": "STBL_A4_T1_V1",
+                "index": 1
+            },
+            "TEDExptNC2SameDiff": {
+                "ontologyKey": "TED_E1_Q7NC2DIFF",
+                "value": "diff",
+                "index": 3
+            },
+            "TEDExptNC2Confound": {
+                "ontologyKey": "STBL_A4_T1_V3",
+                "index": 3
+            },
+            "TEDExptNC3SameDiff": {
+                "ontologyKey": "TED_E1_Q7NC3DIFF",
+                "value": "diff",
+                "index": 4
+            },
+            "TEDExptNC3Confound": {
+                "ontologyKey": "STBL_A4_T1_V4",
+                "index": 4
+            },
+            "differentRow": 1,
+            "sameRow1": 2,
+            "sameRow2": 3,
+            "sameRow3": 4
+        }
+    },
+    "tutor": {
+        "experimentalGroup": {
+            "ontologyKey": "EG_A3"
+        },
+        "$seq": [
+            {
+                "prop": "experimentalGroup.ontologyKey",
+                "value": "EG_A3",
+                "time": 1542172304402
+            }
+        ]
+    }
+}

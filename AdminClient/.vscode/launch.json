@@ -69,7 +69,7 @@
         },
 
         {
-            "name":"INSTALLER",
+            "name":"ALL_INSTALLER",
             "sourceMaps": true,
             "type": "node",
             "request": "launch",
@@ -80,7 +80,7 @@
                 "${workspaceFolder}/dist/*.js"
             ],
             "args": [
-                "SEND","init_setup"
+                "SEND","INSTALL_all"
 			]
         },
 
@@ -161,6 +161,22 @@
             ],
             "args": [
                 "SEND","INSTALL_tutor"
+			]
+        },
+
+        {
+            "name":"ACCT_INSTALLER",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","INSTALL_accts"
 			]
         },
 

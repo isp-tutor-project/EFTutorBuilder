@@ -84,6 +84,7 @@ class ClientSocket {
                     fs.mkdirSync(root);
             }
             catch (e) {
+                fs.mkdirSync(root);
             }
         }
     }
