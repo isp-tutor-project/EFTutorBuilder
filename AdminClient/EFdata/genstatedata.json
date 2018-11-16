@@ -1,0 +1,16 @@
+{
+    "userName": "",
+    "tutorState": {
+        "experimentalGroup.ontologyKey": ""
+    },
+    "moduleState": {
+        "selectedArea.index": 0,
+        "selectedArea.ontologyKey": "",
+        "selectedTopic.index": 0,
+        "selectedTopic.ontologyKey": "",
+        "selectedVariable.index": 0,
+        "selectedVariable.ontologyKey": ""
+    },
+    "features": [
+    ]
+}

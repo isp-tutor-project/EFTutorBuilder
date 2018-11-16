@@ -1,0 +1,88 @@
+{
+    "currUser": {
+        "userName": "BRANDONWA_JUL_26",
+        "currTutorNdx": 0,
+        "currScene": "",
+        "instructionSeq": ""
+    },
+    "users": [
+        {
+            "userName": "KRISTINHO_JUL_21",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_choice.json"
+        },
+        {
+            "userName": "ARIAHMO_AUG_22",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "NULL"
+        },
+        {
+            "userName": "AARYAHEV_SEP_1",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_choice.json"
+        },
+        {
+            "userName": "AALIYAHBR_DEC_31",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_choice.json"
+        },
+        {
+            "userName": "OLIVERRO_OCT_23",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_nochoice.json"
+        },
+        {
+            "userName": "BRANDONWA_JUL_26",
+            "currTutorNdx": 0,
+            "currScene": "SScene15",
+            "instructionSeq": "tutor_seq_ted_nochoice.json"
+        },
+        {
+            "userName": "TAMYAGI_FEB_17",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_nochoice.json"
+        },
+        {
+            "userName": "SANNIAHTA_MAY_9",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_baseline.json"
+        },
+        {
+            "userName": "DONYESI_JUL_18",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_baseline.json"
+        },
+        {
+            "userName": "MICHAELWA_JUL_26",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_baseline.json"
+        },
+        {
+            "userName": "STORYDI_AUG_2",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_nochoice.json"
+        },
+        {
+            "userName": "BRIANNAHE_DEC_19",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_choice.json"
+        },
+        {
+            "userName": "KEVINWI_DEC_27",
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_ted_baseline.json"
+        }
+    ]
+}

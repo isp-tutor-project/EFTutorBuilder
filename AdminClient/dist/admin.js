@@ -21,6 +21,7 @@ const readline = require('readline');
 const net = require('net');
 const ClientSocket_1 = require("./ClientSocket");
 const ServerSocket_1 = require("./ServerSocket");
+const USERGEN = "USERGEN";
 const INSTALL = "INSTALL";
 const PUSH = "PUSH";
 const PULL = "PULL";
@@ -28,6 +29,9 @@ const SEND = "SEND";
 const RETRY = "RETRY";
 const SCAN = "SCAN";
 const IPLIB_SRCFILE = "ip_library.json";
+const USERID_SRCFILE = "isp_userdata.json";
+const GENSTATE_SRCFILE = "genstatedata.json";
+const USERSTATE_SRCFILE = "tutorstatedata.json";
 const TUTORBASEFOLDER = "../../../";
 const DATA_PATH = "EFdata";
 const CMD_TYPE = ".json";
@@ -63,6 +67,9 @@ function processCommandLine() {
     try {
         if (process.argv[2]) {
             switch (process.argv[2]) {
+                case USERGEN:
+                    generateUserState();
+                    break;
                 case SCAN:
                     readIPs();
                     break;
@@ -92,6 +99,53 @@ function processCommandLine() {
     catch (e) {
         console.log("ERROR: " + e);
     }
+}
+// const USERID_SRCFILE:string  = "isp_userdata.json";
+// const GENSTATE_SRCFILE:string  = "genstatedata.json";
+// const USERSTATE_SRCFILE:string = "tutorstatedata.json";
+// 
+function generateUserState() {
+    let userData;
+    let genState;
+    let tutorState = {};
+    userData = load_Data(USERID_SRCFILE);
+    genState = load_Data(GENSTATE_SRCFILE);
+    tutorState.users = [];
+    tutorState.currUser = {
+        "userName": "",
+        "currTutorNdx": 0,
+        "currScene": "",
+        "instructionSeq": ""
+    };
+    for (let user of userData.users) {
+        let username = user.userName;
+        user.userName = username.replace("-", "_").toUpperCase();
+        tutorState.users.push({
+            "userName": user.userName,
+            "tutorState": genState.tutorState,
+            "moduleState": genState.moduleState,
+            "features": genState.features
+        });
+    }
+    save_Data(USERID_SRCFILE, userData);
+    save_Data(USERSTATE_SRCFILE, tutorState);
+}
+function load_Data(dataFile) {
+    let dataObj;
+    dataPath = path.join(cwd, DATA_PATH, dataFile);
+    console.log("Loading User Data: " + dataPath);
+    try {
+        dataObj = JSON.parse(fs.readFileSync(dataPath));
+    }
+    catch (err) {
+        console.log("Error: " + err);
+    }
+    return dataObj;
+}
+function save_Data(dataFile, dataObj) {
+    dataPath = path.join(cwd, DATA_PATH, dataFile);
+    let dataUpdate = JSON.stringify(dataObj, null, '\t');
+    fs.writeFileSync(dataPath, dataUpdate, 'utf8');
 }
 function preProcessCommands() {
     for (let ndx = 0; ndx < comSet.commands.length; ndx++) {

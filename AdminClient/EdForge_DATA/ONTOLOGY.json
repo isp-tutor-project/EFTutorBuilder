@@ -1,0 +1,934 @@
+{
+    "_MODULEDATA":"v1.0.0",
+    "_IMPORT":["EFMOD_RQSelect|ONTOLOGY.json"],
+    "_ONTOLOGY": {
+        "TED": {
+            "S3":{
+                "part1":"Now we’ll look at how some other students have set up some experiments of their own for the topic of"
+            },
+            "S4":{
+                "part1":"Remember to THINK and work carefully so that TED can tell whether or not you need extra help.",
+                "part2":"If you answer quickly and incorrectly, you will be asked more questions than if you answer carefully and correctly."
+            },
+            "S5":{
+                "part1":"Each experiment set up by some other students might either be a good or a bad experiment."
+            },
+            "S6":{
+                "part1":"A 'good' experiment will let you figure out if the variable you are testing really does or really does not make a difference. We will ask you if you think each experiment is a good or bad experiment."
+            },
+            "S7":{
+                "part1":"In the first experiment, Some students need to find out whether the",
+                "part2":"Another group of students need to find out whether the",
+                "part3":"They designed the following experiment"
+            },
+
+            "E1": {
+                "LISTYN": {
+                    "yes":"YES",
+                    "no":"NO"
+                },
+
+                "Q1": {
+                    "comment":"scene9  ********************",
+
+                    "part1":"Think about the students' problem, and the experiment that they designed.",
+                    "part2":"Is this a good way to design the experiment?",
+                    "question":"<p>Is this a good way to design the experiment?</p>"
+                },                
+                "Q2":{
+                    "comment":"scene10  ********************",
+
+                    "part1":"Right, it is NOT a good experiment.",
+                    "part2":"<p>Why did you say it was not a good way?</p>",
+                    "question":"<p>Why did you say it was not a good way?</p>"
+                },
+                "Q3":{
+                    "comment":"scene11  ********************",
+                    
+                    "part1":"Actually, it is NOT a good experiment.",
+                    "part2":"<p>Even though you said it was a good experiment, select from the drop-down menu the best reason that explains why this is actually NOT a good experiment.</p>",
+                    "question":"Why is this actually not a good experiment?"
+                },
+                "LISTQ23": {
+                    "ans1":"All four variables should be the same for both conditions.",
+                    "ans2":"Everything is different, so you can't tell if the variable we're testing will make a difference.",
+                    "ans3":"Because what we are testing won't make a difference.",
+                    "ans4":"Everything other than the variable we're testing should be the same.",
+                    "ans5":"The conditions are not set up to make the best outcomes (or results).",
+                    "ans6":"I don't know."
+                },
+                
+                "Q4":{
+                    "comment":"scene12  ********************",
+
+                    "part0A":"If you were to run the experiment, the",
+                    "part0":"may either be the same or different across conditions.",
+                    "part1":"may either be the same or different across conditions. Imagine the results, the",
+                    "part2":"were different across conditions, Could you tell for sure that the",
+                    "part3":"caused the difference?",
+
+                    "prompt":"<p>Results for Condition 1 = Results for Condition 2<br><br>OR<br><br>Results for Condition 1 ≠ Results for Condition 2</p>",
+
+                    "question1":"IF: Results for Condition 1 ≠ Results for Condition 2.",
+                    "question2":"Could you tell for sure that the",
+                    "question3":"caused the difference?"
+                },                
+                "Q4P2":{
+                    "comment":"scene12A  ********************",
+
+                    "part1":"Imagine the results ",
+                    "part2":"were different across conditions, Could you tell for sure that the",
+                    "part3":"caused the difference?",
+
+                    "prompt":"<p>Results for Condition 1 = Results for Condition 2<br>OR<br>Results for Condition 1 ≠ Results for Condition 2</p>",
+                    
+                    "question1":"IF: Results for Condition 1 ≠ Results for Condition 2.",
+                    "question2":"Could you tell for sure that the",
+                    "question3":"caused the difference?"
+                },                
+                "Q4A": {
+                    "part1":"You're right, we could not tell for sure that the",
+                    "part2":"caused the difference. That is, we could not tell for sure that one",
+                    "part3":"caused a greater",
+                    "part4":"than the other"
+                },
+                "Q4B": {
+                    "part1":"Actually, we could not tell for sure that the",
+                    "part2":"caused the difference. That is, we could not tell for sure that one",
+                    "part3":"caused a greater",
+                    "part4":"than the other"
+                },
+
+                "Q5":{
+                    "comment":"scene13  ********************",
+                    "question":"Why did you say you could not know for sure?"
+                },
+                "Q6":{
+                    "comment":"scene14  ********************",
+
+                    "part1":"Even though you said you could tell for sure, try and explain the best reason for why you actually could NOT tell for sure from this experiment that the",
+                    "part2":"caused the difference.",
+                    "question":"Why could you actually not tell for sure?"
+                },
+                "Q56":{
+                    "part1":"Let's think more about why we could not tell for sure. We'll now think about how each variable is set up across conditions, to see if it could cause a difference in the results."
+                },
+                "LISTQ56": {
+                    "ans1":"Everything should be the same so the results will be the same in both conditions.",
+                    "ans2":"Since everything is different, something else might have caused the difference.",
+                    "ans3":"The variable we're testing doesn't really make a difference (or have an effect).",
+                    "ans4":"Because you need to have everything the same except for the variable being tested.",
+                    "ans5":"The conditions are set up the wrong way, so we won't get the best possible outcome.",
+                    "ans6":"I don't know."
+                },
+                                
+                "LISTPOST": {
+                    "ans1":"To make the results the same in both conditions.",
+                    "ans2":"To make the results different across conditions.",
+                    "ans3":"To make the best possible outcomes.",
+                    "ans4":"To make everything the same except what I'm testing.",
+                    "ans5":"To make the variable I'm testing different across conditions (the other variables don't matter).",
+                    "ans6":"I don't know."
+                },
+
+                "Q7":{
+                    "comment":"scene15  ********************",
+
+                    "part1":"In this experiment, the students are testing for whether or not the",
+                    "part2":"makes a difference for the result.",
+
+                    "part3":"Because the",
+                    "part4":"is different across conditions, it could cause a difference in the results.",
+
+                    "part5":"Could the way they have set up each of these other variables cause there to be a difference in the",
+                    "part6":"between conditions?",
+
+                    "part7":"Make a selection for each of the other variables. Click next when you've completed you're selections",
+
+                    "question":"Based on how each variable is set up across conditions, is it possible that the variable could cause a difference?"
+                },
+
+
+                "Q7NC1SAME": {
+                    "part1":"They have set the",
+                    "part2":"to be the same across conditions.",
+
+                    "part3":"You are correct that the same",
+                    "part4":"across conditions could not cause a difference in the",
+
+                    "part5":"Actually the same",
+                    "part6":"across conditions could not cause a difference in the"
+                },
+                "Q7NC1DIFF": {
+                    "part1":"They have set the",
+                    "part2":"to be different across conditions.",
+
+                    "part3":"You are correct that the different",
+                    "part4":"across conditions could cause a difference in the",
+
+                    "part5":"Actually the different",
+                    "part6":"across conditions could cause a difference in the"
+                },
+
+
+                "Q7NC2SAME": {
+                    "part1":"The students made the",
+                    "part2":"the same across conditions.",
+
+                    "part3":"You are correct that the same",
+                    "part4":"across conditions could not cause a difference in the",
+
+                    "part5":"Actually the same",
+                    "part6":"across conditions could not cause a difference in the"
+                },
+                "Q7NC2DIFF": {
+                    "part1":"The students made the",
+                    "part2":"different across conditions.",
+
+                    "part3":"You are correct that the different",
+                    "part4":"across conditions could cause a difference in the",
+
+                    "part5":"Actually the different",
+                    "part6":"across conditions could cause a difference in the"
+                },
+
+
+                "Q7NC3SAME": {
+                    "part1":"The students made the",
+                    "part2":"the same across conditions.",
+
+                    "part3":"You are correct that the same",
+                    "part4":"across conditions could not cause a difference in the",
+
+                    "part5":"Actually the same",
+                    "part6":"across conditions could not cause a difference in the"
+                },
+                "Q7NC3DIFF": {
+                    "part1":"The students made the",
+                    "part2":"different across conditions.",
+
+                    "part3":"You are correct that the different",
+                    "part4":"across conditions could cause a difference in the",
+
+                    "part5":"Actually the different",
+                    "part6":"across conditions could cause a difference in the"
+                },
+
+
+                "Q7D": {
+                    "part1":"So, in this experiment, even though the students are testing the",
+
+                    "part2":"the",
+                    "part3":"and the",
+                    "part4":"all also could cause a difference in the",
+                    "part5":"also could cause a difference in the"
+                },
+
+
+                "Q8":{
+                    "part1":"Please correct this experiment by clicking in the table and selecting correct ways to set up the",
+                    "part2":"and the",
+                    "part3":"Click next when you've completed you're selections"
+                },
+
+
+                "Q9":{
+                    "part1":"Explain why this is a good way to find out whether or not the",
+                    "part2":"makes a difference."
+                },
+
+                "LISTQ9": {
+                    "ans1":"The variable we're testing will cause a difference.",
+                    "ans2":"The variable we're testing is different and everything else in the same.",
+                    "ans3":"Only the variable we're testing could cause a difference in the results.",
+                    "ans4":"The variable we're testing is different (it doesn't matter how the other variables are set up).",
+                    "ans5":"The results (or outcomes) will be different across conditions.",
+                    "ans6":"I don't know/I think it might not really be a good way."
+                },
+
+                
+                "SUMMARY":{
+                    "part1":"This is a good experiment, because everything is the same except for what the students are trying to find out about, the",
+                    "part2":"In other words, if there is a difference between conditions in the",
+                    "part3":"it has to be because of the different",
+                    "part4":"across conditions And if there is no difference between conditions in the",
+                    "part5":"then you could know that the",
+                    "part6":"does not matter. So from this experiment, you would be able to find out whether or not the",
+                    "part7":"causes a difference in the result."
+                }
+            },
+            "POST": {
+                "INTRO": {
+                    "comment":"scene18 ********************",
+
+                    "part1":"Let's see how you design experiments on your own. You’ll design four experiments.",
+                    "part2":"I want to see what you learned from this lesson. So, I won’t tell you if you are right or wrong.",
+                    "part3":"When you’re done working on each experiment, click the next button.",
+
+                    "question":"<p>Set up experiments on your own now!</p>"
+                    
+                },                
+                "E": {
+                    "comment":"scene19 ********************",
+
+                    "part1a":"First, design an experiment that will let you find out for sure whether or not the",
+                    "part1":"Design an experiment that will let you find out for sure whether or not the",
+                    "part2":"affects the",
+
+                    "part3":"You can change part of the experiment by simply clicking in the table.",
+
+                    "question":"<p>Set up experiments on your own now!</p>"
+                },                
+                "Q": {
+                    "comment":"scene20 ********************",
+
+                    "part1":"Explain why you designed your experiment the way that you did.",
+                    "question":"<p>Explain why you designed your experiment the way that you did.</p>"
+                },
+                "SUMMARY": {
+                    "comment":"scene21 ********************",
+
+                    "part1":"The skills you have learned in this lesson can be applied any time you set up any experiment, in any domain.",
+                    "part2":"That is, anytime you set up an experiment, you need to make everything the same except for the one variable you are testing.",
+                    "part3":"This way, only that one variable you are testing can cause the result.",
+
+                    "summary":"<p>The skills you have learned in this lesson can be applied any time you set up any experiment, in any domain.<br><br>That is, anytime you set up an experiment, you need to make everything the same except for the one variable you are testing.<br><br>This way, only that one variable you are testing can cause the result.</p>"
+
+
+                }
+            }
+        },
+        "LV": {
+            "descr": "List Values",
+            "O1": {
+                "descr": "Could/Couldn't lists",
+                "A": {
+                    "name": "Could cause"
+                },
+                "B": {
+                    "name": "Could Not cause"
+                }
+            },
+            "O2": {
+                "descr": "Same/Different lists",
+                "A": {
+                    "name": "Same"
+                },
+                "B": {
+                    "name": "Different"
+                }
+            },
+            "H1": {
+                "descr": "TED List Header Values",
+                "A": {
+                    "name": "Variables"
+                },
+                "B": {
+                    "name": "Condition 1"
+                },
+                "C": {
+                    "name": "Condition 2"
+                },
+                "D": {
+                    "name": "Same or Different"
+                },
+                "E": {
+                    "name": "Cause a Difference?"
+                }
+            },
+            "PH1": {
+                "descr": "placeHolder",
+                "name": "Tap to Choose"
+            }
+        },
+        "STBL": {
+            "name": "Areas of Science",
+            "PH1": {
+                "descr": "placeHolder",
+                "name": "Tap to Choose"
+            },
+            "A1": {
+                "id": "",
+                "name": "Physical and Chemical Changes",
+                "T1": {
+                    "id": "",
+                    "name": "Crystal Growth",
+                    "expclass":"EFMod_Crystal.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar2", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar3", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar4", "parent": "", "depth": 0, "variants": ["a", "b"] }],
+                    "V1": {
+                        "id": "Svar1",
+                        "name": "Water Temperature",
+                        "tagname": "Water Temperature",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Room temperature",
+                            "tag":"Room temp"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Hot",
+                            "tag":"Hot"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Type of Crystals",
+                        "tagname": "Type of Crystals",
+                        "A": {
+                            "id": "Svar2a",
+                            "name": "Salt",
+                            "tag":"Salt"
+                        },
+                        "B": {
+                            "id": "Svar2b",
+                            "name": "Brown Sugar",
+                            "tag":"Brown Sugar"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Initial Amount of Crystals on String",
+                        "tagname": "Initial Amount Crystals",
+                        "A": {
+                            "id": "Svar3a",
+                            "name": "A little",
+                            "tag":"A little"
+                        },
+                        "B": {
+                            "id": "Svar3b",
+                            "name": "None",
+                            "tag":"None"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Type of String",
+                        "tagname": "Type of String",
+                        "A": {
+                            "id": "Svar4a",
+                            "name": "Twine",
+                            "tag":"Twine"
+                        },
+                        "B": {
+                            "id": "Svar4b",
+                            "name": "Yarn",
+                            "tag":"Yarn"
+                        }
+                    }
+                },
+                "T2": {
+                    "id": "",
+                    "name": "Soda-Mint Reaction",
+                    "expclass":"EFMod_Soda.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar2", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar3", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar4", "parent": "", "depth": 0, "variants": ["a", "b"] }],
+
+                    "V1": {
+                        "id": "Svar1",
+                        "name": "Type of Sweetener",
+                        "tagname": "Type of Sweetener",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Sugar",
+                            "tag":"Sugar"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Aspartame",
+                            "tag":"Aspartame"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Amount of Caffeine",
+                        "tagname": "Amount of Caffeine",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Some",
+                            "tag":"Some"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "None",
+                            "tag":"None"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Texture of Mint",
+                        "tagname": "Texture of Mint",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Smooth",
+                            "tag":"Smooth"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Rough",
+                            "tag":"Rough"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Amount of CO2",
+                        "tagname": "Amount of CO2",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "High",
+                            "tag":"High"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Low",
+                            "tag":"Low"
+                        }
+                    }
+                }
+            },
+            "A2": {
+                "id": "",
+                "name": "Heat and Temperature",
+                "T1": {
+                    "id": "",
+                    "name": "Melting of Ice",
+                    "expclass":"EFMod_IceMelt.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "",    "depth": 0, "variants": ["a", "b"], "comment":"Ice Temp"      },
+                        { "id": "Svar2", "parent": "Svar4", "depth": 1, "variants": ["a", "b"], "comment":"Water Temp"    },
+                        { "id": "Svar3", "parent": "Svar4", "depth": 1, "variants": ["a", "b"], "comment":"Glass Pattern" },
+                        { "id": "Svar4", "parent": "",    "depth": 0, "variants": ["a", "b"], "comment":"Glass Shape"   }],
+
+                    "V1": {
+                        "id": "",
+                        "name": "Initial Ice Temperature",
+                        "tagname": "Initial Ice Temperature",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "0 degrees",
+                            "tag":"0˚C / 32F"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "-20 degrees",
+                            "tag":"-20˚C / -4F"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Initial Water Temperature",
+                        "tagname": "Initial Water Temperature",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Cold",
+                            "tag":"Cold"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Hot",
+                            "tag":"Hot"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Pattern on Glass",
+                        "tagname": "Pattern on Glass",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Striped",
+                            "tag":"Striped"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Plain",
+                            "tag":"Plain"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Shape of Glass",
+                        "tagname": "Shape of Glass",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Short",
+                            "tag":"Short"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Tall",
+                            "tag":"Tall"
+                        }
+                    }
+                },
+                "T2": {
+                    "id": "",
+                    "name": "Temperature of a Gas",
+                    "expclass":"EFMod_Balloon.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar2", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar3", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar4", "parent": "", "depth": 0, "variants": ["a", "b"] }],
+                    "V1": {
+                        "id": "Svar1",
+                        "name": "Balloon Color",
+                        "tagname": "Balloon Color",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Gray",
+                            "tag":"Gray"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Black",
+                            "tag":"Black"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Amount of Sunlight",
+                        "tagname": "Amount of Sunlight",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Full Sun",
+                            "tag":"Full Sun"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Partial Shade",
+                            "tag":"Shade"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Balloon Material",
+                        "tagname": "Balloon Material",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Latex",
+                            "tag":"Latex"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Foil",
+                            "tag":"Foil"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Type of Chair",
+                        "tagname": "Type of Chair",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Wooden Chair",
+                            "tag":"Wooden"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Canvas Chair",
+                            "tag":"Canvas"
+                        }
+                    }
+                }
+            },
+            "A3": {
+                "id": "",
+                "name": "Forces and Motion",
+                "T1": {
+                    "id": "",
+                    "name": "Inclined Planes",
+                    "expclass":"EFMod_Ramps.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "",    "depth": 0, "variants": ["a", "b"], "comment":"Slope"   },
+                        { "id": "Svar2", "parent": "Svar3", "depth": 2, "variants": ["a", "b"], "comment":"Color"   },
+                        { "id": "Svar3", "parent": "Svar1", "depth": 1, "variants": ["a", "b"], "comment":"Start"   },
+                        { "id": "Svar4", "parent": "Svar1", "depth": 1, "variants": ["a", "b"], "comment":"Texture" }],
+
+                    "V1": {
+                        "id": "",
+                        "name": "Slope",
+                        "tagname": "Slope",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Not Steep",
+                            "tag":"Not Steep"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Steep",
+                            "tag":"Steep"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Color of the Ball",
+                        "tagname": "Color of the Ball",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Yellow",
+                            "tag":"Yellow"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Pink",
+                            "tag":"Pink"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Starting Position",
+                        "tagname": "Starting Position",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Middle",
+                            "tag":"Middle"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Top",
+                            "tag":"Top"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Ramp Surface",
+                        "tagname": "Ramp Surface",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Rough",
+                            "tag":"Rough"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Smooth",
+                            "tag":"Smooth"
+                        }
+                    }
+                },
+                "T2": {
+                    "id": "",
+                    "name": "Sinking Objects",
+                    "expclass":"EFMod_Sinking.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "",      "depth": 0, "variants": ["a", "b"], "comment":"Density Water"   },
+                        { "id": "Svar2", "parent": "",      "depth": 0, "variants": ["a", "b"], "comment":"Shape"           },
+                        { "id": "Svar3", "parent": "Svar2", "depth": 1, "variants": ["a", "b"], "comment":"Volume"          },
+                        { "id": "Svar4", "parent": "Svar3", "depth": 2, "variants": ["a", "b"], "comment":"Density Object"  }],
+
+                    "V1": {
+                        "id": "Svar1",
+                        "name": "Density of Water",
+                        "tagname": "Density of Water",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Low",
+                            "tag":"low (no salt)"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "High",
+                            "tag":"high (salt added)"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Shape of Object",
+                        "tagname": "Shape of Object",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Sphere",
+                            "tag":"Sphere"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Tear shaped",
+                            "tag":"Tear-shaped"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Volume of Object",
+                        "tagname": "Volume of Object",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Small",
+                            "tag":"Small"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Large",
+                            "tag":"Large"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Density of Object",
+                        "tagname": "Density of Object",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "High",
+                            "tag":"High (lead)"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Low",
+                            "tag":"Low (glass)"
+                        }
+                    }
+                }
+            },
+            "A4": {
+                "id": "",
+                "name": "Plant Reproduction",
+                "T1": {
+                    "id": "",
+                    "name": "Flower Reproduction",
+                    "expclass":"EFMod_GrHouse.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar2", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar3", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar4", "parent": "", "depth": 0, "variants": ["a", "b"] }],
+
+                    "V1": {
+                        "id": "",
+                        "name": "Number of Bees",
+                        "tagname": "Number of Bees",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Zero",
+                            "tag":"Zero"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Whole Hive",
+                            "tag":"A whole hive"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Amount of Sunlight",
+                        "tagname": "Amount of Sunlight",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Full sunlight",
+                            "tag":"Full sunlight"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Partial sunlight",
+                            "tag":"Partial sunlight"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "Amount of Fertilizer",
+                        "tagname": "Amount of Fertilizer",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "None",
+                            "tag":"None"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Some",
+                            "tag":"Some"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Type of Water",
+                        "tagname": "Type of Water",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Rain Water",
+                            "tag":"Rain Water"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Tap Water",
+                            "tag":"Tap Water"
+                        }
+                    }
+                },
+                "T2": {
+                    "id": "",
+                    "name": "Algae Reproduction",
+                    "expclass":"EFMod_Algae.TEDExpt",
+                    "exptStruct": [
+                        { "id": "Svar1", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar2", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar3", "parent": "", "depth": 0, "variants": ["a", "b"] },
+                        { "id": "Svar4", "parent": "", "depth": 0, "variants": ["a", "b"] }],
+
+                    "V1": {
+                        "id": "Svar1",
+                        "name": "Water Temperature",
+                        "tagname": "Water Temperature",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Room Temperature",
+                            "tag":"Room Temperature"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "Warm",
+                            "tag":"Warm"
+                        }
+                    },
+                    "V2": {
+                        "id": "Svar2",
+                        "name": "Amount of Music",
+                        "tagname": "Amount of Music",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Constant Music",
+                            "tag":"Constant Music"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "No Music",
+                            "tag":"No Music"
+                        }
+                    },
+                    "V3": {
+                        "id": "Svar3",
+                        "name": "CO2 in Water",
+                        "tagname": "CO2 in Water",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "A Lot",
+                            "tag":"A Lot"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "None",
+                            "tag":"None"
+                        }
+                    },
+                    "V4": {
+                        "id": "Svar4",
+                        "name": "Sunlight Exposure",
+                        "tagname": "Sunlight Exposure",
+                        "A": {
+                            "id": "Svar1a",
+                            "name": "Some",
+                            "tag":"Some"
+                        },
+                        "B": {
+                            "id": "Svar1b",
+                            "name": "None",
+                            "tag":"None"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
