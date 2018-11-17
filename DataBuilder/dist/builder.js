@@ -175,16 +175,16 @@ function processDataFiles(moduleName, fileList) {
     // Combine data files into a single image.
     // 
     try {
-        fileList.forEach(file => {
+        for (let file of fileList) {
             dataPath = path.join(twd, moduleName, DATA_PATH, file);
             let data = JSON.parse(fs.readFileSync(dataPath));
             // Check for Signature
             // 
             if (data[MODULE_SIGNATURE]) {
-                data_assets = mergeDataObjects(data_assets, data);
+                data_assets = mergeDataObjects(data_assets, data, moduleName);
             }
             else if (data[GLOBAL_SIGNATURE]) {
-                data_assets = mergeDataObjects(data_assets, data);
+                data_assets = mergeDataObjects(data_assets, data, moduleName);
             }
             // TODO: manage circular references
             // 
@@ -195,7 +195,8 @@ function processDataFiles(moduleName, fileList) {
                     processDataFiles(path[0], files);
                 });
             }
-        });
+        }
+        ;
     }
     catch (err) {
         console.error("Error: combining data sources: " + dataPath + " -- " + err);
@@ -203,18 +204,22 @@ function processDataFiles(moduleName, fileList) {
     }
     return data_assets;
 }
-function mergeDataObjects(data_assets, data) {
+function mergeDataObjects(data_assets, data, parent) {
     for (let element in data) {
         // don't clone IMPORT signatures.
         // 
         if (element === IMPORT_SIGNATURE)
             continue;
         if (data_assets[element]) {
-            if (!element.startsWith("_")) {
-                console.error("ERROR: Ontology Conflict: " + element);
+            // if(!element.startsWith("_")) {
+            //     console.error("ERROR: Ontology Conflict: " + element);
+            // }
+            if (isAnObject(data_assets[element])) {
+                mergeDataObjects(data_assets[element], data[element], parent + "." + element);
             }
-            if (isAnObject(data_assets[element]))
-                mergeDataObjects(data_assets[element], data[element]);
+            else if (!element.startsWith("_")) {
+                console.error("ERROR: Import Conflict: " + parent + "." + element);
+            }
         }
         else {
             data_assets[element] = data[element];

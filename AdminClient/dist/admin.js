@@ -111,7 +111,9 @@ function generateUserState() {
     userData = load_Data(USERID_SRCFILE);
     genState = load_Data(GENSTATE_SRCFILE);
     tutorState.users = [];
-    tutorState.currUser = {
+    // Clear the current user
+    // 
+    userData.currUser = {
         "userName": "",
         "currTutorNdx": 0,
         "currScene": "",
@@ -119,16 +121,49 @@ function generateUserState() {
     };
     for (let user of userData.users) {
         let username = user.userName;
+        let features;
         user.userName = username.replace("-", "_").toUpperCase();
-        tutorState.users.push({
-            "userName": user.userName,
-            "tutorState": genState.tutorState,
-            "moduleState": genState.moduleState,
-            "features": genState.features
-        });
+        switch (user.instructionSeq) {
+            case "tutor_seq_all_choice.json":
+                genState.tutorState["experimentalGroup.ontologyKey"] = "EG_A1";
+                genState.moduleState["selectedArea.index"] = 0;
+                genState.moduleState["selectedArea.ontologyKey"] = "";
+                genState.moduleState["selectedTopic.index"] = 0;
+                genState.moduleState["selectedTopic.ontologyKey"] = "";
+                genState.moduleState["selectedVariable.index"] = 0;
+                genState.moduleState["selectedVariable.ontologyKey"] = "";
+                features = ["FTR_CHOICE"];
+                break;
+            case "tutor_seq_all_nochoice.json":
+                genState.tutorState["experimentalGroup.ontologyKey"] = "EG_A2";
+                genState.moduleState["selectedArea.index"] = 4;
+                genState.moduleState["selectedArea.ontologyKey"] = "S_A4|name";
+                genState.moduleState["selectedTopic.index"] = 1;
+                genState.moduleState["selectedTopic.ontologyKey"] = "S_A4_T1|name";
+                genState.moduleState["selectedVariable.index"] = 1;
+                genState.moduleState["selectedVariable.ontologyKey"] = "S_A4_T1_V1|name";
+                features = ["FTR_NOCHOICE", "FTR_GRHOUSE"];
+                break;
+            case "tutor_seq_all_baseline.json":
+                genState.tutorState["experimentalGroup.ontologyKey"] = "EG_A3";
+                genState.moduleState["selectedArea.index"] = 4;
+                genState.moduleState["selectedArea.ontologyKey"] = "S_A4|name";
+                genState.moduleState["selectedTopic.index"] = 1;
+                genState.moduleState["selectedTopic.ontologyKey"] = "S_A4_T1|name";
+                genState.moduleState["selectedVariable.index"] = 1;
+                genState.moduleState["selectedVariable.ontologyKey"] = "S_A4_T1_V1|name";
+                features = ["FTR_BASELINE", "FTR_GRHOUSE"];
+                break;
+        }
+        let newObj = { userName: "", tutorState: {}, moduleState: {}, "features": features };
+        newObj.userName = user.userName;
+        Object.assign(newObj.tutorState, genState.tutorState);
+        Object.assign(newObj.moduleState, genState.moduleState);
+        tutorState.users.push(newObj);
     }
     save_Data(USERID_SRCFILE, userData);
     save_Data(USERSTATE_SRCFILE, tutorState);
+    console.log("User Generation Complete!");
 }
 function load_Data(dataFile) {
     let dataObj;

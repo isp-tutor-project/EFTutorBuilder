@@ -1,0 +1,3 @@
+
+isp_userdata -> EdForge_DATA
+tutorstatedata -> @TUTORROOT@/EFTutors

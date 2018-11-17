@@ -1,588 +1,586 @@
 {
-    "currUser": {
-        "userName": "",
-        "currTutorNdx": 0,
-        "currScene": "",
-        "instructionSeq": ""
-    },
-    "users": [
-        {
-            "userName": "LAMARAB_Oct_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "JAIDENAG_Aug_23",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "TUDORAG_Jul_9",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "JAYLAAN_OCT_6",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "RANDALLAR_FEB_13",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "GODSONBU_MAR_20",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "DAIQUANCA_APR_7",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "JULICIACO_AUG_1",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "CHEDA_DEC_19",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "PARISDO_JAN_17",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "ABDULAZIZEL_MAY_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "JORDYNEL_SEP_23",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "TYLERFE_JAN_23",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "ELIJAHFL_FEB_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "JAHIRGR_JUN_7",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "OLIVIAIS_NOV_20",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "TIVONJA_AUG_18",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "HENRYKR_FEB_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "GRETALE_MAY_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "IANLI_AUG_15",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "CURTISMO_AUG_15",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "EVENE_JUN_12",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "SADIERPR_DEC_7",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "KALLISTARI_JUN_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "DEEPHALSI_MAY_16",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "MADISONTU_JAN_10",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "ELLISWA_JAN_18",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ELIWI_AUG_15",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "EVELYNAL_MAY_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "JAYDENBA_Sept_13",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "PUSHPIKABA_AUG_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "MAYABE_JAN_14",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "KEYONBR_OCT_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ANTHANIEV_JUL_20",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "JYHIRHA_SEP_21",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "SOLVEISS_OCT_21",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ISMAELMA_OCT_30",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "MICHELLEKo_JUN_9",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "MICHAELME_DEC_21",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "PETERMI_SEP_14",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "TYLERMO_OCT_26",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "BENJAMINMO_SEP_8",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "KIYOSHIMU_FEB_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "ISABELLAPA_FEB_26",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "DELANEYPU_APR_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ERIKARI_JUN_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "SIMONRI_JUN_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "CAMERONST_FEB_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "JOSPEHTH_NOV_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "TONYTO_AUG_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "AMONFR_JUN_19",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "COLBYWA_JUN_24",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "LOGANWH_AUG_17",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "CHANCEWO_DEC_21",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "SKYANNAR_FEB_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "CADANBA_MAY_14",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "ALISHACA_MAY_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ANTHONYCU_NOV_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "PENELOPE_AUG_2",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "ROCCODO_DEC_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "JAMESFR_AUG_19",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "JAELYNNGA_FEB_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "LACHLANHA_APR_8",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "CHRISTIANHA_OCT_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "IBRAHIMJA_MAR_18",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "JOSHUAKO_JUN_19",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "IVANMA_MAR_22",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "MARYMA_SEP_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "JEREMIAHMC_OCT_13",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ALEXZANDERMO_JUL_16",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "CHRISTINAOL_DEC_21",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "DAVAYHAPA_JUN_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "DEVINPA_AUG_2",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "KYLIERO_AUG_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "ABIGAILRU_JAN_28",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "ARISM_JUL_30",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "CCHRISSM_NOV_24",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "NOLATO_DEC_23",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "JULIANMI_OCT_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "LUCIANMI_OCT_27",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "CHRISTOPHERWI_JUL_1",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "GUESTC_JAN_1",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "GUESTC_JAN_2",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "GUESTC_JAN_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "GUESTC_JAN_4",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "GUESTC_JAN_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_choice.json"
-        },
-        {
-            "userName": "GUESTNC_JAN_1",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "GUESTNC_JAN_2",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "GUESTNC_JAN_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "GUESTNC_JAN_4",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "GUESTNC_JAN_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_nochoice.json"
-        },
-        {
-            "userName": "GUESTBL_JAN_1",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "GUESTBL_JAN_2",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "GUESTBL_JAN_3",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "GUESTBL_JAN_4",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        },
-        {
-            "userName": "GUESTBL_JAN_5",
-            "currTutorNdx": 0,
-            "currScene": "",
-            "instructionSeq": "tutor_seq_all_baseline.json"
-        }
-        
-
-    ]
+	"currUser": {
+		"userName": "",
+		"currTutorNdx": 0,
+		"currScene": "",
+		"instructionSeq": ""
+	},
+	"users": [
+		{
+			"userName": "LAMARAB_OCT_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "JAIDENAG_AUG_23",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "TUDORAG_JUL_9",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "JAYLAAN_OCT_6",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "RANDALLAR_FEB_13",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GODSONBU_MAR_20",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "DAIQUANCA_APR_7",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "JULICIACO_AUG_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "CHEDA_DEC_19",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "PARISDO_JAN_17",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "ABDULAZIZEL_MAY_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "JORDYNEL_SEP_23",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "TYLERFE_JAN_23",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "ELIJAHFL_FEB_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "JAHIRGR_JUN_7",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "OLIVIAIS_NOV_20",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "TIVONJA_AUG_18",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "HENRYKR_FEB_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GRETALE_MAY_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "IANLI_AUG_15",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "CURTISMO_AUG_15",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "EVENE_JUN_12",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "SADIERPR_DEC_7",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "KALLISTARI_JUN_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "DEEPHALSI_MAY_16",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "MADISONTU_JAN_10",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "ELLISWA_JAN_18",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "ELIWI_AUG_15",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "EVELYNAL_MAY_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "JAYDENBA_SEP_13",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "PUSHPIKABA_AUG_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "MAYABE_JAN_14",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "KEYONBR_OCT_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "ANTHANIEV_JUL_20",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "JYHIRHA_SEP_21",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "SOLVEISS_OCT_21",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "ISMAELMA_OCT_30",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "MICHELLEKO_JUN_9",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "MICHAELME_DEC_21",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "PETERMI_SEP_14",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "TYLERMO_OCT_26",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "BENJAMINMO_SEP_8",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "KIYOSHIMU_FEB_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "ISABELLAPA_FEB_26",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "DELANEYPU_APR_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "ERIKARI_JUN_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "SIMONRI_JUN_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "CAMERONST_FEB_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "JOSEPHTH_NOV_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "TONYTO_AUG_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "AMONFR_JUN_19",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "COLBYWA_JUN_24",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "LOGANWH_AUG_17",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "CHANCEWO_DEC_21",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "SKYANNAR_FEB_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "CADANBA_MAY_14",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "ALISHACA_MAY_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "ANTHONYCU_NOV_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "PENELOPE_AUG_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "ROCCODO_DEC_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "JAMESFR_AUG_19",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "JAELYNNGA_FEB_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "LACHLANHA_APR_8",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "CHRISTIANHA_OCT_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "IBRAHIMJA_MAR_18",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "JOSHUAKO_JUN_19",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "IVANMA_MAR_22",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "MARYMA_SEP_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "JEREMIAHMC_OCG_13",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "ALEXZANDERMO_JUL_16",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "CHRISTINAOL_DEC_21",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "DAVAYHAPA_JUN_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "DEVINPA_AUG_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "KYLIERO_AUG_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "ABIGAILRU_JAN_28",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "ARISM_JUL_30",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "CCHRISSM_NOV_24",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "NOLATO_DEC_23",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "JULIANMI_OCT_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "LUCIANMI_OCT_27",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "CHRISTOPHERWI_JUL_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTC_JAN_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_JAN_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_JAN_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_JAN_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_JAN_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTNC_JAN_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_JAN_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_JAN_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_JAN_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_JAN_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTBL_JAN_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_JAN_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_JAN_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_JAN_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_JAN_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		}
+	]
 }
