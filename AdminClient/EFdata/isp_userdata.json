@@ -523,6 +523,78 @@
 			"instructionSeq": "tutor_seq_all_choice.json"
 		},
 		{
+			"userName": "GUESTC_FEB_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_FEB_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_FEB_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_FEB_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_FEB_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_FEB_6",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_MAR_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_MAR_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_MAR_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_MAR_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_MAR_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
+			"userName": "GUESTC_MAR_6",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_choice.json"
+		},
+		{
 			"userName": "GUESTNC_JAN_1",
 			"currTutorNdx": 0,
 			"currScene": "",
@@ -553,6 +625,78 @@
 			"instructionSeq": "tutor_seq_all_nochoice.json"
 		},
 		{
+			"userName": "GUESTNC_FEB_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_FEB_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_FEB_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_FEB_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_FEB_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_FEB_6",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_MAR_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_MAR_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_MAR_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_MAR_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_MAR_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
+			"userName": "GUESTNC_MAR_6",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_nochoice.json"
+		},
+		{
 			"userName": "GUESTBL_JAN_1",
 			"currTutorNdx": 0,
 			"currScene": "",
@@ -578,6 +722,78 @@
 		},
 		{
 			"userName": "GUESTBL_JAN_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_FEB_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_FEB_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_FEB_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_FEB_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_FEB_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_FEB_6",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_MAR_1",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_MAR_2",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_MAR_3",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_MAR_4",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_MAR_5",
+			"currTutorNdx": 0,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_all_baseline.json"
+		},
+		{
+			"userName": "GUESTBL_MAR_6",
 			"currTutorNdx": 0,
 			"currScene": "",
 			"instructionSeq": "tutor_seq_all_baseline.json"
