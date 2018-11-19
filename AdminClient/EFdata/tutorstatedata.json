@@ -28,7 +28,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -46,7 +47,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -64,7 +66,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -82,7 +85,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -100,7 +104,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -118,7 +123,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -135,7 +141,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -153,7 +160,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -170,7 +178,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -187,7 +196,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -205,7 +215,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -222,7 +233,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -239,7 +251,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -257,7 +270,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -275,7 +289,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -292,7 +307,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -309,7 +325,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -327,7 +344,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -344,7 +362,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -362,7 +381,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -380,7 +400,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -397,7 +418,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -415,7 +437,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -433,7 +456,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -450,7 +474,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -468,7 +493,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -486,7 +512,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -504,7 +531,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -521,7 +549,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -538,7 +567,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -555,7 +585,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -573,7 +604,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -590,7 +622,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -607,7 +640,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -625,7 +659,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -643,7 +678,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -660,7 +696,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -677,7 +714,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -695,7 +733,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -712,7 +751,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -730,7 +770,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -748,7 +789,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -766,7 +808,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -784,7 +827,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -801,7 +845,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -819,7 +864,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -837,7 +883,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -855,7 +902,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -873,7 +921,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -891,7 +940,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -909,7 +959,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -926,7 +977,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -944,7 +996,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -962,7 +1015,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -979,7 +1033,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -997,7 +1052,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1015,7 +1071,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1032,7 +1089,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1050,7 +1108,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1068,7 +1127,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1085,7 +1145,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1103,7 +1164,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1121,7 +1183,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1138,7 +1201,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1156,7 +1220,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1174,7 +1239,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1191,7 +1257,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1209,7 +1276,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1227,7 +1295,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1244,7 +1313,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1262,7 +1332,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1280,7 +1351,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1297,7 +1369,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1315,7 +1388,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1333,7 +1407,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1350,7 +1425,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1368,7 +1444,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1386,7 +1463,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1403,7 +1481,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1421,7 +1500,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1439,7 +1519,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1456,7 +1537,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1473,7 +1555,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1490,7 +1573,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1507,7 +1591,8 @@
 				"selectedTopic.index": 0,
 				"selectedTopic.ontologyKey": "",
 				"selectedVariable.index": 0,
-				"selectedVariable.ontologyKey": ""
+				"selectedVariable.ontologyKey": "",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_CHOICE"
@@ -1524,7 +1609,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1542,7 +1628,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1560,7 +1647,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1578,7 +1666,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1596,7 +1685,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_NOCHOICE",
@@ -1614,7 +1704,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1632,7 +1723,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1650,7 +1742,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1668,7 +1761,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",
@@ -1686,7 +1780,8 @@
 				"selectedTopic.index": 1,
 				"selectedTopic.ontologyKey": "S_A4_T1|name",
 				"selectedVariable.index": 1,
-				"selectedVariable.ontologyKey": "S_A4_T1_V1|name"
+				"selectedVariable.ontologyKey": "S_A4_T1_V1|name",
+				"selectedRQ.ontologyKey": "S_A4_T1_RQ1"
 			},
 			"features": [
 				"FTR_BASELINE",

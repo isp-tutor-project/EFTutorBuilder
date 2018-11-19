@@ -1,0 +1,22 @@
+{
+     "commands": [
+        {
+            "command": "PULL",
+            "from": "/EdForge/EFTutors/tutorstatedata.json",
+            "to": "EdForge_DATA/tablet_state.zip",
+            "compress": true,
+            "extract": false,
+            "recurse": true
+        },
+        {
+            "command": "PUSH",
+            "from": "/EFdata/EFparts.zip",
+            "to": "/EdForge/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        }        
+    ],
+    "targets": "all",
+    "tabletIDs": [30,31]
+}

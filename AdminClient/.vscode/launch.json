@@ -198,6 +198,54 @@
         },
 
         {
+            "name":"PULL_STATE",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "PULL","pull_state"
+			]
+        },
+
+        {
+            "name":"PUSH_FIX",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","push_fix"
+			]
+        },
+
+        {
+            "name":"PULLPUSH_FIX",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","pullpush_fix"
+			]
+        },
+
+        {
             "name":"Debug DEFAULT",
             "sourceMaps": true,
             "type": "node",

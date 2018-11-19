@@ -1,0 +1,14 @@
+{
+     "commands": [
+        {
+            "command": "PUSH",
+            "from": "/EFdata/EFparts.zip",
+            "to": "/EdForge/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        }
+    ],
+    "targets": "all",
+    "tabletIDs": [30,31]
+}

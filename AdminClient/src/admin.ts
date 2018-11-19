@@ -183,6 +183,7 @@ function generateUserState() {
                 genState.moduleState["selectedTopic.ontologyKey"] = "S_A4_T1|name";
                 genState.moduleState["selectedVariable.index"] = 1;
                 genState.moduleState["selectedVariable.ontologyKey"] = "S_A4_T1_V1|name";
+                genState.moduleState["selectedRQ.ontologyKey"] = "S_A4_T1_RQ1";
 
                 features = ["FTR_NOCHOICE","FTR_GRHOUSE"];
                 break;
@@ -196,6 +197,7 @@ function generateUserState() {
                 genState.moduleState["selectedTopic.ontologyKey"] = "S_A4_T1|name";
                 genState.moduleState["selectedVariable.index"] = 1;
                 genState.moduleState["selectedVariable.ontologyKey"] = "S_A4_T1_V1|name";
+                genState.moduleState["selectedRQ.ontologyKey"] = "S_A4_T1_RQ1";
 
                 features = ["FTR_BASELINE","FTR_GRHOUSE"];
                 break;
