@@ -21,6 +21,8 @@ const readline = require('readline');
 const net = require('net');
 const ClientSocket_1 = require("./ClientSocket");
 const ServerSocket_1 = require("./ServerSocket");
+const DataManager_1 = require("./DataManager");
+const EXTRACTDATA = "EXTRACTDATA";
 const USERGEN = "USERGEN";
 const INSTALL = "INSTALL";
 const PUSH = "PUSH";
@@ -35,6 +37,8 @@ const USERSTATE_SRCFILE = "tutorstatedata.json";
 const TUTORBASEFOLDER = "../../../";
 const DATA_PATH = "EFdata";
 const CMD_TYPE = ".json";
+const EF_ZIPDATA = "EdForge_ZIPDATA";
+const EF_USERDATA = "EdForge_USERDATA";
 let dataPath;
 let ipLib;
 let tabletList;
@@ -67,6 +71,11 @@ function processCommandLine() {
     try {
         if (process.argv[2]) {
             switch (process.argv[2]) {
+                case EXTRACTDATA:
+                    let dm = new DataManager_1.DataManager(cwd);
+                    dm.extractData(EF_ZIPDATA, EF_USERDATA);
+                    rl.close();
+                    break;
                 case USERGEN:
                     generateUserState();
                     break;

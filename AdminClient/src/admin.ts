@@ -23,9 +23,12 @@ const net       = require('net');
 
 import { ClientSocket } from './ClientSocket';
 import { ServerSocket } from './ServerSocket';
+import { DataManager }  from './DataManager';
+
 import { cpus } from 'os';
 import { FSWatcher } from 'fs';
 
+const EXTRACTDATA:string    = "EXTRACTDATA";
 const USERGEN:string        = "USERGEN";
 const INSTALL:string        = "INSTALL";
 const PUSH:string           = "PUSH";
@@ -42,6 +45,9 @@ const USERSTATE_SRCFILE:string = "tutorstatedata.json";
 const TUTORBASEFOLDER:string = "../../../";
 const DATA_PATH:string       = "EFdata";
 const CMD_TYPE:string        = ".json";
+
+const EF_ZIPDATA:string      = "EdForge_ZIPDATA";
+const EF_USERDATA:string     = "EdForge_USERDATA";
 
 let dataPath:string;
 
@@ -88,6 +94,14 @@ function processCommandLine() {
         if(process.argv[2]) {
 
             switch(process.argv[2]) {
+
+                case EXTRACTDATA:
+                    let dm = new DataManager(cwd);
+                    dm.extractData(EF_ZIPDATA, EF_USERDATA);
+
+                    rl.close();
+                    break;
+
                 case USERGEN:
                     generateUserState();
                     break;

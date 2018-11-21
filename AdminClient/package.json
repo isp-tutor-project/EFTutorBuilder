@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "adm-zip": "^0.4.13",
     "jsdom": "^11.11.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.4.31",
     "@types/node": "^10.5.2",
     "typescript": "^2.9.2"
   }

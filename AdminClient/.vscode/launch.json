@@ -6,6 +6,22 @@
     "configurations": [
 
         {
+            "name":"EXTRACT DATA",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "EXTRACTDATA"
+			]
+        },
+
+        {
             "name":"USER GENERATOR",
             "sourceMaps": true,
             "type": "node",
