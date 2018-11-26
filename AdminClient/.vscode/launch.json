@@ -6,6 +6,38 @@
     "configurations": [
 
         {
+            "name":"UNPACK DATA",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "UNPACKDATA"
+			]
+        },
+
+        {
+            "name":"MERGE ACCTS",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "MERGEACCTS"
+			]
+        },
+
+        {
             "name":"EXTRACT DATA",
             "sourceMaps": true,
             "type": "node",

@@ -22,6 +22,9 @@ const net = require('net');
 const ClientSocket_1 = require("./ClientSocket");
 const ServerSocket_1 = require("./ServerSocket");
 const DataManager_1 = require("./DataManager");
+const LogManager_1 = require("./LogManager");
+const UNPACKDATA = "UNPACKDATA";
+const MERGEACCTS = "MERGEACCTS";
 const EXTRACTDATA = "EXTRACTDATA";
 const USERGEN = "USERGEN";
 const INSTALL = "INSTALL";
@@ -40,6 +43,8 @@ const CMD_TYPE = ".json";
 const EF_ZIPDATA = "EdForge_ZIPDATA";
 const EF_USERDATA = "EdForge_USERDATA";
 let dataPath;
+let logManager;
+let dataManager;
 let ipLib;
 let tabletList;
 let tabletCurr;
@@ -53,6 +58,7 @@ let data_assets = {};
 let twd;
 let rwd;
 let cwd;
+let sysConsole = console.log;
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -68,15 +74,32 @@ function processCommandLine() {
     let success = false;
     calcTutorFolder();
     load_IpLibrary();
+    logManager = new LogManager_1.LogManager(cwd);
+    dataManager = new DataManager_1.DataManager(cwd);
+    console.log = logLocal;
     try {
         if (process.argv[2]) {
             switch (process.argv[2]) {
                 case EXTRACTDATA:
-                    let dm = new DataManager_1.DataManager(cwd);
-                    dm.extractData(EF_ZIPDATA, EF_USERDATA);
+                    console.log("||** NOTICE: Data Extraction In Progress");
+                    dataManager.extractTutorData();
+                    logManager.close();
+                    rl.close();
+                    break;
+                case MERGEACCTS:
+                    console.log("||** NOTICE: Merging Accounts In Progress");
+                    dataManager.mergeUserAccts();
+                    logManager.close();
+                    rl.close();
+                    break;
+                case UNPACKDATA:
+                    console.log("||** NOTICE: Unpacking User Data In Progress");
+                    dataManager.unpackData(EF_ZIPDATA, EF_USERDATA);
+                    logManager.close();
                     rl.close();
                     break;
                 case USERGEN:
+                    console.log("||** NOTICE: Generating User State Data In Progress");
                     generateUserState();
                     break;
                 case SCAN:
@@ -108,6 +131,10 @@ function processCommandLine() {
     catch (e) {
         console.log("ERROR: " + e);
     }
+}
+function logLocal(msg) {
+    logManager.writeLog(msg);
+    sysConsole(msg);
 }
 // const USERID_SRCFILE:string  = "isp_userdata.json";
 // const GENSTATE_SRCFILE:string  = "genstatedata.json";

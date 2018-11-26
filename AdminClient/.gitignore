@@ -1,2 +1,6 @@
 node_modules/**
 content/**
+EdForge_MERGEDATA/**
+EdForge_PROCDATA/**
+EdForge_USERDATA/**
+EdForge_ZIPDATA/**

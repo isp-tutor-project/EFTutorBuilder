@@ -24,11 +24,15 @@ const net       = require('net');
 import { ClientSocket } from './ClientSocket';
 import { ServerSocket } from './ServerSocket';
 import { DataManager }  from './DataManager';
+import { LogManager }   from './LogManager';
 
 import { cpus } from 'os';
 import { FSWatcher } from 'fs';
 
+const UNPACKDATA:string     = "UNPACKDATA";
+const MERGEACCTS:string     = "MERGEACCTS";
 const EXTRACTDATA:string    = "EXTRACTDATA";
+
 const USERGEN:string        = "USERGEN";
 const INSTALL:string        = "INSTALL";
 const PUSH:string           = "PUSH";
@@ -50,6 +54,8 @@ const EF_ZIPDATA:string      = "EdForge_ZIPDATA";
 const EF_USERDATA:string     = "EdForge_USERDATA";
 
 let dataPath:string;
+let logManager:LogManager;
+let dataManager:DataManager;
 
 let ipLib:any;
 let tabletList:any[];
@@ -69,6 +75,7 @@ let twd:string;
 let rwd:string;
 let cwd:string;
 
+let sysConsole = console.log;
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -89,6 +96,10 @@ function processCommandLine() {
     calcTutorFolder();
     load_IpLibrary();
 
+    logManager  = new LogManager(cwd);
+    dataManager = new DataManager(cwd);
+    console.log = logLocal;
+
     try {
 
         if(process.argv[2]) {
@@ -96,13 +107,35 @@ function processCommandLine() {
             switch(process.argv[2]) {
 
                 case EXTRACTDATA:
-                    let dm = new DataManager(cwd);
-                    dm.extractData(EF_ZIPDATA, EF_USERDATA);
+                    console.log("||** NOTICE: Data Extraction In Progress");
 
+                    dataManager.extractTutorData();
+
+                    logManager.close();
+                    rl.close();
+                    break;
+
+                case MERGEACCTS:
+                    console.log("||** NOTICE: Merging Accounts In Progress");
+
+                    dataManager.mergeUserAccts();
+
+                    logManager.close();
+                    rl.close();
+                    break;
+
+                case UNPACKDATA:
+                    console.log("||** NOTICE: Unpacking User Data In Progress");
+
+                    dataManager.unpackData(EF_ZIPDATA, EF_USERDATA);
+
+                    logManager.close();
                     rl.close();
                     break;
 
                 case USERGEN:
+                    console.log("||** NOTICE: Generating User State Data In Progress");
+
                     generateUserState();
                     break;
 
@@ -142,6 +175,11 @@ function processCommandLine() {
     }
 }
 
+function logLocal(msg:string) {
+
+    logManager.writeLog(msg);
+    sysConsole(msg);
+}
 
 // const USERID_SRCFILE:string  = "isp_userdata.json";
 // const GENSTATE_SRCFILE:string  = "genstatedata.json";
