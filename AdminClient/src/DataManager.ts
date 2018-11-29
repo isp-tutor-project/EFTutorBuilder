@@ -47,6 +47,7 @@ export class DataManager
     private readonly TUTORSTATE:string          = "tutorstatedata.json";
     private readonly ACCT_FILENAME:string       = "isp_userdata.json";
     private readonly GLOBALSTATE:string         = "tutor_state.json";
+    private readonly ONTOLOGYSRC:string         = "_EFTUTORDATA.json";
 
     private readonly ZIP_ROOT:string            = "EdForge_DATA/";
     private readonly USER_DATA:string           = "EdForge_USERDATA/";
@@ -59,6 +60,7 @@ export class DataManager
     private readonly RECURSE:boolean            = true;
     private readonly NORECURSE:boolean          = false;
 
+    private ontology:any;
     private acctImages:userData[] = [];     // account for each tablet 
     private accts:userData;
 
@@ -85,9 +87,9 @@ export class DataManager
 
         this.loadStateImage();
         this.loadMergedAccts();
+        this.loadOntologyImage();
 
         this.resolveExtractData();
-
     }
 
     public mergeUserAccts() {
@@ -118,6 +120,13 @@ export class DataManager
         let stateData:string = path.join(this.cwd, this.USER_DATA, this.TUTORSTATE);  
 
         this.state = JSON.parse(fs.readFileSync(stateData));
+    }
+
+    private loadOntologyImage() {
+
+        let ontologyData:string = path.join(this.cwd, this.USER_DATA, this.ONTOLOGYSRC);  
+
+        this.ontology = JSON.parse(fs.readFileSync(ontologyData));
     }
 
     private getUserState(userName:string) : userState {
@@ -293,8 +302,13 @@ export class DataManager
 
     public resolveExtractData() {
 
-        let processor:DataProcessor = new DataProcessor();
+        let processor:DataProcessor = new DataProcessor(this.ontology);
         let userCond:string;
+
+        // We aggregate all users into a single file.
+        // 
+        let dstPath:string     = this.validatePath(this.cwd, this.PROC_DATA);
+        processor.createDataTarget(dstPath);
 
         // We don't want tablet ID's in the merge image
         // TODO: use this in V1 merged accounts
@@ -329,9 +343,9 @@ export class DataManager
                             // decompose the tutor / school 
                             // 
                             let tutorInst:string[] = folder.match(/(\w*)_(\w*)/);
-                            let dstPath:string     = this.validatePath(this.cwd, this.PROC_DATA);
 
-                            processor.extractData(_srcpath, dstPath, user, userCond, tutorInst);
+                            processor.setUserPath(user.userName, folder);
+                            processor.extractData(_srcpath, user, userCond, tutorInst);
                         }
                         // the only "file" that should be in this folder is tutor_state.json
                         // we ignore it here.
@@ -346,6 +360,9 @@ export class DataManager
                 console.log("resolveExtractTutors - Error = " + error);
             }    
         }
+
+        processor.closeDataTarget();
+
     }
 
 

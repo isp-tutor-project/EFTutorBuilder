@@ -28,5 +28,6 @@ export class TCONST
     public static readonly TUTOR_TED:string           = "TED";
 
     public static readonly JSONTYPE:string            = ".json";    
+    public static readonly DATA_OUTPUT:string         = "data_output.csv";    
 
 }

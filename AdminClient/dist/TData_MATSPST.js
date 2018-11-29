@@ -20,8 +20,8 @@ class TData_MATSPST {
 TData_MATSPST.tutorDataSpec = {
     "tutorName": "MATSPST",
     "dataDescr": [
-        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_START", "dataValue": "", "rawtime": "scene.$seq.time", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" },
-        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_END", "dataValue": "", "rawtime": "scene.$seq.time", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" }
+        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_START", "dataValue": "", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" },
+        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_END", "dataValue": "", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" }
     ]
 };
 exports.TData_MATSPST = TData_MATSPST;

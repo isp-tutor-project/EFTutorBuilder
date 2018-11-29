@@ -23,13 +23,16 @@ const ClientSocket_1 = require("./ClientSocket");
 const ServerSocket_1 = require("./ServerSocket");
 const DataManager_1 = require("./DataManager");
 const LogManager_1 = require("./LogManager");
+const ProdManager_1 = require("./ProdManager");
 const UNPACKDATA = "UNPACKDATA";
 const MERGEACCTS = "MERGEACCTS";
 const EXTRACTDATA = "EXTRACTDATA";
+const GEN_PRODIMAGE = "GEN_PRODIMAGE";
 const USERGEN = "USERGEN";
 const INSTALL = "INSTALL";
 const PUSH = "PUSH";
 const PULL = "PULL";
+const CLEAN = "CLEAN";
 const SEND = "SEND";
 const RETRY = "RETRY";
 const SCAN = "SCAN";
@@ -45,6 +48,7 @@ const EF_USERDATA = "EdForge_USERDATA";
 let dataPath;
 let logManager;
 let dataManager;
+let productionManager;
 let ipLib;
 let tabletList;
 let tabletCurr;
@@ -76,10 +80,17 @@ function processCommandLine() {
     load_IpLibrary();
     logManager = new LogManager_1.LogManager(cwd);
     dataManager = new DataManager_1.DataManager(cwd);
+    productionManager = new ProdManager_1.ProductionManager(cwd, twd);
     console.log = logLocal;
     try {
         if (process.argv[2]) {
             switch (process.argv[2]) {
+                case GEN_PRODIMAGE:
+                    console.log("||** NOTICE: Production Image Generation In Progress");
+                    productionManager.generatePRODImage();
+                    logManager.close();
+                    rl.close();
+                    break;
                 case EXTRACTDATA:
                     console.log("||** NOTICE: Data Extraction In Progress");
                     dataManager.extractTutorData();
@@ -111,6 +122,7 @@ function processCommandLine() {
                     fRetryOnly = true;
                 case SEND:
                 case PULL:
+                case CLEAN:
                     // This is kept alive by the client socket which will continually process the 
                     // tablet queue until it is exhausted when the process will terminate as there 
                     // are no background queues waiting.
@@ -304,7 +316,7 @@ function readIPs() {
 }
 function resultCallback(msg) {
     let found = false;
-    let timestamp = timeStamp();
+    let timestamp = timeStamp(new Date());
     let msgstr = msg.toString().toLowerCase();
     try {
         let ipmac = msgstr.split("|");
@@ -340,9 +352,7 @@ function resultCallback(msg) {
         console.log("ERROR: msg format error: ");
     }
 }
-function timeStamp() {
-    // Create a date object with the current time
-    var now = new Date();
+function timeStamp(now) {
     var timestr = new Array();
     // Create an array with the current month, day and time
     var date = [now.getMonth() + 1, now.getDate(), now.getFullYear()];
@@ -364,8 +374,9 @@ function timeStamp() {
         }
     }
     // Return the formatted string
-    return `${date.join("/")}  ${timestr.join(":")} ${suffix}`;
+    return `${date.join(":")}  ${timestr.join(":")} ${suffix}`;
 }
+exports.timeStamp = timeStamp;
 function load_IpLibrary() {
     dataPath = path.join(cwd, DATA_PATH, IPLIB_SRCFILE);
     console.log("Loading IP Library Path: " + dataPath);

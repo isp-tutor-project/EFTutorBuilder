@@ -28,15 +28,18 @@ import { LogManager }   from './LogManager';
 
 import { cpus } from 'os';
 import { FSWatcher } from 'fs';
+import { ProductionManager } from './ProdManager';
 
 const UNPACKDATA:string     = "UNPACKDATA";
 const MERGEACCTS:string     = "MERGEACCTS";
 const EXTRACTDATA:string    = "EXTRACTDATA";
 
+const GEN_PRODIMAGE:string  = "GEN_PRODIMAGE";
 const USERGEN:string        = "USERGEN";
 const INSTALL:string        = "INSTALL";
 const PUSH:string           = "PUSH";
 const PULL:string           = "PULL";
+const CLEAN:string          = "CLEAN";
 const SEND:string           = "SEND";
 const RETRY:string          = "RETRY";
 const SCAN:string           = "SCAN";
@@ -56,6 +59,7 @@ const EF_USERDATA:string     = "EdForge_USERDATA";
 let dataPath:string;
 let logManager:LogManager;
 let dataManager:DataManager;
+let productionManager:ProductionManager;
 
 let ipLib:any;
 let tabletList:any[];
@@ -96,8 +100,9 @@ function processCommandLine() {
     calcTutorFolder();
     load_IpLibrary();
 
-    logManager  = new LogManager(cwd);
-    dataManager = new DataManager(cwd);
+    logManager        = new LogManager(cwd);
+    dataManager       = new DataManager(cwd);
+    productionManager = new ProductionManager(cwd, twd);
     console.log = logLocal;
 
     try {
@@ -105,6 +110,15 @@ function processCommandLine() {
         if(process.argv[2]) {
 
             switch(process.argv[2]) {
+
+                case GEN_PRODIMAGE:
+                    console.log("||** NOTICE: Production Image Generation In Progress");
+
+                    productionManager.generatePRODImage();
+
+                    logManager.close();
+                    rl.close();
+                    break;
 
                 case EXTRACTDATA:
                     console.log("||** NOTICE: Data Extraction In Progress");
@@ -150,6 +164,7 @@ function processCommandLine() {
 
                 case SEND: 
                 case PULL:
+                case CLEAN:
 
                     // This is kept alive by the client socket which will continually process the 
                     // tablet queue until it is exhausted when the process will terminate as there 
@@ -423,7 +438,7 @@ function readIPs() {
 function resultCallback(msg:Buffer): void {
 
     let found:boolean    = false;
-    let timestamp:string = timeStamp();
+    let timestamp:string = timeStamp(new Date());
     let msgstr:string    = msg.toString().toLowerCase();
 
     try {
@@ -468,10 +483,8 @@ function resultCallback(msg:Buffer): void {
 }
 
 
-function timeStamp() {
+export function timeStamp(now:Date) {
 
-    // Create a date object with the current time
-    var now = new Date();
     var timestr:Array<string> = new Array<string>();
 
     // Create an array with the current month, day and time
@@ -501,7 +514,7 @@ function timeStamp() {
     }
 
     // Return the formatted string
-    return `${date.join("/")}  ${timestr.join(":")} ${suffix}`;
+    return `${date.join(":")}  ${timestr.join(":")} ${suffix}`;
 }
 
 function load_IpLibrary() {

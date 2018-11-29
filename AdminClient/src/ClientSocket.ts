@@ -247,6 +247,10 @@ export class ClientSocket
                         this.wstream     = fs.createWriteStream(path.join(this.cwd, this.recvPath));
                         break;
 
+                    case "CLEAN":
+                        this.clientState = ClientSocket.COMMAND_WAIT;
+                        break;
+
                 }
 
                 // Write simple acknowledgement

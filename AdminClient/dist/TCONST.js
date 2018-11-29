@@ -24,5 +24,6 @@ TCONST.TUTOR_RQ = "RQMOD";
 TCONST.TUTOR_INTRO = "INTRO";
 TCONST.TUTOR_TED = "TED";
 TCONST.JSONTYPE = ".json";
+TCONST.DATA_OUTPUT = "data_output.csv";
 exports.TCONST = TCONST;
 //# sourceMappingURL=TCONST.js.map

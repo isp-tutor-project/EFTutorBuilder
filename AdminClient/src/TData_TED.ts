@@ -28,41 +28,46 @@ export class TData_TED
 
         "dataDescr": [
 
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE1_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE1_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE1_START",  "dataValue":"", "sceneId":"SScene1", "dataSrc":"scene.SScene1.$seq|prop|complete", "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"SCENE1_END",    "dataValue":"", "sceneId":"SScene1", "dataSrc":"scene.SScene1.$seq|prop|complete", "dataConstr":"value|true"},
 
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE2_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SELECTED_AREA", "dataValue":"module.selectedArea|ontologyKey", "rawtime":"", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE2_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE9_START",  "dataValue":"", "sceneId":"SScene9", "dataSrc":"scene.SScene9.$seq|prop|complete", "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",  "dataValue":"value.ontologyKey", "sceneId":"SScene9", "dataSrc":"scene.SScene9.$seq|prop|Expt1_Q1", "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE9_END",    "dataValue":"", "sceneId":"SScene9", "dataSrc":"scene.SScene9.$seq|prop|complete", "dataConstr":"value|true"},
 
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE3_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SELECTED_TOPIC","dataValue":"module.selectedTopic|ontologyKey", "rawtime":"", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE3_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE9_START",  "dataValue":"", "sceneId":"SScene9", "dataSrc":"scene.SScene9.$seq|prop|complete", "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",  "dataValue":"value.name", "sceneId":"SScene9", "dataSrc":"scene.SScene9.$seq|prop|Expt1_Q1", "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE9_END",    "dataValue":"", "sceneId":"SScene9", "dataSrc":"scene.SScene9.$seq|prop|complete", "dataConstr":"value|true"},
 
-            {"Cond":"",  "dataName":"SCENE4_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene4", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"",  "dataName":"SCENE4_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene4", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE10_START",  "dataValue":"", "sceneId":"SScene10",           "dataSrc":"scene.SScene10.$seq|prop|complete",         "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",       "dataValue":"value.name", "sceneId":"SScene10", "dataSrc":"scene.SScene10.$seq|prop|Expt1_Q2_RIGHT",   "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE10_END",    "dataValue":"", "sceneId":"SScene10",           "dataSrc":"scene.SScene10.$seq|prop|complete",         "dataConstr":"value|true"},
 
-            {"Cond":"",  "dataName":"SCENE5_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene5", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"",  "dataName":"SCENE5_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene5", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE11_START",  "dataValue":"", "sceneId":"SScene11",           "dataSrc":"scene.SScene11.$seq|prop|complete",         "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",       "dataValue":"value.name", "sceneId":"SScene11", "dataSrc":"scene.SScene11.$seq|prop|Expt1_Q3_WRONG",   "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE11_END",    "dataValue":"", "sceneId":"SScene11",           "dataSrc":"scene.SScene11.$seq|prop|complete",         "dataConstr":"value|true"},
 
-            {"Cond":"",  "dataName":"SCENE5a_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene5a", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"",  "dataName":"SCENE5a_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene5a", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE12a_START",  "dataValue":"", "sceneId":"SScene12a",           "dataSrc":"scene.SScene12a.$seq|prop|complete",      "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",        "dataValue":"value.name", "sceneId":"SScene12a", "dataSrc":"scene.SScene12a.$seq|prop|Expt1_Q4",      "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE12a_END",    "dataValue":"", "sceneId":"SScene12a",           "dataSrc":"scene.SScene12a.$seq|prop|complete",      "dataConstr":"value|true"},
 
-            {"Cond":"",  "dataName":"SCENE7_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene7", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"",  "dataName":"SCENE7_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene7", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE13_START",  "dataValue":"", "sceneId":"SScene13",           "dataSrc":"scene.SScene13.$seq|prop|complete",            "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",        "dataValue":"value.name", "sceneId":"SScene13", "dataSrc":"scene.SScene13.$seq|prop|Expt1_Q4A_RIGHT",    "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE13_END",    "dataValue":"", "sceneId":"SScene13",           "dataSrc":"scene.SScene13.$seq|prop|complete",            "dataConstr":"value|true"},
 
-            {"Cond":"",  "dataName":"SCENE8_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene8", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"",  "dataName":"SCENE8_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene8", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            {"Cond":"",  "dataName":"SCENE14_START",  "dataValue":"", "sceneId":"SScene14",           "dataSrc":"scene.SScene14.$seq|prop|complete",            "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",        "dataValue":"value.name", "sceneId":"SScene14", "dataSrc":"scene.SScene14.$seq|prop|Expt1_Q4B_WRONG",    "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE14_END",    "dataValue":"", "sceneId":"SScene14",           "dataSrc":"scene.SScene14.$seq|prop|complete",            "dataConstr":"value|true"},
 
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE9_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene9", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SELECTED_TOPIC","dataValue":"module.selectedVariable|ontologyKey", "rawtime":"", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE9_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene9", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            // This data point does not exist in Beta1
+            // 
+            {"Cond":"",  "dataName":"SCENE17_START",  "dataValue":"", "sceneId":"SScene17",           "dataSrc":"scene.SScene17.$seq|prop|complete",            "dataConstr":"value|false"},
+            {"Cond":"",  "dataName":"Expt1_Q1",        "dataValue":"value.name", "sceneId":"SScene17", "dataSrc":"scene.SScene17.$seq|prop|Expt1_Q5",           "dataConstr":""},
+            {"Cond":"",  "dataName":"SCENE17_END",    "dataValue":"", "sceneId":"SScene17",           "dataSrc":"scene.SScene17.$seq|prop|complete",            "dataConstr":"value|true"},
 
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE10_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene10", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE10_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene10", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
+            
 
-            {"Cond":"",  "dataName":"SCENE11_START",  "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene11", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
-            {"Cond":"",  "dataName":"SCENE11_END",    "dataValue":"", "rawtime":"scene.$seq.time", "sceneId":"SScene11", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"}
+
         ]
     }
 }

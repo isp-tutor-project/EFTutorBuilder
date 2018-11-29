@@ -6,6 +6,38 @@
     "configurations": [
 
         {
+            "name":"MAKE PRODIMAGE",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "GEN_PRODIMAGE"
+			]
+        },
+
+        {
+            "name":"CLEAN DATA",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "CLEAN","CLEAN_DATA"
+			]
+        },
+
+        {
             "name":"UNPACK DATA",
             "sourceMaps": true,
             "type": "node",
@@ -102,7 +134,7 @@
         },
 
         {
-            "name":"Debug PULL",
+            "name":"PULL DATA",
             "sourceMaps": true,
             "type": "node",
             "request": "launch",
@@ -113,7 +145,7 @@
                 "${workspaceFolder}/dist/*.js"
             ],
             "args": [
-                "PULL","pull_test_setup"
+                "PULL","pull_DATA"
 			]
         },
 
@@ -226,6 +258,22 @@
             ],
             "args": [
                 "SEND","INSTALL_tutor"
+			]
+        },
+
+        {
+            "name":"PARTIAL_INSTALLER",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","INSTALL_part"
 			]
         },
 

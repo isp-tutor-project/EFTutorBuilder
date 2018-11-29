@@ -1,0 +1,10 @@
+{
+    "commands": [
+        {
+            "command": "CLEAN",
+            "to": "/EdForge_DATA/"
+        }
+    ],
+    "targets": "all",
+    "tabletIDs": []
+}

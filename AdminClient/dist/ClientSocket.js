@@ -145,6 +145,9 @@ class ClientSocket {
                         this.clientState = ClientSocket.COMMAND_RECVSTART;
                         this.wstream = fs.createWriteStream(path.join(this.cwd, this.recvPath));
                         break;
+                    case "CLEAN":
+                        this.clientState = ClientSocket.COMMAND_WAIT;
+                        break;
                 }
                 // Write simple acknowledgement
                 this.client.write("ACK");

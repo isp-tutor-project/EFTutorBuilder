@@ -51,7 +51,6 @@ export interface dataPacket {
     // Output value
     "dataName":string;
     "dataValue":string;
-    "rawtime":string;
 
     // Data key - 
     "sceneId":string;
