@@ -1,7 +1,9 @@
 {
 	"tablets": [
 		{
-			"Id": 1,
+			"netId": 1,
+			"netType": "wifi",
+			"tabletId": 1,
 			"mac": "4c:ed:fb:05:15:c5",
 			"ip": "10.0.0.191",
 			"owner": "lab",
@@ -9,7 +11,9 @@
 			"lastseen": "11/13/2018  12:47:33 PM"
 		},
 		{
-			"Id": 2,
+			"netId": 2,
+			"netType": "wifi",
+			"tabletId": 2,
 			"mac": "4c:ed:fb:10:20:2c",
 			"ip": "10.0.0.108",
 			"owner": "lab",
@@ -17,7 +21,9 @@
 			"lastseen": "11/13/2018  12:47:46 PM"
 		},
 		{
-			"Id": 3,
+			"netId": 3,
+			"netType": "wifi",
+			"tabletId": 3,
 			"mac": "4c:ed:fb:05:15:db",
 			"ip": "10.0.0.137",
 			"owner": "lab",
@@ -25,7 +31,9 @@
 			"lastseen": "11/9/2018  7:28:31 AM"
 		},
 		{
-			"Id": 4,
+			"netId": 4,
+			"netType": "wifi",
+			"tabletId": 4,
 			"mac": "4c:ed:fb:10:1f:ee",
 			"ip": "10.0.0.157",
 			"owner": "lab",
@@ -33,7 +41,9 @@
 			"lastseen": "11/13/2018  12:48:14 PM"
 		},
 		{
-			"Id": 5,
+			"netId": 5,
+			"netType": "wifi",
+			"tabletId": 5,
 			"mac": "4c:ed:fb:10:1f:f8",
 			"ip": "10.0.0.190",
 			"owner": "lab",
@@ -41,7 +51,9 @@
 			"lastseen": "11/13/2018  12:52:50 PM"
 		},
 		{
-			"Id": 6,
+			"netId": 6,
+			"netType": "wifi",
+			"tabletId": 6,
 			"mac": "4c:ed:fb:10:20:0a",
 			"ip": "10.0.0.146",
 			"owner": "lab",
@@ -49,7 +61,9 @@
 			"lastseen": "11/13/2018  12:47:41 PM"
 		},
 		{
-			"Id": 7,
+			"netId": 7,
+			"netType": "wifi",
+			"tabletId": 7,
 			"mac": "4c:ed:fb:10:1f:f0",
 			"ip": "10.0.0.143",
 			"owner": "lab",
@@ -57,7 +71,9 @@
 			"lastseen": "11/9/2018  7:25:41 AM"
 		},
 		{
-			"Id": 8,
+			"netId": 8,
+			"netType": "wifi",
+			"tabletId": 8,
 			"mac": "4c:ed:fb:10:20:30",
 			"ip": "10.0.0.180",
 			"owner": "lab",
@@ -65,7 +81,9 @@
 			"lastseen": "11/13/2018  12:50:25 PM"
 		},
 		{
-			"Id": 9,
+			"netId": 9,
+			"netType": "wifi",
+			"tabletId": 9,
 			"mac": "4c:ed:fb:10:20:04",
 			"ip": "10.0.0.188",
 			"owner": "lab",
@@ -73,7 +91,9 @@
 			"lastseen": "11/13/2018  12:45:30 PM"
 		},
 		{
-			"Id": 10,
+			"netId": 10,
+			"netType": "wifi",
+			"tabletId": 10,
 			"mac": "4c:ed:fb:10:20:36",
 			"ip": "10.0.0.138",
 			"owner": "lab",
@@ -81,7 +101,9 @@
 			"lastseen": "11/13/2018  12:42:03 PM"
 		},
 		{
-			"Id": 11,
+			"netId": 11,
+			"netType": "wifi",
+			"tabletId": 11,
 			"mac": "4c:ed:fb:05:15:e3",
 			"ip": "10.0.0.181",
 			"owner": "lab",
@@ -89,7 +111,9 @@
 			"lastseen": "11/13/2018  12:47:31 PM"
 		},
 		{
-			"Id": 12,
+			"netId": 12,
+			"netType": "wifi",
+			"tabletId": 12,
 			"mac": "4c:ed:fb:05:15:d9",
 			"ip": "10.0.0.151",
 			"owner": "lab",
@@ -97,7 +121,9 @@
 			"lastseen": "11/13/2018  12:50:59 PM"
 		},
 		{
-			"Id": 13,
+			"netId": 13,
+			"netType": "wifi",
+			"tabletId": 13,
 			"mac": "4c:ed:fb:05:15:dd",
 			"ip": "10.0.0.124",
 			"owner": "lab",
@@ -105,7 +131,9 @@
 			"lastseen": "11/9/2018  7:26:34 AM"
 		},
 		{
-			"Id": 14,
+			"netId": 14,
+			"netType": "wifi",
+			"tabletId": 14,
 			"mac": "4c:ed:fb:10:21:c6",
 			"ip": "10.0.0.123",
 			"owner": "lab",
@@ -113,7 +141,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 15,
+			"netId": 15,
+			"netType": "wifi",
+			"tabletId": 15,
 			"mac": "4c:ed:fb:10:1f:fa",
 			"ip": "10.0.0.173",
 			"owner": "lab",
@@ -121,7 +151,9 @@
 			"lastseen": "11/13/2018  12:50:34 PM"
 		},
 		{
-			"Id": 16,
+			"netId": 16,
+			"netType": "wifi",
+			"tabletId": 16,
 			"mac": "0c:9d:92:31:bd:0c",
 			"ip": "10.0.0.145",
 			"owner": "lab",
@@ -129,7 +161,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 17,
+			"netId": 17,
+			"netType": "wifi",
+			"tabletId": 17,
 			"mac": "b0:6e:bf:13:86:5b",
 			"ip": "10.0.0.153",
 			"owner": "lab",
@@ -137,7 +171,9 @@
 			"lastseen": "11/9/2018  9:03:14 AM"
 		},
 		{
-			"Id": 18,
+			"netId": 18,
+			"netType": "wifi",
+			"tabletId": 18,
 			"mac": "0c:9d:92:31:bd:88",
 			"ip": "10.0.0.177",
 			"owner": "lab",
@@ -145,7 +181,9 @@
 			"lastseen": "11/9/2018  7:25:03 AM"
 		},
 		{
-			"Id": 19,
+			"netId": 19,
+			"netType": "wifi",
+			"tabletId": 19,
 			"mac": "0c:9d:92:31:bd:8a",
 			"ip": "10.0.0.163",
 			"owner": "lab",
@@ -153,7 +191,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 20,
+			"netId": 20,
+			"netType": "wifi",
+			"tabletId": 20,
 			"mac": "0c:9d:92:31:bc:b8",
 			"ip": "10.0.0.148",
 			"owner": "lab",
@@ -161,7 +201,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 21,
+			"netId": 21,
+			"netType": "wifi",
+			"tabletId": 21,
 			"mac": "0c:9d:92:31:bd:a6",
 			"ip": "10.0.0.167",
 			"owner": "lab",
@@ -169,7 +211,9 @@
 			"lastseen": "11/14/2018  12:52:38 PM"
 		},
 		{
-			"Id": 22,
+			"netId": 22,
+			"netType": "wifi",
+			"tabletId": 22,
 			"mac": "0c:9d:92:31:bd:b2",
 			"ip": "10.0.0.183",
 			"owner": "lab",
@@ -177,7 +221,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 23,
+			"netId": 23,
+			"netType": "wifi",
+			"tabletId": 23,
 			"mac": "0c:9d:92:31:bd:b0",
 			"ip": "10.0.0.197",
 			"owner": "lab",
@@ -185,7 +231,10 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 24,
+			"netId": 24,
+			"netType": "wifi",
+			"netType": "wifi",
+			"tabletId": 24,
 			"mac": "0c:9d:92:31:bd:ae",
 			"ip": "10.0.0.111",
 			"owner": "lab",
@@ -193,7 +242,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 25,
+			"netId": 25,
+			"netType": "wifi",
+			"tabletId": 25,
 			"mac": "0c:9d:92:31:bb:90",
 			"ip": "10.0.0.135",
 			"owner": "lab",
@@ -201,7 +252,9 @@
 			"lastseen": "11/13/2018  12:52:13 PM"
 		},
 		{
-			"Id": 26,
+			"netId": 26,
+			"netType": "wifi",
+			"tabletId": 26,
 			"mac": "0c:9d:92:31:bd:80",
 			"ip": "10.0.0.133",
 			"owner": "lab",
@@ -209,7 +262,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 27,
+			"netId": 27,
+			"netType": "wifi",
+			"tabletId": 27,
 			"mac": "0c:9d:92:31:bd:78",
 			"ip": "10.0.0.189",
 			"owner": "lab",
@@ -217,7 +272,9 @@
 			"lastseen": "11/14/2018  12:53:14 PM"
 		},
 		{
-			"Id": 28,
+			"netId": 28,
+			"netType": "wifi",
+			"tabletId": 28,
 			"mac": "0c:9d:92:31:bd:84",
 			"ip": "10.0.0.105",
 			"owner": "lab",
@@ -225,7 +282,9 @@
 			"lastseen": ""
 		},
 		{
-			"Id": 29,
+			"netId": 29,
+			"netType": "wifi",
+			"tabletId": 29,
 			"mac": "0c:9d:92:31:bd:82",
 			"ip": "10.0.0.119",
 			"owner": "lab",
@@ -233,7 +292,9 @@
 			"lastseen": "11/13/2018  12:51:09 PM"
 		},
 		{
-			"Id": 30,
+			"netId": 30,
+			"netType": "wifi",
+			"tabletId": 30,
 			"mac": "0c:9d:92:31:bd:6a",
 			"ip": "10.0.0.187",
 			"owner": "lab",
@@ -242,7 +303,9 @@
 			"failed": true
 		},
 		{
-			"Id": 31,
+			"netId": 31,
+			"netType": "wifi",
+			"tabletId": 31,
 			"mac": "b0:6e:bf:20:13:2e",
 			"ip": "10.0.0.108",
 			"owner": "kevin",
@@ -251,7 +314,9 @@
 			"failed": false
 		},
 		{
-			"Id": 32,
+			"netId": 32,
+			"netType": "wifi",
+			"tabletId": 32,
 			"mac": "3c:8c:f8:ff:36:16",
 			"ip": "10.0.0.101",
 			"owner": "lab",
@@ -259,20 +324,383 @@
 			"lastseen": "11/15/2018  5:39:34 PM"
 		},
 		{
-			"Id": 33,
+			"netId": 33,
+			"netType": "wifi",
+			"tabletId": 33,
 			"mac": "80:a5:89:53:86:4f",
 			"ip": "10.0.0.102",
 			"owner": "lab",
 			"created": "11/15/2018  5:39:34 PM",
 			"lastseen": "11/15/2018  5:39:34 PM"
 		},
+
+
 		{
-			"Id": 34,
+			"netId": 101,
+			"netType": "ethernet",
+			"tabletId": 1,
+			"mac": "4c:ed:fb:05:15:c5",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  5:15:01 AM",
+			"lastseen": "11/13/2018  12:47:33 PM"
+		},
+		{
+			"netId": 102,
+			"netType": "ethernet",
+			"tabletId": 2,
+			"mac": "4c:ed:fb:10:20:2c",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:29:09 AM",
+			"lastseen": "11/13/2018  12:47:46 PM"
+		},
+		{
+			"netId": 103,
+			"netType": "ethernet",
+			"tabletId": 3,
+			"mac": "4c:ed:fb:05:15:db",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:28:31 AM",
+			"lastseen": "11/9/2018  7:28:31 AM"
+		},
+		{
+			"netId": 104,
+			"netType": "ethernet",
+			"tabletId": 4,
+			"mac": "4c:ed:fb:10:1f:ee",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:38:24 AM",
+			"lastseen": "11/13/2018  12:48:14 PM"
+		},
+		{
+			"netId": 105,
+			"netType": "ethernet",
+			"tabletId": 5,
+			"mac": "4c:ed:fb:10:1f:f8",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:31:28 AM",
+			"lastseen": "11/13/2018  12:52:50 PM"
+		},
+		{
+			"netId": 106,
+			"netType": "ethernet",
+			"tabletId": 6,
+			"mac": "4c:ed:fb:10:20:0a",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  6:50:48 AM",
+			"lastseen": "11/13/2018  12:47:41 PM"
+		},
+		{
+			"netId": 107,
+			"netType": "ethernet",
+			"tabletId": 7,
+			"mac": "4c:ed:fb:10:1f:f0",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  5:21:24 AM",
+			"lastseen": "11/9/2018  7:25:41 AM"
+		},
+		{
+			"netId": 108,
+			"netType": "ethernet",
+			"tabletId": 8,
+			"mac": "4c:ed:fb:10:20:30",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:16:22 AM",
+			"lastseen": "11/13/2018  12:50:25 PM"
+		},
+		{
+			"netId": 109,
+			"netType": "ethernet",
+			"tabletId": 9,
+			"mac": "4c:ed:fb:10:20:04",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:29:42 AM",
+			"lastseen": "11/13/2018  12:45:30 PM"
+		},
+		{
+			"netId": 110,
+			"netType": "ethernet",
+			"tabletId": 10,
+			"mac": "4c:ed:fb:10:20:36",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:30:25 AM",
+			"lastseen": "11/13/2018  12:42:03 PM"
+		},
+		{
+			"netId": 111,
+			"netType": "ethernet",
+			"tabletId": 11,
+			"mac": "4c:ed:fb:05:15:e3",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:22:45 AM",
+			"lastseen": "11/13/2018  12:47:31 PM"
+		},
+		{
+			"netId": 112,
+			"netType": "ethernet",
+			"tabletId": 12,
+			"mac": "4c:ed:fb:05:15:d9",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:27:15 AM",
+			"lastseen": "11/13/2018  12:50:59 PM"
+		},
+		{
+			"netId": 113,
+			"netType": "ethernet",
+			"tabletId": 13,
+			"mac": "4c:ed:fb:05:15:dd",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:26:34 AM",
+			"lastseen": "11/9/2018  7:26:34 AM"
+		},
+		{
+			"netId": 114,
+			"netType": "ethernet",
+			"tabletId": 14,
+			"mac": "4c:ed:fb:10:21:c6",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 115,
+			"netType": "ethernet",
+			"tabletId": 15,
+			"mac": "4c:ed:fb:10:1f:fa",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  7:32:11 AM",
+			"lastseen": "11/13/2018  12:50:34 PM"
+		},
+		{
+			"netId": 116,
+			"netType": "ethernet",
+			"tabletId": 16,
+			"mac": "0c:9d:92:31:bd:0c",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 117,
+			"netType": "ethernet",
+			"tabletId": 17,
+			"mac": "b0:6e:bf:13:86:5b",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  8:47:14 AM",
+			"lastseen": "11/9/2018  9:03:14 AM"
+		},
+		{
+			"netId": 118,
+			"netType": "ethernet",
+			"tabletId": 18,
+			"mac": "0c:9d:92:31:bd:88",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/9/2018  5:12:17 AM",
+			"lastseen": "11/9/2018  7:25:03 AM"
+		},
+		{
+			"netId": 119,
+			"netType": "ethernet",
+			"tabletId": 19,
+			"mac": "0c:9d:92:31:bd:8a",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 120,
+			"netType": "ethernet",
+			"tabletId": 20,
+			"mac": "0c:9d:92:31:bc:b8",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 121,
+			"netType": "ethernet",
+			"tabletId": 21,
+			"mac": "0c:9d:92:31:bd:a6",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/14/2018  12:52:38 PM",
+			"lastseen": "11/14/2018  12:52:38 PM"
+		},
+		{
+			"netId": 122,
+			"netType": "ethernet",
+			"tabletId": 22,
+			"mac": "0c:9d:92:31:bd:b2",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 123,
+			"netType": "ethernet",
+			"tabletId": 23,
+			"mac": "0c:9d:92:31:bd:b0",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 124,
+			"netType": "ethernet",
+			"tabletId": 24,
+			"mac": "0c:9d:92:31:bd:ae",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 125,
+			"netType": "ethernet",
+			"tabletId": 25,
+			"mac": "0c:9d:92:31:bb:90",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/12/2018  10:29:41 AM",
+			"lastseen": "11/13/2018  12:52:13 PM"
+		},
+		{
+			"netId": 126,
+			"netType": "ethernet",
+			"tabletId": 26,
+			"mac": "0c:9d:92:31:bd:80",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 127,
+			"netType": "ethernet",
+			"tabletId": 27,
 			"mac": "0c:9d:92:31:bd:78",
 			"ip": "10.0.0.149",
 			"owner": "lab",
 			"created": "11/14/2018  12:53:14 PM",
 			"lastseen": "11/14/2018  12:53:14 PM"
+		},
+		{
+			"netId": 128,
+			"netType": "ethernet",
+			"tabletId": 28,
+			"mac": "0c:9d:92:31:bd:84",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "",
+			"lastseen": ""
+		},
+		{
+			"netId": 129,
+			"netType": "ethernet",
+			"tabletId": 29,
+			"mac": "0c:9d:92:31:bd:82",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/13/2018  12:51:09 PM",
+			"lastseen": "11/13/2018  12:51:09 PM"
+		},
+		{
+			"netId": 130,
+			"netType": "ethernet",
+			"tabletId": 30,
+			"mac": "0c:9d:92:31:bd:6a",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/13/2018  12:49:36 PM",
+			"lastseen": "11/13/2018  12:49:36 PM",
+			"failed": true
+		},
+		{
+			"netId": 131,
+			"netType": "ethernet",
+			"tabletId": 31,
+			"mac": "b0:6e:bf:20:13:2e",
+			"ip": "10.0.0.149",
+			"owner": "kevin",
+			"created": "11/5/2018  6:00:38 PM",
+			"lastseen": "11/9/2018  5:11:46 AM",
+			"failed": false
+		},
+		{
+			"netId": 132,
+			"netType": "ethernet",
+			"tabletId": 32,
+			"mac": "3c:8c:f8:ff:36:16",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/15/2018  5:39:34 PM",
+			"lastseen": "11/15/2018  5:39:34 PM"
+		},
+		{
+			"netId": 133,
+			"netType": "ethernet",
+			"tabletId": 33,
+			"mac": "80:a5:89:53:86:4f",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/15/2018  5:39:34 PM",
+			"lastseen": "11/15/2018  5:39:34 PM"
+		},
+		{
+			"netId": 134,
+			"netType": "ethernet",
+			"tabletId": 34,
+			"mac": "0c:9d:92:31:bd:78",
+			"ip": "10.0.0.149",
+			"owner": "lab",
+			"created": "11/14/2018  12:53:14 PM",
+			"lastseen": "11/14/2018  12:53:14 PM"
+		},
+
+        
+		{
+			"netId": 201,
+			"netType": "ethernet",
+			"tabletId": 1,
+			"mac": "0c:9d:92:31:bd:78",
+			"ip": "10.0.0.111",
+			"owner": "lab",
+			"created": "11/14/2018  12:53:14 PM",
+			"lastseen": "11/14/2018  12:53:14 PM"
+        },
+		{
+			"netId": 202,
+			"netType": "ethernet",
+			"tabletId": 2,
+			"mac": "0c:9d:92:31:bd:78",
+			"ip": "10.0.0.111",
+			"owner": "lab",
+			"created": "11/14/2018  12:53:14 PM",
+			"lastseen": "11/14/2018  12:53:14 PM"
 		}
+        
+
 	]
 }
+

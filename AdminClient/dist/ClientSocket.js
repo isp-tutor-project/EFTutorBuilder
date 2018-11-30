@@ -77,16 +77,34 @@ class ClientSocket {
         return data;
     }
     validatePath(root, pathArr) {
+        let result = 0;
         for (let i1 = 0; i1 < pathArr.length; i1++) {
             root = path.join(root, pathArr[i1]);
             try {
-                if (!fs.existsSync(root))
+                if (!fs.existsSync(root)) {
+                    result++;
                     fs.mkdirSync(root);
+                }
             }
             catch (e) {
                 fs.mkdirSync(root);
             }
         }
+        return result;
+    }
+    buildTargetPath(command) {
+        let result = 0;
+        let pathparts = command.to.split("/");
+        let tablPart = "tablet_" + command.tabletId;
+        let pathArr = pathparts.slice(0, pathparts.length - 2);
+        pathArr.push(tablPart);
+        // If the folder already exists we have processed it previously 
+        // User should check id
+        // 
+        result = this.validatePath(this.cwd, pathArr);
+        let filePart = pathparts.slice(pathparts.length - 1).join();
+        this.recvPath = path.join(pathArr.join("/"), filePart);
+        return result;
     }
     onData(data) {
         let arr = new Uint32Array(1);
@@ -137,9 +155,8 @@ class ClientSocket {
                     case "PULL":
                         let pathparts = this.command.to.split("/");
                         let tablPart = "tablet_" + this.command.tabletId;
-                        let pathArr = pathparts.slice(0, pathparts.length - 1);
+                        let pathArr = pathparts.slice(0, pathparts.length - 2);
                         pathArr.push(tablPart);
-                        this.validatePath(this.cwd, pathArr);
                         let filePart = pathparts.slice(pathparts.length - 1).join();
                         this.recvPath = path.join(pathArr.join("/"), filePart);
                         this.clientState = ClientSocket.COMMAND_RECVSTART;

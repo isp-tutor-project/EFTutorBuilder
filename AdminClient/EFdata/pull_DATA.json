@@ -3,7 +3,7 @@
         {
             "command": "PULL",
             "from": "/EdForge_DATA/",
-            "to": "EdForge_DATA/Alldata.zip",
+            "to": "EdForge_DATA/{tabletid}/Alldata.zip",
             "compress": true,
             "extract": false,
             "recurse": true

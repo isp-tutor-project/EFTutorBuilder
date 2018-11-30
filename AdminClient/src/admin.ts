@@ -29,6 +29,8 @@ import { LogManager }   from './LogManager';
 import { cpus } from 'os';
 import { FSWatcher } from 'fs';
 import { ProductionManager } from './ProdManager';
+import { ipData } from './IAcctData';
+import { TCONST } from './TCONST';
 
 const UNPACKDATA:string     = "UNPACKDATA";
 const MERGEACCTS:string     = "MERGEACCTS";
@@ -62,7 +64,7 @@ let dataManager:DataManager;
 let productionManager:ProductionManager;
 
 let ipLib:any;
-let tabletList:any[];
+let tabletList:ipData[];
 let tabletCurr:number;
 let deviceQueue:number[] = [];
 
@@ -173,7 +175,7 @@ function processCommandLine() {
                     if(process.argv[3]) {
 
                         load_CmdSet(process.argv[3]);
-                        queueDevices();
+
                         processNextDevice(true);
 
                         success = true;
@@ -350,7 +352,7 @@ function queueDevices() {
         for(let i1 = tdev.length-1; i1 >= 0 ; i1--) {
 
             for(let i2 = 0 ; i2 < tabletList.length ; i2++) {
-                if(tdev[i1] == tabletList[i2].Id) {
+                if(tdev[i1] == tabletList[i2].tabletId) {
 
                     deviceQueue.push(i2);
                 }
@@ -360,6 +362,12 @@ function queueDevices() {
 
     console.log(`${deviceQueue.length} devices queued for processing:`);
 }
+
+
+
+
+
+
 
 
 function sendCommandSet(tabletNdx:number) {
@@ -374,7 +382,7 @@ function sendCommandSet(tabletNdx:number) {
 
         client.connect(12007, tabletList[tabletNdx].ip); 
 
-        let Id = tabletList[tabletNdx].Id;
+        let Id = tabletList[tabletNdx].tabletId;
         let ip = tabletList[tabletNdx].ip;
 
         console.log(`Processing Device ID: ${Id} :: ${ip}`);
@@ -383,11 +391,23 @@ function sendCommandSet(tabletNdx:number) {
         // 
         for(let com= 0 ; com < comSet.commands.length ; com++) {
 
+            let commandOkay:boolean = true;
+
             comSet.commands[com].tabletId = Id;
 
-            let command:string = JSON.stringify(comSet.commands[com], null, '\t');
+            if(comSet.commands[com].command === "PULL") {
 
-            client.pushCommand(command);
+                if(client.buildTargetPath(comSet.commands[com]) === TCONST.ISEXTANT) {
+                    console.log("ERROR: Tablet Id Duplicated - check ID");
+                    commandOkay = false;
+                }
+            }
+
+            if(commandOkay) {
+                let command:string = JSON.stringify(comSet.commands[com], null, '\t');
+
+                client.pushCommand(command);
+            }
         }    
     } catch(e) {
 
@@ -395,30 +415,50 @@ function sendCommandSet(tabletNdx:number) {
     }        
 }
 
+function findTabletByNetID(index:number) {
+
+    let resultNdx = -1;
+
+    for(let i1 = 0 ; i1 < tabletList.length ; i1++) {
+
+        if(tabletList[i1].netId === index) {
+
+            resultNdx = i1;
+            break;
+        }
+    }
+
+    return resultNdx;
+}
 
 // Callback from client socket
 function processNextDevice(success:boolean) {
 
-    let nextTablet:number;
+    let netIndex:number;
+    let tabletNdx:number;
+
     let inputError:boolean = false;
 
     do {
 
         rl.question('\n\n***********************************************\nEnter TabletID to process: > ', (answer:string) => {
 
-            nextTablet = parseInt(answer) - 1;
+            netIndex = parseInt(answer);
 
-            if(isNaN(nextTablet)) {
+            if(isNaN(netIndex)) {
 
                 setTimeout(processNextDevice, 0, false );
             }
             else {
-                if((nextTablet >= 0) && (nextTablet < tabletList.length)) {
+                tabletNdx = findTabletByNetID(netIndex);
 
-                    sendCommandSet(nextTablet);    
+                if(tabletNdx > 0) {
+
+                    sendCommandSet(tabletNdx);    
                     inputError = false;
                 }
                 else {
+                    console.log("ERROR: Device not Found.");                    
                     setTimeout(processNextDevice, 0, false );
                 }
             }
@@ -426,6 +466,7 @@ function processNextDevice(success:boolean) {
 
     }while(inputError)
 }
+
 
 function readIPs() {
 
@@ -464,14 +505,14 @@ function resultCallback(msg:Buffer): void {
         }
 
         if(!found) {
-            tabletList.push({
-                "Id": tabletList.length+1,
-                "mac": mac,
-                "ip": ip,
-                "owner": "lab",
-                "created": timestamp,
-                "lastseen": timestamp
-            });
+            // tabletList.push({
+            //     "tabletId": tabletList.length+1,
+            //     "mac": mac,
+            //     "ip": ip,
+            //     "owner": "lab",
+            //     "created": timestamp,
+            //     "lastseen": timestamp
+            // });
             console.log("Added New: " + msgstr);
         }
 

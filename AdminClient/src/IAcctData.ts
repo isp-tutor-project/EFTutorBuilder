@@ -44,6 +44,7 @@ export interface TutorData {
     "dataDescr": dataPacket[];
 }
 
+
 export interface dataPacket {
 
     "Cond":string;
@@ -67,3 +68,18 @@ export interface sceneCache  {
     "iteration":number,
     "sceneData": any   
 }
+
+
+export interface ipData {
+
+    "netId": number,
+    "netType": string,
+    "tabletId": number,
+    "mac": string,
+    "ip": string,
+    "owner": string,
+    "created": string,
+    "lastseen": String,
+    "failed":boolean
+}
+

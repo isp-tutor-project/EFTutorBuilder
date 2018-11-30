@@ -55,7 +55,8 @@ export class ClientSocket
     private static readonly COMMAND_SENDACK:string   = "STATE9";    
 
     private static readonly COMMAND_STALLED:string   = "STATE10";
-    
+        
+
     private wstream:WriteStream;
     private readDesc:number;
     private callback:Function;  // processNextDevice
@@ -145,22 +146,47 @@ export class ClientSocket
     }
 
 
-    private validatePath(root:string, pathArr:string[]) {
+    private validatePath(root:string, pathArr:string[]) : number {
         
+        let result:number = 0;
+
         for(let i1 = 0 ; i1 < pathArr.length ; i1++) {
 
             root = path.join(root, pathArr[i1]);
             
             try {
-                if(!fs.existsSync(root))
-                            fs.mkdirSync(root);
+                if(!fs.existsSync(root)) {
+                    result++;
+                    fs.mkdirSync(root);
+                }
             }
             catch(e) {                
                 fs.mkdirSync(root);
             }    
         }
+
+        return result;
     }
 
+    public buildTargetPath(command:CEF_Command) : number {
+
+        let result:number = 0;
+
+        let pathparts:string[] = command.to.split("/");
+        let tablPart = "tablet_"+ command.tabletId;
+        let pathArr:string[] = pathparts.slice(0,pathparts.length - 2);
+        pathArr.push(tablPart);
+
+        // If the folder already exists we have processed it previously 
+        // User should check id
+        // 
+        result = this.validatePath(this.cwd, pathArr);
+            
+        let filePart = pathparts.slice(pathparts.length - 1).join();
+        this.recvPath = path.join(pathArr.join("/"), filePart);
+
+        return result;
+    }
 
     private onData(data:any) : void  {    
 
@@ -222,7 +248,7 @@ export class ClientSocket
 
                     case "PUSH":
                     case "INSTALL":
-
+ 
                         this.chunk = Buffer.alloc(1024);    
                         this.bytesAvail = this.command.size;
                         this.bytesSent  = 0;
@@ -235,10 +261,8 @@ export class ClientSocket
                     case "PULL":
                         let pathparts:string[] = this.command.to.split("/");
                         let tablPart = "tablet_"+this.command.tabletId;
-                        let pathArr:string[] = pathparts.slice(0,pathparts.length - 1);
+                        let pathArr:string[] = pathparts.slice(0,pathparts.length - 2);
                         pathArr.push(tablPart);
-
-                        this.validatePath(this.cwd, pathArr);
 
                         let filePart = pathparts.slice(pathparts.length - 1).join();
                         this.recvPath = path.join(pathArr.join("/"), filePart);

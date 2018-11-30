@@ -30,4 +30,6 @@ export class TCONST
     public static readonly JSONTYPE:string            = ".json";    
     public static readonly DATA_OUTPUT:string         = "data_output.csv";    
 
+    public static readonly ISEXTANT:number   = 0;
+
 }

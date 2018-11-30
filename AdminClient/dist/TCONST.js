@@ -25,5 +25,6 @@ TCONST.TUTOR_INTRO = "INTRO";
 TCONST.TUTOR_TED = "TED";
 TCONST.JSONTYPE = ".json";
 TCONST.DATA_OUTPUT = "data_output.csv";
+TCONST.ISEXTANT = 0;
 exports.TCONST = TCONST;
 //# sourceMappingURL=TCONST.js.map
