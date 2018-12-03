@@ -1,9 +1,5 @@
 {
-    "commands": [
-        {
-            "command": "CLEAN",
-            "to": "/EdForge_DATA/"
-        },        
+    "commands": [            
         {
             "command": "INSTALL",
             "from": "/EFdata/EFhomeScreen.apk",

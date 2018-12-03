@@ -17,12 +17,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const path = require("path");
+const Utils_1 = require("./Utils");
 class LogManager {
     constructor(_cwd) {
         this.USER_DATA = "EdForge_USERDATA/";
         this.BUILDLOG = "build.log";
         this.MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         this.cwd = _cwd;
+        Utils_1.Utils.validatePath(this.cwd, this.USER_DATA);
         this.fd = fs.openSync(path.join(this.cwd, this.USER_DATA, this.BUILDLOG), "a");
         this.writeLog(this.timeStamp());
     }

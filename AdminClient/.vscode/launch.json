@@ -70,6 +70,22 @@
         },
 
         {
+            "name":"ASSIGN CONDITION",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "ASSIGN_COND"
+			]
+        },
+
+        {
             "name":"EXTRACT DATA",
             "sourceMaps": true,
             "type": "node",

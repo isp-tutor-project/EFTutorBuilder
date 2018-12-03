@@ -16,11 +16,12 @@ export interface login {
 
 export interface acctData {
 
-    "userName"      :string;    
-    "currTutorNdx"  :number;
-    "currScene"     :string;
-    "instructionSeq":string;
-    "tabletId"?     :string;
+    "userName"       :string;    
+    "currSessionNdx" :number;
+    "currTutorNdx"   :number;
+    "currScene"      :string;
+    "instructionSeq" :string;
+    "tabletId"?      :string;
 }    
 
 

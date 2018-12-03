@@ -18,6 +18,7 @@
 
 import fs   = require("fs");
 import path = require("path");
+import { Utils } from "./Utils";
 
 
 export class LogManager
@@ -35,6 +36,7 @@ export class LogManager
 
         this.cwd = _cwd;
 
+        Utils.validatePath(this.cwd, this.USER_DATA);
         this.fd = fs.openSync(path.join(this.cwd, this.USER_DATA, this.BUILDLOG), "a");
 
         this.writeLog(this.timeStamp());

@@ -17,15 +17,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require('fs');
 const path = require('path');
+const readline = require('readline');
 const AdmZip = require("adm-zip");
 const DataProcessor_1 = require("./DataProcessor");
 const TCONST_1 = require("./TCONST");
+const Utils_1 = require("./Utils");
 class DataManager {
     constructor(_cwd) {
         this.dataFolders = new Array();
         this.fileSource = {};
+        this.statedata = { "users": [] };
         this.TABLET_BASE = "tablet_";
-        this.ARCHIVE_FILENAME = "isp_userdata.zip";
+        this.ARCHIVE_FILENAME = "Alldata.zip";
         this.TUTORSTATE = "tutorstatedata.json";
         this.ACCT_FILENAME = "isp_userdata.json";
         this.GLOBALSTATE = "tutor_state.json";
@@ -48,6 +51,157 @@ class DataManager {
         this.tabletAcctXref = {};
         this.cwd = _cwd;
     }
+    // Unpack the alldata.zip for each tablet in the EdForge_ZIPDATA folder into the 
+    // EdForge_USERDATA folder.  This gives us all the user data in discrete folders.
+    // 
+    unpackData(src, dst) {
+        let srcPath = path.join(this.cwd, src);
+        let dstPath = path.join(this.cwd, dst);
+        try {
+            let files = fs.readdirSync(srcPath);
+            for (let folder of files) {
+                // If this looks like a tablet folder then process it
+                // 
+                if (folder.startsWith(this.TABLET_BASE)) {
+                    let _path = path.join(srcPath, folder);
+                    try {
+                        let stats = fs.statSync(_path);
+                        // If it is a folder check it for user data
+                        // 
+                        if (stats.isDirectory()) {
+                            this.unpackTabletData(folder, _path, dstPath);
+                        }
+                    }
+                    catch (error) {
+                        console.log("Error = " + error);
+                    }
+                }
+            }
+        }
+        catch (error) {
+            console.log("Error = " + error);
+        }
+        return this.dataFolders;
+    }
+    assignInstruction(csvName) {
+        let srcPath = path.join(this.cwd, this.USER_DATA, csvName);
+        let count = 0;
+        let username;
+        this.loadMergedAccts();
+        this.statedata = { "users": [] };
+        var lineReader = readline.createInterface({
+            input: require('fs').createReadStream(srcPath),
+            crlfDelay: Infinity
+        });
+        lineReader.on('line', (line) => {
+            let packet = line.split(",");
+            count++;
+            let name1 = packet[0].match(/\w+/);
+            let name2 = packet[1].match(/\w+/);
+            let month = packet[2].match(/\w+/);
+            let cond = packet[8].match(/\w+/);
+            let subcond = packet[9].match(/\w+/);
+            let features;
+            let instruction;
+            if (!cond[0].toUpperCase().startsWith("HS")) {
+                switch (cond[0]) {
+                    case "C":
+                        features = "FTR_CHOICE";
+                        instruction = "tutor_seq_DL_CHOICE.json";
+                        break;
+                    case "NC":
+                        features = "FTR_NOCHOICE";
+                        if (subcond[0].toUpperCase().startsWith("GR")) {
+                            features += ":FTR_NCPLANTS";
+                            instruction = "tutor_seq_DL_NOCHOICE_PLANTS.json";
+                        }
+                        else {
+                            features += ":FTR_NCSODA";
+                            instruction = "tutor_seq_DL_NOCHOICE_SODA.json";
+                        }
+                        break;
+                    case "BL":
+                        features = "FTR_BASELINE";
+                        if (subcond[0].toUpperCase().startsWith("GR")) {
+                            features += ":FTR_NCPLANTS";
+                            instruction = "tutor_seq_DL_BASELINE_PLANTS.json";
+                        }
+                        else {
+                            features += ":FTR_NCSODA";
+                            instruction = "tutor_seq_DL_BASELINE_SODA.json";
+                        }
+                        break;
+                    default:
+                        console.log("ERROR: Format Violation.");
+                        break;
+                }
+                username = name1[0].toUpperCase() + name2[0].slice(0, 2).toUpperCase() + "_" + month[0].slice(0, 3).toUpperCase() + "_" + packet[3];
+                this.statedata.users.push({
+                    "comment": "this is for xref only",
+                    "userName": username,
+                    "instruction": instruction
+                });
+                console.log(username + (username.length < 16 ? "\t\t" : "\t") + instruction + (instruction.length < 33 ? "\t\t" : "\t") + features);
+            }
+            else {
+                username = name1[0].toUpperCase() + name2[0].slice(0, 2).toUpperCase();
+                if (month) {
+                    username += "_" + month[0].slice(0, 3).toUpperCase() + "_" + packet[3];
+                }
+                instruction = "MASTERY";
+                features = "";
+                this.statedata.users.push({
+                    "comment": "this is for xref only",
+                    "userName": username,
+                    "instruction": instruction
+                });
+                console.log(username + "_MASTERY");
+            }
+        });
+        lineReader.on('close', () => {
+            console.log("EOF: " + count);
+            let dataPath = path.join(this.cwd, this.USER_DATA, this.TUTORSTATE);
+            let dataUpdate = JSON.stringify(this.statedata, null, '\t');
+            fs.writeFileSync(dataPath, dataUpdate, 'utf8');
+            this.xrefSetConditions();
+            // Finally save the merge and updated account image.
+            // 
+            this.saveMergedAcctImage();
+        });
+    }
+    xrefSetConditions() {
+        for (let merge of this.mergedAccts.users) {
+            let match = this.findStateDataByName(merge.userName);
+            if (match) {
+                merge.currSessionNdx = 0; // one time only - we are adding this to the image posthoc
+                merge.instructionSeq = match.instruction;
+            }
+            else {
+                console.log("ERROR: User Not Found: " + merge.userName);
+            }
+        }
+        this.listMissingClassMatches();
+    }
+    listMissingClassMatches() {
+        let result;
+        for (let user of this.statedata.users) {
+            if (!user.matched) {
+                console.log("ERROR: Class List Entry Not Found: " + user.userName);
+            }
+        }
+        return result;
+    }
+    findStateDataByName(userName) {
+        let result;
+        for (let user of this.statedata.users) {
+            if (user.userName === userName) {
+                user.matched = true;
+                result = user;
+                break;
+            }
+        }
+        return result;
+    }
     extractTutorData() {
         this.loadStateImage();
         this.loadMergedAccts();
@@ -55,10 +209,19 @@ class DataManager {
         this.resolveExtractData();
     }
     mergeUserAccts() {
+        this.mergeErrors = 0;
         this.loadResolveAccts();
         // Save the merged account database.
         // 
         this.saveMergedAcctImage();
+        if (this.mergeErrors === 0) {
+            this.mergeTutorStateData();
+            console.log("\n\n***********************************************");
+            console.log("MERGE COMPLETE!\n\n");
+        }
+        else {
+            console.log("ERROR: Merge Conflicts exist - Correct and retry merge.");
+        }
     }
     loadResolveAccts() {
         this.loadStateImage();
@@ -101,32 +264,50 @@ class DataManager {
         for (let user of this.mergedAccts.users) {
             // delete user.tabletId;
         }
+        Utils_1.Utils.validatePath(this.cwd, this.MERGE_DATA);
         let dataPath = path.join(this.cwd, this.MERGE_DATA, this.ACCT_FILENAME);
         let dataUpdate = JSON.stringify(this.mergedAccts, null, '\t');
         fs.writeFileSync(dataPath, dataUpdate, 'utf8');
     }
-    // transfer the users tutor state info to a user id named folder in the common merge
-    // image that may be loaded to the tablet EdForge_USERDATA path. This is just the state
-    // data and does not include the log data.
+    copyFolder(src, dest, recurse) {
+        try {
+            var folderList = fs.readdirSync(src);
+            for (let entry of folderList) {
+                var filePath = path.join(src, entry);
+                var stat = fs.statSync(filePath);
+                if (stat.isDirectory()) {
+                    // copy recursively
+                    if (recurse) {
+                        fs.mkdirSync(path.join(dest, entry));
+                        this.copyFolder(path.join(src, entry), path.join(dest, entry), recurse);
+                    }
+                }
+                else {
+                    // copy filename
+                    fs.copyFileSync(path.join(src, entry), path.join(dest, entry));
+                }
+            }
+        }
+        catch (err) {
+            console.log("ERROR: Copying User Data Folder: " + err);
+        }
+    }
+    // transfer the users tutor state info to a "user-id" named folder in the common merge
+    // image that may be loaded to the tablet EdForge_DATA path. 
     // 
     // NOTE!!! any merge conflicts should be resolved before this is processed - merge conflicts
     // occur when a user logs into more than one tablet 
     //
     mergeTutorStateData() {
         for (let user of this.mergedAccts.users) {
-            let tutorStateData = path.join(this.cwd, this.USER_DATA, user.userName, this.GLOBALSTATE);
-            let mergeStateData = path.join(this.cwd, this.MERGE_DATA, user.userName, this.GLOBALSTATE);
-            this.validatePath(this.cwd, this.MERGE_DATA);
-            this.validatePath(path.join(this.cwd, this.MERGE_DATA), user.userName);
-            try {
-                fs.copyFileSync(tutorStateData, mergeStateData);
-            }
-            catch (err) {
-                console.log("ERROR: file transfer error " + err);
-            }
+            let tutorStateData = path.join(this.cwd, this.USER_DATA, user.userName);
+            let mergeStateData = path.join(this.cwd, this.MERGE_DATA, user.userName);
+            Utils_1.Utils.validatePath(mergeStateData, null);
+            this.copyFolder(tutorStateData, mergeStateData, true);
         }
     }
     resolveAccts() {
+        let userData;
         // Each tablet has a set of user accounts some new - some old - they may not all be
         // extant on all tablets. We need to merge these into a single image so any user
         // can login to any tablet to continue.
@@ -135,12 +316,47 @@ class DataManager {
             // Check for data spec version - beta1 had no version id we had to parse the currScene to 
             // determine tablet users
             // 
-            if (tablet.version) {
-                // version 1 uses the userLogin array to determine tablet users
+            if (tablet.tabletId) {
+                // Enumerate the actual logins to tablets.
                 // 
-                switch (tablet.version) {
-                    case this.USERDATA_VERSION1:
-                        break;
+                for (let user of tablet.userLogins) {
+                    // If we have already seen this user check for merge conflicts.
+                    // 
+                    if (this.tabletAcctXref[user.userName]) {
+                        // If this isn't a duplicate login on this tablet it represents a conflict that must be resolved.
+                        // 
+                        if (this.tabletAcctXref[user.userName] !== tablet.tabletId) {
+                            this.mergeErrors++;
+                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.tabletAcctXref[user.userName] + " : " + tablet.tabletId);
+                        }
+                        continue;
+                    }
+                    else
+                        this.tabletAcctXref[user.userName] = tablet.tabletId;
+                    userData = null;
+                    // Locate the user data for the login.  The user array keeps the actual student state info
+                    // which is what we want to merge.  We throw away the userLogins.
+                    // 
+                    for (let entry of tablet.users) {
+                        if (entry.userName === user.userName) {
+                            userData = entry;
+                            break;
+                        }
+                    }
+                    // If the user state data is found we add it to the merged image
+                    // 
+                    if (userData) {
+                        // Tag the users Tablet Id for data processing
+                        // 
+                        userData.tabletId = tablet.tabletId;
+                        this.mergedAccts.users.push(userData);
+                    }
+                    // Otherwise it represents a merge error which must be resolved
+                    // 
+                    else {
+                        this.mergeErrors++;
+                        console.log("ERROR: Account Missing!");
+                    }
                 }
             }
             else {
@@ -203,7 +419,7 @@ class DataManager {
         let userCond;
         // We aggregate all users into a single file.
         // 
-        let dstPath = this.validatePath(this.cwd, this.PROC_DATA);
+        let dstPath = Utils_1.Utils.validatePath(this.cwd, this.PROC_DATA);
         processor.createDataTarget(dstPath);
         // We don't want tablet ID's in the merge image
         // TODO: use this in V1 merged accounts
@@ -246,57 +462,6 @@ class DataManager {
             }
         }
         processor.closeDataTarget();
-    }
-    unpackData(src, dst) {
-        let srcPath = path.join(this.cwd, src);
-        let dstPath = path.join(this.cwd, dst);
-        try {
-            let files = fs.readdirSync(srcPath);
-            for (let folder of files) {
-                // If this looks like a tablet folder then process it
-                // 
-                if (folder.startsWith(this.TABLET_BASE)) {
-                    let _path = path.join(srcPath, folder);
-                    try {
-                        let stats = fs.statSync(_path);
-                        // If it is a folder check it for user data
-                        // 
-                        if (stats.isDirectory()) {
-                            this.unpackTabletData(folder, _path, dstPath);
-                        }
-                    }
-                    catch (error) {
-                        console.log("Error = " + error);
-                    }
-                }
-            }
-        }
-        catch (error) {
-            console.log("Error = " + error);
-        }
-        return this.dataFolders;
-    }
-    validatePath(basePath, folder) {
-        let pathArray = basePath.split("\\");
-        let fPath;
-        try {
-            let stat = fs.statSync(basePath);
-            if (stat.isDirectory) {
-                if (folder) {
-                    fPath = path.join(basePath, folder);
-                    if (!fs.existsSync(fPath)) {
-                        fs.mkdirSync(fPath);
-                    }
-                }
-            }
-        }
-        catch (err) {
-            let last = pathArray.pop();
-            this.validatePath(pathArray.join("\\"), last);
-            if (folder)
-                fs.mkdirSync(basePath + "\\" + folder);
-        }
-        return fPath;
     }
     unpackFiles(src, dstPath) {
         let srcPath;
@@ -370,7 +535,7 @@ class DataManager {
                     if (tarFolder.startsWith("GUEST")) {
                         tarFolder = "_" + tarFolder + "__" + this.tabletID;
                     }
-                    dstPath = this.validatePath(dst, tarFolder);
+                    dstPath = Utils_1.Utils.validatePath(dst, tarFolder);
                     zipPath = path.join(zipBase, srcArr[srcArr.length - 2]);
                     zipPath = zipPath.replace(/\\/g, "/") + "/";
                     // We do the files in a separate loop to ensure the folder

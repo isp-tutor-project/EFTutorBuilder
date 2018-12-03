@@ -33,6 +33,7 @@ import { ipData } from './IAcctData';
 import { TCONST } from './TCONST';
 
 const UNPACKDATA:string     = "UNPACKDATA";
+const ASSIGN_COND:string    = "ASSIGN_COND";
 const MERGEACCTS:string     = "MERGEACCTS";
 const EXTRACTDATA:string    = "EXTRACTDATA";
 
@@ -57,6 +58,7 @@ const CMD_TYPE:string        = ".json";
 
 const EF_ZIPDATA:string      = "EdForge_ZIPDATA";
 const EF_USERDATA:string     = "EdForge_USERDATA";
+const EF_CONDCSV:string      = "ConditionAssignment.csv";
 
 let dataPath:string;
 let logManager:LogManager;
@@ -113,10 +115,19 @@ function processCommandLine() {
 
             switch(process.argv[2]) {
 
-                case GEN_PRODIMAGE:
-                    console.log("||** NOTICE: Production Image Generation In Progress");
+                // You pull the user data from each tablet into the EdForge_DATA folder.
+                // This produces a sub-folder for each tablet with a zip containing the 
+                // tablets EdForge_DATA folder.
+                // 
+                // Transfer this to a Study-named folder in EFData and commit
+                // 
+                // Transfer the tablet folders to EdForge_ZIPDATA and execute UNPACKDATA to get 
+                // all the discrete user data folders with their tutor states.
+                // 
+                case UNPACKDATA:
+                    console.log("||** NOTICE: Unpacking User Data In Progress");
 
-                    productionManager.generatePRODImage();
+                    dataManager.unpackData(EF_ZIPDATA, EF_USERDATA);
 
                     logManager.close();
                     rl.close();
@@ -131,6 +142,15 @@ function processCommandLine() {
                     rl.close();
                     break;
 
+                case ASSIGN_COND: 
+                    console.log("||** NOTICE: Assignment of User Condition In Progress");
+
+                    dataManager.assignInstruction(EF_CONDCSV);
+
+                    // logManager.close();
+                    // rl.close();
+                    break;
+
                 case MERGEACCTS:
                     console.log("||** NOTICE: Merging Accounts In Progress");
 
@@ -140,10 +160,13 @@ function processCommandLine() {
                     rl.close();
                     break;
 
-                case UNPACKDATA:
-                    console.log("||** NOTICE: Unpacking User Data In Progress");
+                // This produces the EdForge.zip EdForge_PART.zip tutor images 
+                // 
+                case GEN_PRODIMAGE:
 
-                    dataManager.unpackData(EF_ZIPDATA, EF_USERDATA);
+                    console.log("||** NOTICE: Production Image Generation In Progress");
+
+                    productionManager.generatePRODImage();
 
                     logManager.close();
                     rl.close();
