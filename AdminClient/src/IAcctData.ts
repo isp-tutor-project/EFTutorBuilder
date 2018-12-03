@@ -1,6 +1,6 @@
 
 
-export interface userData {
+export interface tabletData {
     
     "version":string;
     "userLogins":login[];

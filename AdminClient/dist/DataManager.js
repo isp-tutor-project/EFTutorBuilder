@@ -41,14 +41,41 @@ class DataManager {
         this.USERDATA_VERSION1 = "1.0.0";
         this.RECURSE = true;
         this.NORECURSE = false;
-        this.acctImages = []; // account for each tablet 
+        this.tabletImages = []; // account for each tablet 
         this.stateImages = []; // state data for each tablet
         this.mergedAccts = {
             "version": this.USERDATA_VERSION1,
             "userLogins": [],
             "users": []
         };
-        this.tabletAcctXref = {};
+        this.acctFixups = {
+            "GUESTNC_JAN_1": { "tablet_17": { "username": "briennesh_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
+            "GUESTC_JAN_1": { "tablet_3": { "username": "calebke_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" },
+                "tablet_7": { "username": "ericku_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" },
+                "tablet_11": { "username": "jasonca_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
+            "GUESTBL_JAN_2": { "tablet_5": { "username": "genevieveza_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
+            "GUESTBL_JAN_3": { "tablet_22": { "username": "laneybe_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } }
+        };
+        this.conflictResolution = {
+            "TANNERHA_OCT_1": "tablet_10",
+            "CALEBKE_FEB_17": "none"
+        };
+        // Guest Account:GUESTNC_JAN_1 on: tablet_17
+        // Guest Account:GUESTC_JAN_1 on: tablet_3
+        // Guest Account:GUESTC_JAN_1 on: tablet_7
+        // Guest Account:GUESTC_JAN_1 on: tablet_11
+        // Guest Account:GUESTBL_JAN_2 on: tablet_5
+        // Guest Account:GUESTBL_JAN_3 on: tablet_22
+        // Guest Account:GUESTC_JAN_2 on: tablet_6      ??
+        // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
+        // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
+        // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
+        // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
+        // MERGE CONFLICT: STEPHSI_JAN_1 - tablet_16 : tablet_30
+        // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_3
+        // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_7
+        this.activeAccounts = {};
+        this.masterAccountList = {};
         this.cwd = _cwd;
     }
     // Unpack the alldata.zip for each tablet in the EdForge_ZIPDATA folder into the 
@@ -224,7 +251,7 @@ class DataManager {
         }
     }
     loadResolveAccts() {
-        this.loadStateImage();
+        // this.loadStateImage();
         this.loadAcctImages();
         this.resolveAccts();
     }
@@ -306,33 +333,125 @@ class DataManager {
             this.copyFolder(tutorStateData, mergeStateData, true);
         }
     }
+    // private acctFixups:any = [
+    //     {"acctname":"guestnc_Jan_1",  "tablet":17, "username":"briennesh_jan_1",},
+    //     {"acctname":"guestc_Jan_1",   "tablet":3,  "username":"calebke_jan_1",},
+    //     {"acctname":"guestc_Jan_1",   "tablet":7,  "username":"ericku_jan_1",},
+    //     {"acctname":"guestc_Jan_1",   "tablet":11, "username":"jasonca_jan_1",},
+    //     {"acctname":"guestbl_Jan_2",  "tablet":5,  "username":"genevieveza_jan_1",},
+    //     {"acctname":"guestbl_Jan_3",  "tablet":22, "username":"laneybe_jan_1",}
+    // ]                 
+    // private conflictResolution:any = {
+    //     "TANNERHA_OCT_1":"tablet_10",
+    //     "CALEBKE_FEB_17":"none"
+    // }
+    // Guest Account:GUESTNC_JAN_1 on: tablet_17
+    // Guest Account:GUESTC_JAN_1 on: tablet_3
+    // Guest Account:GUESTC_JAN_1 on: tablet_7
+    // Guest Account:GUESTC_JAN_1 on: tablet_11
+    // Guest Account:GUESTBL_JAN_2 on: tablet_5
+    // Guest Account:GUESTBL_JAN_3 on: tablet_22
+    // Guest Account:GUESTC_JAN_2 on: tablet_6      ??
+    // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
+    // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
+    // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
+    // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
+    // MERGE CONFLICT: STEPHSI_JAN_1 - tablet_16 : tablet_30
+    // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_3
+    // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_7
     resolveAccts() {
         let userData;
-        // Each tablet has a set of user accounts some new - some old - they may not all be
-        // extant on all tablets. We need to merge these into a single image so any user
-        // can login to any tablet to continue.
+        let acctCount = 0;
+        let rename = false;
+        let newname = "";
+        let condition = "";
+        // enumerate all known accounts.
         // 
-        for (let tablet of this.acctImages) {
-            // Check for data spec version - beta1 had no version id we had to parse the currScene to 
-            // determine tablet users
+        for (let tablet of this.tabletImages) {
+            // Build a master account list across all the tablets.
             // 
             if (tablet.tabletId) {
-                // Enumerate the actual logins to tablets.
-                // 
+                for (let user of tablet.users) {
+                    if (!this.masterAccountList[user.userName]) {
+                        this.masterAccountList[user.userName] = { "tablet": tablet.tabletId, "active": "" };
+                        acctCount++;
+                    }
+                }
+            }
+        }
+        // 
+        for (let tablet of this.tabletImages) {
+            // Build a master account list across all the tablets.
+            // 
+            if (tablet.tabletId) {
                 for (let user of tablet.userLogins) {
-                    // If we have already seen this user check for merge conflicts.
-                    // 
-                    if (this.tabletAcctXref[user.userName]) {
+                    if (user.userName.startsWith("GUEST")) {
+                        console.log("Guest Account:" + user.userName + " on: " + tablet.tabletId);
+                    }
+                    if (this.activeAccounts[user.userName]) {
                         // If this isn't a duplicate login on this tablet it represents a conflict that must be resolved.
                         // 
-                        if (this.tabletAcctXref[user.userName] !== tablet.tabletId) {
+                        if (this.activeAccounts[user.userName] !== tablet.tabletId) {
                             this.mergeErrors++;
-                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.tabletAcctXref[user.userName] + " : " + tablet.tabletId);
+                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.activeAccounts[user.userName] + " : " + tablet.tabletId);
                         }
                         continue;
                     }
                     else
-                        this.tabletAcctXref[user.userName] = tablet.tabletId;
+                        this.activeAccounts[user.userName] = tablet.tabletId;
+                }
+            }
+        }
+        console.log("\n\n*********************\nStarting Merge\n\n");
+        // {"acctname":"guestnc_Jan_1",  "tablet":3,  "username":"briennesh_jan_1",},
+        // acctFixups
+        // Each tablet has a set of user accounts some new - some old - they may not all be
+        // extant on all tablets. We need to merge these into a single image so any user
+        // can login to any tablet to continue.
+        // 
+        for (let tablet of this.tabletImages) {
+            // Check for data spec version - beta1 had no version id we had to parse the currScene to 
+            // determine tablet users
+            // 
+            if (tablet.tabletId) {
+                // private acctFixups:any = {
+                //     "GUESTNC_JAN_1": {"tablet_17":{"username":"briennesh_jan_1",  "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+                //     "GUESTC_JAN_1":  {"tablet_3": {"username":"calebke_jan_1",    "condition":"tutor_seq_DL_CHOICE.json"},
+                //                       "tablet_7": {"username":"ericku_jan_1",     "condition":"tutor_seq_DL_NOCHOICE_SODA.json"},
+                //                       "tablet_11":{"username":"jasonca_jan_1",    "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+                //     "GUESTBL_JAN_2": {"tablet_5": {"username":"genevieveza_jan_1","condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+                //     "GUESTBL_JAN_3": {"tablet_22":{"username":"laneybe_jan_1",    "condition":"tutor_seq_DL_NOCHOICE_SODA.json"}}
+                // }                                
+                // private conflictResolution:any = {
+                //     "TANNERHA_OCT_1":"tablet_10",
+                //     "CALEBKE_FEB_17":"none"
+                // }
+                // Enumerate the actual logins to tablets.
+                // 
+                for (let user of tablet.userLogins) {
+                    rename = false;
+                    if (this.conflictResolution[user.userName]) {
+                        if (this.conflictResolution[user.userName] !== tablet.tabletId) {
+                            console.log("Skipping Conflict: " + user.userName + " on:" + tablet.tabletId);
+                            continue;
+                        }
+                        else {
+                            // Resolve one copy - might be multiple logins by same user on tablet.
+                            // 
+                            console.log("Resolving Conflict: " + user.userName + " using:" + tablet.tabletId);
+                            this.conflictResolution[user.userName] = "done";
+                        }
+                    }
+                    if (this.acctFixups[user.userName]) {
+                        if (this.acctFixups[user.userName][tablet.tabletId]) {
+                            rename = true;
+                            newname = this.acctFixups[user.userName][tablet.tabletId].username.toUpperCase();
+                            condition = this.acctFixups[user.userName][tablet.tabletId].condition;
+                            console.log("Fixing Account: " + user.userName + "on:" + tablet.tabletId + " to:" + newname + " : " + condition);
+                        }
+                        else
+                            console.log("Skipping: " + user.userName + " on:" + tablet.tabletId);
+                    }
                     userData = null;
                     // Locate the user data for the login.  The user array keeps the actual student state info
                     // which is what we want to merge.  We throw away the userLogins.
@@ -346,10 +465,31 @@ class DataManager {
                     // If the user state data is found we add it to the merged image
                     // 
                     if (userData) {
+                        this.masterAccountList[userData.userName].active = true;
                         // Tag the users Tablet Id for data processing
                         // 
                         userData.tabletId = tablet.tabletId;
-                        this.mergedAccts.users.push(userData);
+                        if (rename) {
+                            userData.userName = newname;
+                            userData.instructionSeq = condition;
+                        }
+                        // TODO: REMOVE
+                        // Dec 3 2018 One time force to account for bug in homeScreen module
+                        // This should not be used after this date !!!!!!!   
+                        // 
+                        else
+                            userData.currSessionNdx = 1;
+                        //Skip Guest Accounts.
+                        // 
+                        if (userData.userName.startsWith("GUEST")) {
+                            console.log("skipping GUEST");
+                        }
+                        if (userData.instructionSeq === "tutor_seq_dayone.json") {
+                            console.log("skipping bad Account");
+                        }
+                        else {
+                            this.mergedAccts.users.push(userData);
+                        }
                     }
                     // Otherwise it represents a merge error which must be resolved
                     // 
@@ -360,20 +500,56 @@ class DataManager {
                 }
             }
             else {
+                console.log("!!!!!!!!!!!!!!!!! ERROR: OLD VERSION FOUND");
                 // enumerate the users to find individuals that used this tablet. In the Beta this is 
                 // the best means to identify tablets that were actually used.
                 //             
                 for (let user of tablet.users) {
                     if (user.currScene != "") {
-                        if (this.tabletAcctXref[user.userName]) {
-                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.tabletAcctXref[user.userName] + " : " + tablet.tabletId);
+                        if (this.activeAccounts[user.userName]) {
+                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.activeAccounts[user.userName] + " : " + tablet.tabletId);
                         }
                         else
-                            this.tabletAcctXref[user.userName] = tablet.tabletId;
+                            this.activeAccounts[user.userName] = tablet.tabletId;
                         // Tag the users Tablet Id for data processing
                         // 
                         user.tabletId = tablet.tabletId;
                         this.mergedAccts.users.push(user);
+                    }
+                }
+            }
+        }
+        // Merge the dormant accounts
+        // 
+        for (let tablet of this.tabletImages) {
+            // Build a master account list across all the tablets.
+            // 
+            if (tablet.tabletId) {
+                for (let user of tablet.users) {
+                    try {
+                        // Only merge one copy of dormant accounts.
+                        // 
+                        if (!this.masterAccountList[user.userName].active) {
+                            this.masterAccountList[user.userName].active = true;
+                            if (!user.userName.startsWith("GUEST")) {
+                                if (user.instructionSeq !== "tutor_seq_dayone.json") {
+                                    user.tabletId = tablet.tabletId;
+                                    this.mergedAccts.users.push(user);
+                                    console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);
+                                }
+                                else {
+                                    console.log("Skipping Bad Account: " + user.userName + " : " + user.instructionSeq);
+                                }
+                            }
+                            else {
+                                console.log("Skipping Guest Account: " + user.userName);
+                            }
+                        }
+                    }
+                    catch (err) {
+                        // TODO : enumerate the fixups to ensure we didn't miss anything
+                        // 
+                        console.log("Skipping Fixup: " + user.userName);
                     }
                 }
             }
@@ -399,7 +575,7 @@ class DataManager {
                             let match = entry.match(/tablet_\d*/);
                             if (match.length > 0)
                                 accts.tabletId = match[0];
-                            this.acctImages.push(accts);
+                            this.tabletImages.push(accts);
                         }
                     }
                     catch (error) {

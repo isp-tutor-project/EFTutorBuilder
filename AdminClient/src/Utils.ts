@@ -21,7 +21,7 @@ const path          = require('path');
 
 import AdmZip = require("adm-zip");
 
-import { userData, 
+import { tabletData, 
          stateData, 
          userState }        from "./IAcctData";
 import { DataProcessor }    from "./DataProcessor";
