@@ -236,12 +236,13 @@ class DataManager {
         this.resolveExtractData();
     }
     mergeUserAccts() {
+        let forceMerge = true;
         this.mergeErrors = 0;
         this.loadResolveAccts();
         // Save the merged account database.
         // 
         this.saveMergedAcctImage();
-        if (this.mergeErrors === 0) {
+        if (this.mergeErrors === 0 || forceMerge) {
             this.mergeTutorStateData();
             console.log("\n\n***********************************************");
             console.log("MERGE COMPLETE!\n\n");
@@ -297,26 +298,26 @@ class DataManager {
         fs.writeFileSync(dataPath, dataUpdate, 'utf8');
     }
     copyFolder(src, dest, recurse) {
-        try {
-            var folderList = fs.readdirSync(src);
-            for (let entry of folderList) {
-                var filePath = path.join(src, entry);
-                var stat = fs.statSync(filePath);
-                if (stat.isDirectory()) {
-                    // copy recursively
-                    if (recurse) {
-                        fs.mkdirSync(path.join(dest, entry));
-                        this.copyFolder(path.join(src, entry), path.join(dest, entry), recurse);
-                    }
-                }
-                else {
-                    // copy filename
-                    fs.copyFileSync(path.join(src, entry), path.join(dest, entry));
+        var folderList = fs.readdirSync(src);
+        for (let entry of folderList) {
+            var filePath = path.join(src, entry);
+            var stat = fs.statSync(filePath);
+            if (stat.isDirectory()) {
+                // copy recursively
+                if (recurse) {
+                    fs.mkdirSync(path.join(dest, entry));
+                    this.copyFolder(path.join(src, entry), path.join(dest, entry), recurse);
                 }
             }
-        }
-        catch (err) {
-            console.log("ERROR: Copying User Data Folder: " + err);
+            else {
+                let reg = /(\w*)__\w*/;
+                let nameParts = entry.match(reg);
+                if (nameParts[1].includes("tablet")) {
+                    console.log("Internal Error");
+                }
+                // copy filename
+                fs.copyFileSync(path.join(src, entry), path.join(dest, nameParts[1] + ".json"));
+            }
         }
     }
     // transfer the users tutor state info to a "user-id" named folder in the common merge
@@ -327,10 +328,20 @@ class DataManager {
     //
     mergeTutorStateData() {
         for (let user of this.mergedAccts.users) {
-            let tutorStateData = path.join(this.cwd, this.USER_DATA, user.userName);
-            let mergeStateData = path.join(this.cwd, this.MERGE_DATA, user.userName);
-            Utils_1.Utils.validatePath(mergeStateData, null);
-            this.copyFolder(tutorStateData, mergeStateData, true);
+            try {
+                let tutorStateData = path.join(this.cwd, this.USER_DATA, user.userName);
+                let mergeStateData = path.join(this.cwd, this.MERGE_DATA, user.userName);
+                Utils_1.Utils.validatePath(mergeStateData, null);
+                this.copyFolder(tutorStateData, mergeStateData, true);
+            }
+            catch (err) {
+                if (user.currSessionNdx != 1) {
+                    console.log("Skipping early data");
+                }
+                else {
+                    console.log("Internal Error ******************************************");
+                }
+            }
         }
     }
     // private acctFixups:any = [

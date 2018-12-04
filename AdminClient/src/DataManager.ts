@@ -338,13 +338,17 @@ export class DataManager
 
     public mergeUserAccts() {
 
+        let forceMerge:boolean = true;
+
         this.mergeErrors = 0;
         this.loadResolveAccts();
 
         // Save the merged account database.
         // 
         this.saveMergedAcctImage();
-        if(this.mergeErrors === 0) {
+
+        if(this.mergeErrors === 0 || forceMerge) {
+
             this.mergeTutorStateData();
 
             console.log("\n\n***********************************************");
@@ -433,31 +437,35 @@ export class DataManager
 
     private copyFolder(src:string, dest:string, recurse:boolean) {
 
-        try {
-            var folderList = fs.readdirSync(src);
-    
-            for(let entry of folderList) {
-    
-                var filePath = path.join(src, entry);
-                var stat = fs.statSync(filePath);
-                
-                if(stat.isDirectory()) {
+        var folderList = fs.readdirSync(src);
 
-                    // copy recursively
-                    if(recurse) {
-                        fs.mkdirSync(path.join(dest,entry));
+        for(let entry of folderList) {
 
-                        this.copyFolder(path.join(src,entry),path.join(dest,entry), recurse);
-                    }
+            var filePath = path.join(src, entry);
+            var stat = fs.statSync(filePath);
+            
+            if(stat.isDirectory()) {
 
-                } else {
-                    // copy filename
-                    fs.copyFileSync(path.join(src,entry),path.join(dest,entry));
+                // copy recursively
+                if(recurse) {
+                    fs.mkdirSync(path.join(dest,entry));
+
+                    this.copyFolder(path.join(src,entry),path.join(dest,entry), recurse);
                 }
+
+            } else {
+
+                let reg = /(\w*)__\w*/;
+
+                let nameParts:string[] = entry.match(reg);
+
+                if(nameParts[1].includes("tablet")) {
+                    console.log("Internal Error");
+                }
+
+                // copy filename
+                fs.copyFileSync(path.join(src,entry),path.join(dest,nameParts[1]+".json"));
             }
-        }
-        catch(err) {
-            console.log("ERROR: Copying User Data Folder: " + err);
         }
     }
 
@@ -472,12 +480,22 @@ export class DataManager
 
         for(let user of this.mergedAccts.users) {
             
-            let tutorStateData:string  = path.join(this.cwd, this.USER_DATA, user.userName);  
-            let mergeStateData:string = path.join(this.cwd, this.MERGE_DATA, user.userName);  
+            try {
+                let tutorStateData:string  = path.join(this.cwd, this.USER_DATA, user.userName);  
+                let mergeStateData:string = path.join(this.cwd, this.MERGE_DATA, user.userName);  
 
-            Utils.validatePath(mergeStateData, null);
+                Utils.validatePath(mergeStateData, null);
 
-            this.copyFolder(tutorStateData, mergeStateData, true);
+                this.copyFolder(tutorStateData, mergeStateData, true);
+            }
+            catch(err) {
+                if(user.currSessionNdx != 1) {
+                    console.log("Skipping early data");
+                }
+                else {
+                    console.log("Internal Error ******************************************");
+                }
+            }
         }
     }
 
