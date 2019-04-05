@@ -26,6 +26,12 @@ class DataProcessor {
         this.ID = 0;
         this.KEY = 1;
         this.VALUE = 2;
+        this.Values = {};
+        this.conditions = [
+            { "condPfx": "TUTOR_SEQ_DL_CHOICE", "cond": "EG_A1" },
+            { "condPfx": "TUTOR_SEQ_DL_NOCHOICE", "cond": "EG_A2" },
+            { "condPfx": "TUTOR_SEQ_DL_BASELINE", "cond": "EG_A3" }
+        ];
         this.ontology = ontology;
     }
     extractData(srcFolder, user, userCond, typeSpec) {
@@ -49,7 +55,7 @@ class DataProcessor {
             case TCONST_1.TCONST.TUTOR_RQ:
                 console.log("PROCESSING USER: " + user.userName + " | TUTOR: RQ");
                 // this.extract(TData_RQ.tutorDataSpec);
-                this.extract(TData_RQPRUNED_1.TData_RQPRUNED.tutorDataSpec);
+                this.extractSceneData(TData_RQPRUNED_1.TData_RQPRUNED.tutorDataSpec);
                 break;
             // case TCONST.TUTOR_INTRO:
             //     console.log("PROCESSING USER: " + user.userName + " | TUTOR: INTRO" );
@@ -60,12 +66,15 @@ class DataProcessor {
             //     break;
         }
     }
-    createDataTarget(dstFolder) {
-        this.dstPath = dstFolder;
-        let dstFile = "";
-        dstFile = path.join(this.dstPath, TCONST_1.TCONST.DATA_OUTPUT);
+    createDataTarget(dstFile) {
         this.outFile = fs.openSync(dstFile, 'w');
-        let dataHdr = "Tutor_Name" + "/" + "User_ID" + "/" + "Tablet_ID" + "/" + "Scene_ID" + "/" + "User_Cond" + "/" + "Data_Name" + "/" + "Data_Value" + "/" + "Time" + "/" + "Raw_Time" + "\n";
+        // let dataHdr:string = "Tutor_Name" + "/" + "User_ID" + "/" + "User_Cond" + "/"  + "Data_Name" + "/" + "Data_Value" + "/" + "Time" + "/" + "Raw_Time" + "\n";
+        // fs.writeSync(this.outFile, dataHdr);
+        return this.outFile;
+    }
+    createTutorDataTarget(dstFile) {
+        this.outFile = fs.openSync(dstFile, 'w');
+        let dataHdr = "Tutor_Name" + "/" + "User_ID" + "/" + "User_Cond" + "/" + "Data_Name" + "/" + "Data_Value" + "/" + "Time" + "/" + "Raw_Time" + "\n";
         fs.writeSync(this.outFile, dataHdr);
     }
     closeDataTarget() {
@@ -117,7 +126,7 @@ class DataProcessor {
         }
         return result;
     }
-    resolveObject(objPath, cacheData) {
+    resolveSceneStateObject(objPath, cacheData) {
         let dataPath = objPath.split(".");
         let baseObj = cacheData.sceneData;
         try {
@@ -159,7 +168,7 @@ class DataProcessor {
         let comParts = descr.dataSrc.split("|");
         let obj;
         do {
-            obj = this.resolveObject(comParts[this.ID], cacheData);
+            obj = this.resolveSceneStateObject(comParts[this.ID], cacheData);
         } while (!this.testValue(obj, comParts));
         return obj;
     }
@@ -208,17 +217,7 @@ class DataProcessor {
         }
         return result;
     }
-    resolveDataObj(descr, obj) {
-        let result = "";
-        if (descr.dataValue === "ontologyKey") {
-            result = this.resolveOntologyKey(obj[descr.dataValue]);
-        }
-        else {
-            result = (descr.dataValue != "" ? obj[descr.dataValue] : "");
-        }
-        return result;
-    }
-    extract(tutorDescr) {
+    extractSceneData(tutorDescr) {
         let datapnt;
         for (let [index, descr] of tutorDescr.dataDescr.entries()) {
             if (this.testCondition(descr.Cond)) {
@@ -234,7 +233,7 @@ class DataProcessor {
                             obj = this.findDataSource(descr, dataCache);
                         } while (!this.testConstraint(descr, obj));
                         datapnt = tutorDescr.tutorName + "/" + this.user.userName + "/" + this.user.tabletId + "/" + this.sceneId + "/" + this.userCond + "/"
-                            + descr.dataName + "/" + this.resolveDataObj(descr, obj) + "/" + this.getTimeStamp(obj);
+                            + descr.dataName + "/" + this.resolveDataValue(descr, obj) + "/" + this.getTimeStamp(obj);
                         fs.writeSync(this.outFile, datapnt);
                     }
                     catch (err) {
@@ -244,6 +243,166 @@ class DataProcessor {
                 }
             }
         }
+    }
+    resolveUserCond(cond) {
+        let result = "unknown";
+        let userCond = cond.toUpperCase();
+        for (let cond of this.conditions) {
+            if (userCond.startsWith(cond.condPfx)) {
+                result = cond.cond;
+                break;
+            }
+        }
+        return result;
+    }
+    testTutorCondition(cond) {
+        let result = false;
+        if (cond !== "") {
+            let allCond = cond.toUpperCase().split("|");
+            for (let cond of allCond) {
+                if (cond === "ANY") {
+                    result = true;
+                    break;
+                }
+                if (cond === this.userCond) {
+                    result = true;
+                    break;
+                }
+            }
+        }
+        else {
+            result = true;
+        }
+        return result;
+    }
+    resolveTutorStateObject(objPath, tutorData) {
+        let dataPath = objPath.split(".");
+        try {
+            for (let i1 = 0; i1 < dataPath.length; i1++) {
+                // If it is a seq object then we have to iterate until we hit the right one.
+                // We only look at one per pass and keep the iteration index in $$index within 
+                // the $seq object
+                // 
+                if (dataPath[i1] === "$seq") {
+                    let ndx = tutorData.$seq.$$index = tutorData.$seq.$$index + 1 || 0;
+                    tutorData = tutorData[dataPath[i1]][ndx];
+                }
+                else {
+                    tutorData = tutorData[dataPath[i1]];
+                }
+            }
+            ;
+        }
+        catch (err) {
+            // We skip non-matching objects 
+        }
+        return tutorData;
+    }
+    resolveTutorStateData(descr, tutorData) {
+        let comParts = descr.dataSrc.split("|");
+        let obj;
+        do {
+            obj = this.resolveTutorStateObject(comParts[this.ID], tutorData);
+        } while (!this.testValue(obj, comParts));
+        return obj;
+    }
+    postTV(index) {
+        // Calc the 0-based TV index
+        // 
+        let Tv = parseInt(this.Values.TV) - 1;
+        Tv += parseInt(index);
+        Tv %= 4;
+        return Tv.toString();
+    }
+    postResult(TvRef) {
+        let Tv = parseInt(this.Values[TvRef]);
+        let SamDif = new Array();
+        let i1;
+        let sum = 0;
+        let correct = "right";
+        SamDif[0] = (this.Values["1A"] === this.Values["1B"]);
+        SamDif[1] = (this.Values["2A"] === this.Values["2B"]);
+        SamDif[2] = (this.Values["3A"] === this.Values["3B"]);
+        SamDif[3] = (this.Values["4A"] === this.Values["4B"]);
+        if (SamDif[Tv] === true)
+            correct = "wrong";
+        for (i1 = 0; i1 < 4; i1++) {
+            sum = sum + (SamDif[i1] ? 1 : 0);
+        }
+        if (sum !== 3)
+            correct = "wrong";
+        return correct;
+    }
+    postNumCorrect() {
+        let count = 0;
+        count += this.Values["PT1_RESULT"] === "right" ? 1 : 0;
+        count += this.Values["PT2_RESULT"] === "right" ? 1 : 0;
+        count += this.Values["PT3_RESULT"] === "right" ? 1 : 0;
+        count += this.Values["PT4_RESULT"] === "right" ? 1 : 0;
+        return count.toString();
+    }
+    resolveDataValue(descr, obj) {
+        let result = "";
+        if (descr.process) {
+            let parms = descr.parms.split(":");
+            result = this[descr.process].apply(this, parms);
+        }
+        else if (descr.dataValue === "ontologyKey") {
+            result = this.resolveOntologyKey(obj[descr.dataValue]);
+        }
+        else {
+            if (descr.dataValue === "") {
+                result = "";
+            }
+            else {
+                if (obj[descr.dataValue]) {
+                    if (typeof obj[descr.dataValue] === "boolean") {
+                        if (obj[descr.dataValue] === true)
+                            result = "true";
+                        else
+                            result = "false";
+                    }
+                    else {
+                        result = obj[descr.dataValue];
+                    }
+                }
+                else {
+                    result = "";
+                }
+            }
+        }
+        if (descr.id) {
+            this.Values[descr.id] = result;
+        }
+        return result;
+    }
+    extractTutorStateData(file, tutorDescr, tutorData, userName, cond) {
+        let datapnt;
+        let obj;
+        try {
+            this.userCond = this.resolveUserCond(cond || "unknown");
+        }
+        catch (err) {
+            console.log("ERROR: processing: " + userName + " :: " + cond);
+        }
+        datapnt = tutorDescr.tutorName + "/" + userName + "/" + this.userCond;
+        this.Values = {};
+        for (let [index, descr] of tutorDescr.dataDescr.entries()) {
+            if (this.testTutorCondition(descr.Cond)) {
+                try {
+                    do {
+                        obj = this.resolveTutorStateData(descr, tutorData);
+                    } while (!this.testConstraint(descr, obj));
+                    datapnt += "/" + descr.dataName + "/" + this.resolveDataValue(descr, obj);
+                }
+                catch (err) {
+                    console.log("ERROR: processing: " + userName + " :: " + descr.dataName + " at: " + index);
+                }
+                this.iteration++;
+            }
+        }
+        datapnt += "\n";
+        fs.writeSync(file, datapnt);
     }
 }
 exports.DataProcessor = DataProcessor;

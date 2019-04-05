@@ -22,6 +22,7 @@ export interface acctData {
     "currScene"      :string;
     "instructionSeq" :string;
     "tabletId"?      :string;
+    "userFolder"?    :string;
 }    
 
 
@@ -38,7 +39,7 @@ export interface userState {
 }
 
 
-export interface TutorData {
+export interface TutorDataDescr {
 
     "tutorName":string;
 
@@ -55,10 +56,23 @@ export interface dataPacket {
     "dataValue":string;
 
     // Data key - 
-    "sceneId":string;
+    "sceneId"?:string;
     "dataSrc":string;
     "dataConstr":string;
 
+    // Data ID 
+    "process"?:string;
+    "parms"?:string;
+    "id"?:string;
+}
+
+export interface TutorData {
+
+    sceneState:any,
+    moduleState:any,
+    tutorState:any,
+    fFeatures:any,
+    featureID:any
 }
 
 

@@ -20,8 +20,18 @@ class TData_DR {
 TData_DR.tutorDataSpec = {
     "tutorName": "DR",
     "dataDescr": [
-        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_START", "dataValue": "", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" },
-        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_END", "dataValue": "", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" }
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q1_START_TIME",  "dataValue":"",       "dataSrc":"sceneState.SScene1.$seq|prop|complete", "dataConstr":"value|false"},
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "DR_Q1", "dataValue": "DR1:Sg1", "dataSrc": "sceneState.SScene1", "dataConstr": "" },
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q1_END_TIME",    "dataValue":"",       "dataSrc":"sceneState.SScene1.$seq|prop|complete", "dataConstr":"value|true"},
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q2_START_TIME",  "dataValue":"",       "dataSrc":"sceneState.SScene2.$seq|prop|complete", "dataConstr":"value|false"},
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "DR_Q2", "dataValue": "DR2:Sg1", "dataSrc": "sceneState.SScene2", "dataConstr": "" },
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q2_END_TIME",    "dataValue":"",       "dataSrc":"sceneState.SScene2.$seq|prop|complete", "dataConstr":"value|true"},
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q3_START_TIME",  "dataValue":"",       "dataSrc":"sceneState.SScene3.$seq|prop|complete", "dataConstr":"value|false"},
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "DR_Q3", "dataValue": "DR3:Sg1", "dataSrc": "sceneState.SScene3", "dataConstr": "" },
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q3_END_TIME",    "dataValue":"",       "dataSrc":"sceneState.SScene3.$seq|prop|complete", "dataConstr":"value|true"},
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q4_START_TIME",  "dataValue":"",       "dataSrc":"sceneState.SScene4.$seq|prop|complete", "dataConstr":"value|false"},
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "DR_Q4", "dataValue": "DR4:Sg1", "dataSrc": "sceneState.SScene4", "dataConstr": "" }
+        //            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"DR_Q4_END_TIME",    "dataValue":"",       "dataSrc":"sceneState.SScene4.$seq|prop|complete", "dataConstr":"value|true"}
     ]
 };
 exports.TData_DR = TData_DR;

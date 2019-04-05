@@ -25,13 +25,19 @@ import AdmZip = require("adm-zip");
 import { tabletData, 
          stateData, 
          userState, 
-         acctData}        from "./IAcctData";
+         acctData,
+         TutorData}         from "./IAcctData";
 import { DataProcessor }    from "./DataProcessor";
 
 import { TCONST }           from "./TCONST";
-import { Utils } from "./Utils";
-import { isError } from "util";
-import { ENGINE_METHOD_STORE } from "constants";
+import { Utils }            from "./Utils";
+import { triggerAsyncId }   from "async_hooks";
+import { isError }          from "util";
+import { COPYFILE_EXCL }    from "constants";
+import { TData_DR }         from "./TData_DR";
+import { TData_MATSPRE }    from "./TData_MATSPRE";
+import { TData_RQTED1 }     from "./TData_RQTED1";
+import { TData_RQTED2 }     from "./TData_RQTED2";
 
 
 
@@ -55,11 +61,13 @@ export class DataManager
     private readonly ACCT_FILENAME:string       = "isp_userdata.json";
     private readonly GLOBALSTATE:string         = "tutor_state.json";
     private readonly ONTOLOGYSRC:string         = "_EFTUTORDATA.json";
+    private readonly ACCT_MASTERLIST:string     = "masterAcctList.json";
 
-    private readonly ZIP_ROOT:string            = "EdForge_DATA/";
-    private readonly USER_DATA:string           = "EdForge_USERDATA/";
-    private readonly PROC_DATA:string           = "EdForge_PROCDATA/";
-    private readonly MERGE_DATA:string          = "EdForge_MERGEDATA/";
+    private readonly ZIP_ROOT:string            = "EdForge_DATA/";      // Trailing / is required
+    private readonly USER_DATA:string           = "EdForge_USERDATA";
+    private readonly PROC_DATA:string           = "EdForge_PROCDATA";
+    private readonly MERGE_DATA:string          = "EdForge_MERGEDATA";
+    private readonly MERGE_MASTER:string        = "EdForge_MERGEMASTER";
 
     private readonly DUPLICATE:string           = "DUPLICATE";
     private readonly USERDATA_VERSION1:string   = "1.0.0";
@@ -74,46 +82,359 @@ export class DataManager
     private stateImages:stateData[] = [];   // state data for each tablet
     private state:stateData;
 
+    private tabletAccts:tabletData;
+    private daySuffix:string[] = ["_0","_1","_2"];
+
     private mergedAccts:tabletData = {
                                     "version":this.USERDATA_VERSION1,
                                     "userLogins":[],
                                     "users":[]
                                 };
 
-    private acctFixups:any = {
-        "GUESTNC_JAN_1": {"tablet_17":{"username":"briennesh_jan_1", "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
-        "GUESTC_JAN_1":  {"tablet_3": {"username":"calebke_jan_1",   "condition":"tutor_seq_DL_BASELINE_SODA.json"},
-                          "tablet_7": {"username":"ericku_jan_1",    "condition":"tutor_seq_DL_BASELINE_SODA.json"},
-                          "tablet_11":{"username":"jasonca_jan_1",    "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
-        "GUESTBL_JAN_2": {"tablet_5": {"username":"genevieveza_jan_1","condition":"tutor_seq_DL_BASELINE_SODA.json"}},
-        "GUESTBL_JAN_3": {"tablet_22":{"username":"laneybe_jan_1",    "condition":"tutor_seq_DL_BASELINE_SODA.json"}}
+    private tutorData:any = {};
+
+    
+    private tutorFileSuffix:string[] = ["DEDR","MATS","RQTED"];          
+    
+    private tutorDataSpecs:any[] = [
+        {"suffixIn":"DEDR", "suffixOut":"DEDR",   "dataSpec":TData_DR.tutorDataSpec},
+        {"suffixIn":"MATS", "suffixOut":"MATS",   "dataSpec":TData_MATSPRE.tutorDataSpec},
+        {"suffixIn":"RQTED","suffixOut":"RQTED1", "dataSpec":TData_RQTED1.tutorDataSpec},
+        {"suffixIn":"RQTED","suffixOut":"RQTED2", "dataSpec":TData_RQTED2.tutorDataSpec}
+    ];
+    
+
+    // private tutorFileNames:string[] = ["tutorstate_DEDR.json","tutorstate_MATS.json","tutorstate_RQTED.json"];                                
+    
+    // Map students to guest accounts
+    // 
+    private guestFixups:any = {
+
+        // Nov 30 DeerLake conflicts
+        // 
+        "_0":{            
+        },
+
+        // Dec 3 DeerLake guest fixups
+        // 
+        "_1": {
+            "GUESTNC_JAN_1": {"tablet_17": {"username":"jasonca_jan_1",      "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+            "GUESTC_JAN_1":  {"tablet_11": {"username":"calebke_jan_1",      "condition":"tutor_seq_DL_BASELINE_SODA.json"},
+                              "tablet_7":  {"username":"ericku_jan_1",       "condition":"tutor_seq_DL_BASELINE_SODA.json"},
+                              "tablet_3":  {"username":"briennesh_jan_1",    "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+            "GUESTC_JAN_2" : {"tablet_6":  {"username":"natalinatr_jan_1",   "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+            "GUESTBL_JAN_2": {"tablet_5":  {"username":"genevieveza_jan_1",  "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
+            "GUESTBL_JAN_3": {"tablet_22": {"username":"laneybe_jan_1",      "condition":"tutor_seq_DL_BASELINE_SODA.json"}}
+        },
+
+        // Dec 4 DeerLake guest fixups
+        // 
+        "_2": {
+            "GUESTBL_JAN_1": {"tablet_25": {"username":"briennesh_jan_2",  "condition":"tutor_seq_DL_BASELINE_SODA.json"},
+                              "tablet_16": {"username":"ANGELOTR_jan_2",   "condition":"tutor_seq_DL_BASELINE_SODA.json"},
+                              "tablet_28": {"username":"none",             "condition":""},
+                              "tablet_3":  {"username":"none",             "condition":""}},
+
+            "GUESTNC_JAN_1": {"tablet_5":  {"username":"ericku_jan_2",     "condition":"tutor_seq_DL_NOCHOICE_SODA.json"},
+                              "tablet_31": {"username":"none",             "condition":""}},
+
+            "GUESTC_JAN_1" : {"tablet_26": {"username":"natalinatr_jan_2", "condition":"tutor_seq_DL_CHOICE.json"}},
+
+            "GUESTC_JAN_2" : {"tablet_14": {"username":"none",             "condition":""},
+                              "tablet_26": {"username":"none",             "condition":""},
+                              "tablet_29": {"username":"none",             "condition":""},
+                              "tablet_7":  {"username":"none",             "condition":""}}
+        }
     }                                
 
+
+    // Map students to other student accounts - i.e. One student was logged in as another.
+    // 
+    private userFixups:any = {
+
+        // Nov 30 DeerLake conflicts
+        // 
+        "_0":{            
+        },
+
+        // Dec 3 DeerLake guest fixups
+        // 
+        "_1": {
+        },
+
+        // Dec 4 DeerLake guest fixups
+        // 
+        "_2": {
+            "ADAMSC_MAR_21" : {"tablet_12": {"username":"CALEBKE_FEB_17", "condition":"tutor_seq_DL_CHOICE_SODA.json"}}
+        }
+    }                                
+
+
+    // resolve which tablet to use when students login on multiple tablets.
+    // 
     private conflictResolution:any = {
-        "TANNERHA_OCT_1":"tablet_10",
-        "CALEBKE_FEB_17":"none"
+
+        // Nov 30 DeerLake conflicts
+        // 
+        "_0":{            
+        },
+
+        // Dec 3 DeerLake conflicts
+        // 
+        "_1": {
+            "TANNERHA_OCT_1":"tablet_10",
+            "CALEBKE_FEB_17":"none",
+            "STEPHSI_JAN_1":"none"
+        },
+
+        // Dec 4 DeerLake conflicts
+        // 
+        "_2": {
+            "JASONCA_JAN_1":"tablet_3",
+            "XANDERBA_OCT_19":"tablet_3",
+            "ELIASHU_NOV_26":"tablet_3",
+            "ANNAFU_OCT_12":"tablet_6",
+            "COURTNEYOR_DEC_30":"tablet_7",
+
+            "ADAMSC_MAR_21":"tablet_16",
+            "ALTONCA_JUN_14":"tablet_12",
+            "NICHOLASDE_JUN_18":"tablet_18",
+
+            "ABIGAILAT_JUN_9":"tablet_16",
+            "ABIGAILTH_MAR_7":"tablet_26",
+            "ADENES_JUL_13":"tablet_19",
+            "ALEXMC_OCT_12":"tablet_14",
+            "ANNAHL_JAN_25":"tablet_14",
+            "BRITTNEYSC_MAR_11":"tablet_24",
+            "BROOKEDI_APR_26": "tablet_2",
+            "BROOKEYU_JUN_11":"tablet_19",
+            "CAROLYNMC_APR_19":"tablet_19",
+            "COLINMA_APR_15":"tablet_12",
+            "JACKZA_JUN_5":"tablet_27",
+            "KAILEYME_DEC_24":"tablet_18",
+            "KILEYBI_MAY_5":"tablet_11",
+            "ZACHSA_OCT_5":"tablet_25",
+
+            "GENEVIEVEZA_JAN_1":"tablet_23",
+            "LANEYBE_JAN_1":"tablet_11",
+
+            "GABRIELDA_JAN_28":"tablet_20",
+            "MACKENZIEBU_JAN_7":"tablet_14",
+            "AYDENST_APR_12":"tablet_8"
+        }
     }
-    // Guest Account:GUESTNC_JAN_1 on: tablet_17
-    // Guest Account:GUESTC_JAN_1 on: tablet_3
-    // Guest Account:GUESTC_JAN_1 on: tablet_7
-    // Guest Account:GUESTC_JAN_1 on: tablet_11
-    // Guest Account:GUESTBL_JAN_2 on: tablet_5
-    // Guest Account:GUESTBL_JAN_3 on: tablet_22
-
-    // Guest Account:GUESTC_JAN_2 on: tablet_6      ??
-
-    // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
-    // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
-    // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
-    // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
-    // MERGE CONFLICT: STEPHSI_JAN_1 - tablet_16 : tablet_30
-    // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_3
-    // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_7
 
 
-    private activeAccounts:any  = {};                                    
+    // Ignore tablets in their entirety
+    // 
+    private ignoreTablet:any = {
+
+        // Nov 30 DeerLake ignores
+        // 
+        "_0":{            
+        },
+
+        // Dec 3 DeerLake ignores
+        // 
+        "_1": {
+        },
+
+        // Dec 4 DeerLake ignores
+        // 
+        "_2": {
+        }
+    };
+
+    // Ignore tablets in their entirety
+    // 
+    private ignoreArchive:any = {
+
+        // Nov 30 DeerLake ignores
+        // 
+        "_0":{},
+
+        // Dec 3 DeerLake ignores
+        // 
+        "_1":{},
+
+        // Dec 4 DeerLake conflicts
+        // 
+        "_2":{},
+    };
+
+    // Ignore dormant accounts where students have used guest logins 
+    private ignoreDormant:any = {
+
+        // Nov 30 DeerLake ignores
+        // 
+        "_0":{
+            "ERFGTT_FEB_1":true
+        },
+
+        // Dec 3 DeerLake ignores
+        // 
+        "_1":{
+            // ABSENT
+            "ROBBIEGU_APR_21":true,
+            "BROOKEDI_APR_26":true,
+            "ANGELOTR_DEC_14":true,
+            "RYDERTA_JUL_10":true,
+            "TAYLORPE_MAY_4":true,
+            "MACKENZIEBU_JAN_7":true,
+            "ELIASHU_NOV_26":true,
+            "GEORGEGE_JUN_6":true,
+            "CHRISTIANAWI_JUN_21":true,
+
+            // UNKNOWN USER
+            "ERFGTT_FEB_1":true,
+            "TEST_JAN_1":true
+        },
+
+        // Dec 4 DeerLake ignores
+        // 
+        // These were logged in as GUESTS again
+        //
+        "_2":{
+            // ABSENT
+            "EMILYBL_MAR_8":true,
+            "LAYLAHMI_DEC_28":true,
+            "CALEBKE_JAN_1":true,
+            "PAYTONCE_MAR_2":true,
+            "GEORGEGE_JUN_6":true,
+            "ERICKU_JAN_1":true,
+
+            "BRIENNESH_JAN_1":true,
+            "ANGELOTR_DEC_14":true,
+            
+            // UNKNOWN USER
+            "ERFGTT_FEB_1":true,
+            "TEST_JAN_1":true
+        }
+    }
+
+    private ignoreLogin:any = {
+
+        // Nov 30 DeerLake ignores
+        // 
+        "_0":{},
+
+        // Dec 3 DeerLake ignores
+        // These accounts were all created in error instead of using GUEST accounts.        
+        // 
+        "_1":{
+            "CALEBKE_FEB_17":"tablet_11",
+            "JASONCA_NOV_18":"tablet_17",
+            "LANEYBE_MAR_14":"tablet_22",
+            "ERICKU_FEB_10":"tablet_26",
+            "STEHSI_JAN_1":"tablet_29",
+            "STEPHSI_JAN_1":"tablet_16",
+            "ALVIAAD_JUN_27":"tablet_29",
+            "ALIVIAAA_JUN_27":"tablet_29",
+            "BRIENNESH_JUL_1":"tablet_3",
+            "ABBYAS_DEC_13":"tablet_3",
+            "NATALINATR_AUG_4":"tablet_6",
+            "TEST_JAN_1":"tablet_10"
+        },
+
+        // Dec 4 DeerLake ignores
+        // 
+        "_2":{
+            "ELIMC_MAY_22":"tablet_16",     // Created account - not allowed
+            "BRIENNESH_JUL_1":"tablet_3",   // Created account - not allowed
+            "BRIENNESH_JAN_2":"tablet_3"    // Logged in as guestbl_jan_1 tablet 25
+        }
+    }
+
+    // Ignore dormant accounts where students have used guest logins 
+    //
+    private ignoreMastery:any = {
+
+        // mastery students
+        "LAYNELO_DEC_20":true,
+        "ALYSSAWE_NOV_5":true,
+        "ANITAZH_SEP_1":true,
+        "BLAKEGO_APR_1":true,
+        "CALEBCH_OCT_5":true,
+        "JENNAHO_JUN_11":true,
+        "KATELYNZE_MAY_24":true,
+        "OWENNE_APR_17":true,
+        "RACHAELHA_JUN_4":true,
+        "ROBERTGU_APR_21":true,
+        "JACKSONLY_OCT_28":true,
+        "GRACEHA_FEB_20":true,
+        "ALEXISSV_SEP_13":true,
+        "WILLIAMSC_NOV_21":true,
+        "ZACHWA_DEC_4":true,
+        "DAMIANCR_APR_6":true,
+        "ELIZABETHST_SEP_30":true,
+        "LUKERI_OCT_16":true, 
+        "DAYANNASH_JAN_28":true,
+        "DYLANSC_JUL_26":true,
+        "EMILYCA_SEP_2":true,
+        "GIANNAFI_MAY_25":true,
+        "CHRISTIANDI_AUG_29":true,
+        "GIOVANNIPO_DEC_1":true,
+        "TRISTANNE_JAN_3":true,
+        "BROOKEM_DEC_1":true, 
+        "QWAYLENDO_JAN_15":true,
+        "BENJAMINFO_APR_23":true,
+        "EMMAFE_SEP_28":true,
+        "ADAMLI_APR_17":true,
+        "JACOBWA_AUG_17":true
+    };
+    
+
+    // These ID's are equivalent (i.e. denote the same individual)
+    // 
+    private IDConflict:any = {
+
+        "ANGELOTR_DEC_14": "ANGELOTR_JAN_2",
+        "ANGELOTR_JAN_2" : "ANGELOTR_DEC_14",
+
+        "BRIENNESH_JAN_1":"BRIENNESH_JAN_2",
+        "BRIENNESH_JAN_2":"BRIENNESH_JAN_1",
+
+        "CALEBKE_FEB_17":"CALEBKE_JAN_1",
+        "CALEBKE_JAN_1":"CALEBKE_FEB_17",
+
+        "ERICKU_JAN_1":"ERICKU_JAN_2",
+        "ERICKU_JAN_2":"ERICKU_JAN_1",
+
+        "NATALINATR_JAN_1":"NATALINATR_JAN_2",
+        "NATALINATR_JAN_2":"NATALINATR_JAN_1"
+    };
+
+
+    private activeAccounts:any  = {
+
+        // Nov 30 DeerLake ignores
+        // 
+        "_0":{},
+
+        // Dec 3 DeerLake ignores
+        // 
+        "_1":{},
+
+        // Dec 4 DeerLake conflicts
+        // 
+        "_2":{}
+
+    };                                    
+    private sessionAccountList:any = {
+
+        // Nov 30 DeerLake ignores
+        // 
+        "_0":{},
+
+        // Dec 3 DeerLake ignores
+        // 
+        "_1":{},
+
+        // Dec 4 DeerLake conflicts
+        // 
+        "_2":{}
+    };
     private masterAccountList:any = {};
-
 
 
     constructor(_cwd:string) {
@@ -125,45 +446,167 @@ export class DataManager
     // Unpack the alldata.zip for each tablet in the EdForge_ZIPDATA folder into the 
     // EdForge_USERDATA folder.  This gives us all the user data in discrete folders.
     // 
-    public unpackData(src:string, dst:string) : Array<string>{
+    public unpackData(srcBase:string, dst:string) : Array<string>{
 
-        let srcPath:string = path.join(this.cwd, src);  
-        let dstPath:string = path.join(this.cwd, dst);  
+        // unpack each days data into a named folder.
+        // 
+        for(let daySfx of this.daySuffix) {
 
-        try {
-            let files:Array<string> = fs.readdirSync(srcPath);
+            let srcPath:string = path.join(this.cwd, srcBase + daySfx);  
+            let dstPath:string = path.join(this.cwd, dst + daySfx);  
 
-            for(let folder of files) {
+            console.log("\n\n***********************Unpacking Session: " + daySfx + "\n");
 
-                // If this looks like a tablet folder then process it
+            try {
+
+                // enumerate the EdForge_ZIPDATA_# (# = daySfx) folder to find "tablet_#" subfolders
+                // containing tablet ZIP data  (alldata.zip)
                 // 
-                if(folder.startsWith(this.TABLET_BASE)) {
-                    
-                    let _path = path.join(srcPath, folder);  
+                let files:Array<string> = fs.readdirSync(srcPath);
 
-                    try {
-                        let stats:any = fs.statSync(_path);
+                for(let folder of files) {
 
-                        // If it is a folder check it for user data
-                        // 
-                        if(stats.isDirectory()) {
+                    // If this looks like a tablet folder then process it
+                    // 
+                    if(folder.startsWith(this.TABLET_BASE)) {
+                        
+                        let _path = path.join(srcPath, folder);  
 
-                            this.unpackTabletData(folder, _path, dstPath);
+                        try {
+                            let stats:any = fs.statSync(_path);
+
+                            // If it is a folder check it for user data
+                            // 
+                            if(stats.isDirectory()) {
+
+                                this.unpackTabletData(daySfx, folder, _path, dstPath);
+                            }
                         }
-                    }
-                    catch(error) {
+                        catch(error) {
 
-                        console.log("Error = " + error);
+                            console.log("Error = " + error);
+                        }
                     }
                 }
             }
-        }
-        catch(error) {
-            console.log("Error = " + error);
+            catch(error) {
+                console.log("Error = " + error);
+            }
         }
 
         return this.dataFolders;
     }
+
+
+    // Find (if present) the requested iteration of a tutors data set (repetition) 
+    //
+    private getTutorIterationData(studentId:string, tutorSfx:string, iteration:number) : any {
+
+        let data:any = null;
+
+        for(let daySfx of this.daySuffix) {
+
+            // If there is a dataset for this day then see if it is the iteration requested
+            //
+            if(this.tutorData[studentId] && this.tutorData[studentId][tutorSfx] && this.tutorData[studentId][tutorSfx][daySfx]) {
+
+                if(iteration === 0) {
+
+                    data = this.tutorData[studentId][tutorSfx][daySfx];
+                    break;
+                }
+                else {
+                    iteration--;
+                }
+            }
+        }
+
+        return data;
+    }
+
+
+    public mergeUserAccts() {
+
+        let forceMerge:boolean  = false;
+        let buildImages:boolean = true;
+
+        if(buildImages) {
+
+            // Merge each days data into a named folder.
+            // 
+            for(let daySfx of this.daySuffix) {
+
+                this.mergeErrors = 0;
+                this.loadResolveAccts(daySfx);
+
+                // Save the merged account database.
+                // 
+                this.saveMergedAcctImage(daySfx);
+
+                if(this.mergeErrors === 0 || forceMerge) {
+
+                    console.log("\n\n***********************************************");
+                    console.log("MERGING FOLDERS\n\n");
+
+                    this.mergeTutorStateData(daySfx);
+
+                    console.log("\n\n***********************************************");
+                    console.log("MERGE COMPLETE!\n\n");
+                }
+                else {
+                    console.log("ERROR: Merge Conflicts exist - Correct and retry merge.");
+                }
+            }
+
+            // Combine the merge images into a single master image that includes data across days
+            // 
+            this.combineMergeImage();
+            this.saveMasterAcctList();
+        }
+
+        this.loadMasterAcctList();        
+        this.loadOntologyImage();        
+
+        this.loadAllSessionData();
+
+        let processor:DataProcessor = new DataProcessor(this.ontology);
+
+        // We aggregate all users into a single file.
+        // 
+        let dstPath:string = Utils.validatePath(this.cwd, this.PROC_DATA);
+
+        // We have at most daySuffix versions of some user data - if they repeated everything every day of the
+        // study.
+        // 
+        for(let iteration = 0 ; iteration < 3 ; iteration++) {
+
+            for(let tutorDataEntry of this.tutorDataSpecs) {
+
+                let tutorDataFile:string = path.join(this.cwd, this.PROC_DATA, "tutordata_" + tutorDataEntry.suffixOut + "_" + iteration + ".csv");
+                let genFile:number = processor.createDataTarget(tutorDataFile);
+
+                let masterDataFile:string = path.join(this.cwd, this.PROC_DATA, "masterydata_" + tutorDataEntry.suffixOut + "_" + iteration + ".csv");
+                let masFile:number = processor.createDataTarget(masterDataFile);
+
+                for(let studentId in this.masterAccountList) {
+        
+                    if(!this.ignoreMastery[studentId]) {
+                        let tutorIterationData:any = this.getTutorIterationData(studentId, tutorDataEntry.suffixIn, iteration);  
+                        
+                        if(tutorIterationData)
+                            processor.extractTutorStateData(genFile, tutorDataEntry.dataSpec, tutorIterationData, studentId, this.masterAccountList[studentId].condition);            
+                    }
+                    else {
+                        let tutorIterationData:any = this.getTutorIterationData(studentId, tutorDataEntry.suffixIn, iteration);  
+                        
+                        if(tutorIterationData)
+                            processor.extractTutorStateData(masFile, tutorDataEntry.dataSpec, tutorIterationData, studentId, this.masterAccountList[studentId].condition);            
+                    }
+                }
+            }
+        }
+    }
+
 
     public assignInstruction(csvName:String) {
 
@@ -171,111 +614,117 @@ export class DataManager
         let count = 0;
         let username;
 
-        this.loadMergedAccts();
-        this.statedata = {"users":[]};
+        // unpack each days data into a named folder.
+        // 
+        for(let daySfx of this.daySuffix) {
 
-        var lineReader = readline.createInterface({
-            input: require('fs').createReadStream(srcPath),
-            crlfDelay: Infinity
-        });
-          
-        lineReader.on('line', (line:string) => {
-            let packet:string[] = line.split(",");
-            count++;
+            // TODO: fix this for daySfx
+            this.loadMergedAccts();
+            this.statedata = {"users":[]};
 
-            let name1:string[]   = packet[0].match(/\w+/);
-            let name2:string[]   = packet[1].match(/\w+/);
-            let month:string[]   = packet[2].match(/\w+/);
-            let cond:string[]    = packet[8].match(/\w+/);
-            let subcond:string[] = packet[9].match(/\w+/);
+            var lineReader = readline.createInterface({
+                input: require('fs').createReadStream(srcPath),
+                crlfDelay: Infinity
+            });
+            
+            lineReader.on('line', (line:string) => {
+                let packet:string[] = line.split(",");
+                count++;
 
-            let features:string;
-            let instruction:string;
+                let name1:string[]   = packet[0].match(/\w+/);
+                let name2:string[]   = packet[1].match(/\w+/);
+                let month:string[]   = packet[2].match(/\w+/);
+                let cond:string[]    = packet[8].match(/\w+/);
+                let subcond:string[] = packet[9].match(/\w+/);
 
-            if(!cond[0].toUpperCase().startsWith("HS")) {
+                let features:string;
+                let instruction:string;
 
-                switch(cond[0]) {
-                    case "C":
-                    features    = "FTR_CHOICE";
-                    instruction = "tutor_seq_DL_CHOICE.json";
-                    break;
+                if(!cond[0].toUpperCase().startsWith("HS")) {
 
-                    case "NC":
-                    features  = "FTR_NOCHOICE";
-
-                    if(subcond[0].toUpperCase().startsWith("GR")) {
-                        features += ":FTR_NCPLANTS";    
-                        instruction = "tutor_seq_DL_NOCHOICE_PLANTS.json";
-                    }
-                    else {
-                        features += ":FTR_NCSODA";
-                        instruction = "tutor_seq_DL_NOCHOICE_SODA.json";
-                    }
-                    break;
-
-                    case "BL":
-                    features  = "FTR_BASELINE";
-
-                    if(subcond[0].toUpperCase().startsWith("GR")) {
-                        features += ":FTR_NCPLANTS";    
-                        instruction = "tutor_seq_DL_BASELINE_PLANTS.json";
-                    }
-                    else {
-                        features += ":FTR_NCSODA";
-                        instruction = "tutor_seq_DL_BASELINE_SODA.json";
-                    }                    
-                    break;
-
-                    default:
-                        console.log("ERROR: Format Violation.")
+                    switch(cond[0]) {
+                        case "C":
+                        features    = "FTR_CHOICE";
+                        instruction = "tutor_seq_DL_CHOICE.json";
                         break;
+
+                        case "NC":
+                        features  = "FTR_NOCHOICE";
+
+                        if(subcond[0].toUpperCase().startsWith("GR")) {
+                            features += ":FTR_NCPLANTS";    
+                            instruction = "tutor_seq_DL_NOCHOICE_PLANTS.json";
+                        }
+                        else {
+                            features += ":FTR_NCSODA";
+                            instruction = "tutor_seq_DL_NOCHOICE_SODA.json";
+                        }
+                        break;
+
+                        case "BL":
+                        features  = "FTR_BASELINE";
+
+                        if(subcond[0].toUpperCase().startsWith("GR")) {
+                            features += ":FTR_NCPLANTS";    
+                            instruction = "tutor_seq_DL_BASELINE_PLANTS.json";
+                        }
+                        else {
+                            features += ":FTR_NCSODA";
+                            instruction = "tutor_seq_DL_BASELINE_SODA.json";
+                        }                    
+                        break;
+
+                        default:
+                            console.log("ERROR: Format Violation.")
+                            break;
+                    }
+
+                    username = name1[0].toUpperCase() + name2[0].slice(0,2).toUpperCase() + "_" + month[0].slice(0,3).toUpperCase() + "_" + packet[3];
+
+                    this.statedata.users.push({
+                        "comment":"this is for xref only",
+                        "userName": username,
+                        "instruction": instruction
+                    });
+
+                    console.log(username + (username.length < 16? "\t\t":"\t") + instruction + (instruction.length < 33? "\t\t":"\t") + features );
                 }
+                else {
+                    username = name1[0].toUpperCase() + name2[0].slice(0,2).toUpperCase();
 
-                username = name1[0].toUpperCase() + name2[0].slice(0,2).toUpperCase() + "_" + month[0].slice(0,3).toUpperCase() + "_" + packet[3];
+                    if(month) { 
+                    username += "_" + month[0].slice(0,3).toUpperCase() + "_" + packet[3];
+                    }
 
-                this.statedata.users.push({
-                    "comment":"this is for xref only",
-                    "userName": username,
-                    "instruction": instruction
-                });
+                    instruction = "MASTERY";
+                    features    = "";
 
-                console.log(username + (username.length < 16? "\t\t":"\t") + instruction + (instruction.length < 33? "\t\t":"\t") + features );
-            }
-            else {
-                username = name1[0].toUpperCase() + name2[0].slice(0,2).toUpperCase();
+                    this.statedata.users.push({
+                        "comment":"this is for xref only",
+                        "userName": username,
+                        "instruction": instruction
+                    });
 
-                if(month) { 
-                  username += "_" + month[0].slice(0,3).toUpperCase() + "_" + packet[3];
+                    console.log(username + "_MASTERY");
                 }
+            });
 
-                instruction = "MASTERY";
-                features    = "";
+            lineReader.on('close', () => {
+                console.log("EOF: " + count);
 
-                this.statedata.users.push({
-                    "comment":"this is for xref only",
-                    "userName": username,
-                    "instruction": instruction
-                });
+                let dataPath:string = path.join(this.cwd, this.USER_DATA, this.TUTORSTATE);  
 
-                console.log(username + "_MASTERY");
-            }
-        });
+                let dataUpdate:string = JSON.stringify(this.statedata, null, '\t');
+            
+                fs.writeFileSync(dataPath, dataUpdate, 'utf8');
 
-        lineReader.on('close', () => {
-            console.log("EOF: " + count);
+                this.xrefSetConditions();
 
-            let dataPath:string = path.join(this.cwd, this.USER_DATA, this.TUTORSTATE);  
-
-            let dataUpdate:string = JSON.stringify(this.statedata, null, '\t');
-        
-            fs.writeFileSync(dataPath, dataUpdate, 'utf8');
-
-            this.xrefSetConditions();
-
-            // Finally save the merge and updated account image.
-            // 
-            this.saveMergedAcctImage();
-        });
+                // Finally save the merge and updated account image.
+                // 
+                this.saveMergedAcctImage(daySfx);
+            });
+        }
     }   
 
     private xrefSetConditions() {
@@ -336,39 +785,6 @@ export class DataManager
         this.resolveExtractData();
     }
 
-    public mergeUserAccts() {
-
-        let forceMerge:boolean = true;
-
-        this.mergeErrors = 0;
-        this.loadResolveAccts();
-
-        // Save the merged account database.
-        // 
-        this.saveMergedAcctImage();
-
-        if(this.mergeErrors === 0 || forceMerge) {
-
-            this.mergeTutorStateData();
-
-            console.log("\n\n***********************************************");
-            console.log("MERGE COMPLETE!\n\n");
-        }
-        else {
-            console.log("ERROR: Merge Conflicts exist - Correct and retry merge.");
-        }
-
-    }
-    
-
-    private loadResolveAccts() {
-
-        // this.loadStateImage();
-        this.loadAcctImages();
-
-        this.resolveAccts();
-    }    
-
 
     // load beta1 tutorstatedata.json image
     // 
@@ -379,12 +795,14 @@ export class DataManager
         this.state = JSON.parse(fs.readFileSync(stateData));
     }
 
+
     private loadOntologyImage() {
 
         let ontologyData:string = path.join(this.cwd, this.USER_DATA, this.ONTOLOGYSRC);  
 
         this.ontology = JSON.parse(fs.readFileSync(ontologyData));
     }
+
 
     private getUserState(userName:string) : userState {
 
@@ -403,6 +821,31 @@ export class DataManager
     }
 
 
+    // load beta1 masterAcctList.json image
+    // 
+    private loadMasterAcctList() {
+
+        let acctData:string = path.join(this.cwd, this.USER_DATA, this.ACCT_MASTERLIST);  
+
+        this.masterAccountList = JSON.parse(fs.readFileSync(acctData));
+    }
+
+
+    // load beta1 masterAcctList.json image
+    // 
+    private saveMasterAcctList() {
+
+        Utils.validatePath(this.cwd, this.USER_DATA);
+
+        let dataPath:string = path.join(this.cwd, this.USER_DATA, this.ACCT_MASTERLIST);  
+
+        let dataUpdate:string = JSON.stringify(this.masterAccountList, null, '\t');
+    
+        fs.writeFileSync(dataPath, dataUpdate, 'utf8');
+    }
+
+
+
     // load beta1 tutorstatedata.json image
     // 
     private loadMergedAccts() {
@@ -415,7 +858,7 @@ export class DataManager
 
     // load beta1 tutorstatedata.json image
     // 
-    private saveMergedAcctImage() {
+    private saveMergedAcctImage(daySfx:string) {
 
         // We don't want tablet ID's in the merge image
         // TODO: use this in V1 merged accounts
@@ -425,9 +868,9 @@ export class DataManager
             // delete user.tabletId;
         }
 
-        Utils.validatePath(this.cwd, this.MERGE_DATA);
+        Utils.validatePath(this.cwd, this.MERGE_DATA + daySfx);
 
-        let dataPath:string = path.join(this.cwd, this.MERGE_DATA, this.ACCT_FILENAME);  
+        let dataPath:string = path.join(this.cwd, this.MERGE_DATA + daySfx, this.ACCT_FILENAME);  
 
         let dataUpdate:string = JSON.stringify(this.mergedAccts, null, '\t');
     
@@ -435,9 +878,91 @@ export class DataManager
     }
 
 
-    private copyFolder(src:string, dest:string, recurse:boolean) {
+    // load tutorstate_*.json image
+    // 
+    private loadDataFile(srcPath:string) : any {
 
-        var folderList = fs.readdirSync(src);
+        let data:any = null;
+
+        try {
+            data = JSON.parse(fs.readFileSync(srcPath));
+        }
+        catch(err) {
+
+            data = null;
+        }
+
+        return data;
+    }
+
+
+    // save tutorstate_*.json image
+    // 
+    private saveDataFile(dst:string, data:any) {
+
+        let dataUpdate:string = JSON.stringify(data, null, '\t');
+
+        fs.writeFileSync(dst, dataUpdate, 'utf8');
+    }
+
+
+    private loadSessionData(sessionFolder:string, daySfx:string) : void {
+
+        var folderList   = fs.readdirSync(sessionFolder);
+
+        // Enumerate the user data folders for this session
+        // 
+        for(let studentId of folderList) {
+
+            var filePath = path.join(sessionFolder, studentId);
+            var stat = fs.statSync(filePath);
+            
+            //  Folders are assumed to be user account data folders
+            // 
+            if(stat.isDirectory()) {
+
+                this.tutorData[studentId] = this.tutorData[studentId] || {"1stSession":daySfx};
+
+                // Load all available tutordata for given student account - not all accounts will have all tutors
+                // used on any particular day
+                // 
+                for(let tutorSfx of this.tutorFileSuffix) {
+
+                    let tutorDataFile:string = path.join(sessionFolder, studentId, "tutorstate_" + tutorSfx + ".json");
+
+                    let data = this.loadDataFile(tutorDataFile);
+
+                    if(data) {
+                        this.tutorData[studentId][tutorSfx] = this.tutorData[studentId][tutorSfx] || {"1stTutorSession":daySfx};
+
+                        this.tutorData[studentId][tutorSfx][daySfx] = data;
+                    }
+                }
+            }
+        }
+    }
+
+
+    private loadAllSessionData() {
+
+        // Enumerate the sessions for the instruction - (i.e. the days instruction was given)
+        // This corresponds to the merge-folders images.
+        // 
+        for(let daySfx of this.daySuffix) {
+
+            let sessionFolder:string = path.join(this.cwd, this.MERGE_DATA + daySfx);
+            
+            console.log("Loading Session: " + daySfx);
+
+            this.loadSessionData(sessionFolder, daySfx);
+        }    
+    }
+
+
+    private combineUserFolder(src:string, dest:string, recurse:boolean) : void {
+
+        var folderList   = fs.readdirSync(src);
+        let flags:number = 0;                   // default to destructive copying
 
         for(let entry of folderList) {
 
@@ -447,24 +972,26 @@ export class DataManager
             if(stat.isDirectory()) {
 
                 // copy recursively
+                // 
                 if(recurse) {
-                    fs.mkdirSync(path.join(dest,entry));
+                    Utils.validatePath(path.join(dest,entry), null);
 
-                    this.copyFolder(path.join(src,entry),path.join(dest,entry), recurse);
+                    this.combineUserFolder(path.join(src,entry),path.join(dest,entry), recurse);
                 }
 
             } else {
 
-                let reg = /(\w*)__\w*/;
+                try {
+                    // Process the tutorstate data separately
+                    // 
+                    // if(!entry.startsWith("tutorstate")) {
 
-                let nameParts:string[] = entry.match(reg);
-
-                if(nameParts[1].includes("tablet")) {
-                    console.log("Internal Error");
+                        fs.copyFileSync(path.join(src,entry), path.join(dest,entry), flags);
+                    // }
                 }
-
-                // copy filename
-                fs.copyFileSync(path.join(src,entry),path.join(dest,nameParts[1]+".json"));
+                catch(err) {
+                    // Ignore dupliciates
+                }
             }
         }
     }
@@ -476,71 +1003,168 @@ export class DataManager
     // NOTE!!! any merge conflicts should be resolved before this is processed - merge conflicts
     // occur when a user logs into more than one tablet 
     //
-    private mergeTutorStateData() {
+    private combineMergeImage() {
 
-        for(let user of this.mergedAccts.users) {
+        for(let i1 = this.daySuffix.length-1 ; i1 >= 0 ; i1--) {
+
+            console.log("Creating Merge Master:: " + this.daySuffix[i1]);
+
+            // Copy the data in reverse day order without replacement - 
+            //
+            let mergePath:string = path.join(this.cwd, this.MERGE_DATA + this.daySuffix[i1]);  
+
+            var folderList = fs.readdirSync(mergePath);
+
+            // Enumerate the user account folders in EdForge_MERGEMASTER.
+            // 
+            for(let entry of folderList) {
+
+                let mergeDst:string = path.join(this.cwd, this.MERGE_MASTER, entry);  
+                let mergeSrc:string = path.join(this.cwd, this.MERGE_DATA + this.daySuffix[i1], entry);  
+
+                var stat = fs.statSync(mergeSrc);
             
-            try {
-                let tutorStateData:string  = path.join(this.cwd, this.USER_DATA, user.userName);  
-                let mergeStateData:string = path.join(this.cwd, this.MERGE_DATA, user.userName);  
+                if(stat.isDirectory()) {
+    
+                    Utils.validatePath(mergeDst, null);
 
-                Utils.validatePath(mergeStateData, null);
-
-                this.copyFolder(tutorStateData, mergeStateData, true);
-            }
-            catch(err) {
-                if(user.currSessionNdx != 1) {
-                    console.log("Skipping early data");
+                    this.combineUserFolder(mergeSrc, mergeDst, true);
+        
+                } else {
+    
+                    // Do a non-destructive Copy 
+                    // 
+                    try {
+                        fs.copyFileSync(mergeSrc, mergeDst, COPYFILE_EXCL);
+                    }
+                    catch(err) {
+                        // Ignore dupliciates
+                    }
                 }
-                else {
-                    console.log("Internal Error ******************************************");
-                }
+    
             }
         }
     }
 
 
+    private copyFolder(user:acctData, src:string, dest:string, recurse:boolean) : any {
 
-    // private acctFixups:any = [
-    //     {"acctname":"guestnc_Jan_1",  "tablet":17, "username":"briennesh_jan_1",},
-    //     {"acctname":"guestc_Jan_1",   "tablet":3,  "username":"calebke_jan_1",},
-    //     {"acctname":"guestc_Jan_1",   "tablet":7,  "username":"ericku_jan_1",},
-    //     {"acctname":"guestc_Jan_1",   "tablet":11, "username":"jasonca_jan_1",},
-    //     {"acctname":"guestbl_Jan_2",  "tablet":5,  "username":"genevieveza_jan_1",},
-    //     {"acctname":"guestbl_Jan_3",  "tablet":22, "username":"laneybe_jan_1",}
-    // ]                 
-    
-    // private conflictResolution:any = {
-    //     "TANNERHA_OCT_1":"tablet_10",
-    //     "CALEBKE_FEB_17":"none"
-    // }
-    
-    // Guest Account:GUESTNC_JAN_1 on: tablet_17
-    // Guest Account:GUESTC_JAN_1 on: tablet_3
-    // Guest Account:GUESTC_JAN_1 on: tablet_7
-    // Guest Account:GUESTC_JAN_1 on: tablet_11
-    // Guest Account:GUESTBL_JAN_2 on: tablet_5
-    // Guest Account:GUESTBL_JAN_3 on: tablet_22
+        var folderList = fs.readdirSync(src);
+        var ignored:any = {};
 
-    // Guest Account:GUESTC_JAN_2 on: tablet_6      ??
+        for(let entry of folderList) {
 
-    // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
-    // MERGE CONFLICT: TANNERHA_OCT_1 - tablet_10 : tablet_26
-    // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
-    // MERGE CONFLICT: CALEBKE_FEB_17 - tablet_11 : tablet_30
-    // MERGE CONFLICT: STEPHSI_JAN_1 - tablet_16 : tablet_30
-    // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_3
-    // MERGE CONFLICT: GUESTC_JAN_1 - tablet_11 : tablet_7
+            var filePath = path.join(src, entry);
+            var stat = fs.statSync(filePath);
+            
+            if(stat.isDirectory()) {
+
+                // copy recursively
+                if(recurse) {
+                    Utils.validatePath(path.join(dest,entry), null);
+
+                    let ignore = this.copyFolder(user, path.join(src,entry),path.join(dest,entry), recurse);
+
+                    Object.assign(ignored, ignore);
+                }
+
+            } else {
+
+                // Decompose the filename to get 
+                // 
+                let reg = /(\w*)__(\w*)/;
+
+                let nameParts:string[] = entry.match(reg);
+
+                if(nameParts[1].includes("tablet")) {
+                    console.log("Internal Error");
+                }
+
+                // Copy file image for a specific tablet:
+                // Where there is a merge conflict we'll ignore all but the one selected to resolve
+                // the conflict. i.e. There may be multiple named files from different tablets.
+                // 
+                if(user.tabletId === nameParts[2]) {
+                    fs.copyFileSync(path.join(src,entry),path.join(dest,nameParts[1]+".json"));
+                }
+                else {
+                    ignored[nameParts[2]] = true;
+                }
+            }
+        }
+
+        return ignored;
+    }
 
 
-    private resolveAccts() {
+    // transfer the users tutor state info to a "user-id" named folder in the common merge
+    // image that may be loaded to the tablet EdForge_DATA path. 
+    // 
+    // NOTE!!! any merge conflicts should be resolved before this is processed - merge conflicts
+    // occur when a user logs into more than one tablet 
+    //
+    private mergeTutorStateData(daySfx:string) {
+
+        for(let user of this.mergedAccts.users) {
+            
+            let itablet:string = "";
+
+            try {
+
+                if(!this.ignoreDormant[daySfx][user.userName]) {
+
+                    // Copy the data from the ORIGINAL data folder to the users named folder in 
+                    // the merge image. n.b. Guest accounts etc are mapped to another user name.
+                    //
+                    let tutorStateData:string = path.join(this.cwd, this.USER_DATA + daySfx, user.userFolder);  
+                    let mergeStateData:string = path.join(this.cwd, this.MERGE_DATA + daySfx, user.userName);  
+
+                    Utils.validatePath(mergeStateData, null);
+
+                    let ignored:any = this.copyFolder(user, tutorStateData, mergeStateData, true);
+
+                    for(let ignore in ignored) {
+
+                        if(itablet.length > 0) itablet += ", ";
+                        
+                        itablet += ignore;
+                    }
+
+                    console.log("User Merge Complete: " + user.userName + " :: From " + user.tabletId + ((itablet.length > 0)? " :: Ignored " + itablet:""));
+                }
+                else {
+                    //  Silent ignore students that were absent
+                }
+            }
+            catch(err) {
+                console.log("Internal Error ***** merging:: " + user.userName + " :: " + err);
+            }
+        }
+    }
+
+
+    // Load all the isp_userdata.json files for all the tablets for a given day
+    // 
+    private loadResolveAccts(daySfx:string) {
+        
+        // Load the this.tabletImages array with isp_userdata.json images for
+        // each tablet
+        // 
+        this.loadAcctImages(daySfx);
+        this.resolveAccts(daySfx);
+    }    
+
+
+    private resolveAccts(daySfx:string) {
 
         let userData:acctData;
-        let acctCount:number = 0;
 
         let rename:boolean   = false;
         let newname:string   = "";
         let condition:string = "";
+
+        this.mergedAccts.users      = [];
+        this.mergedAccts.userLogins = [];
 
         // enumerate all known accounts.
         // 
@@ -552,14 +1176,17 @@ export class DataManager
 
                 for(let user of tablet.users) {                    
 
-                    if(!this.masterAccountList[user.userName]) {
-                        this.masterAccountList[user.userName] = {"tablet":tablet.tabletId, "active": "" };
-                        acctCount++;
+                    this.masterAccountList[user.userName] = {};
+
+                    if(!this.sessionAccountList[daySfx][user.userName]) {
+                        this.sessionAccountList[daySfx][user.userName] = {"tablet":tablet.tabletId, "active": "" };
                     }
                 }
             }
         }
 
+        // Enumerate the tablet acct images - each tablet has a set of logins and associated 
+        // user account state records
         // 
         for(let tablet of this.tabletImages) {
 
@@ -567,31 +1194,64 @@ export class DataManager
             // 
             if(tablet.tabletId) {
 
+                let tabletLogins:any = {};
+
+                // Enumerate all the logins for the given tablet.
+                // 
                 for(let user of tablet.userLogins) {                    
 
-                    if(user.userName.startsWith("GUEST")) {
-                        console.log("Guest Account:" +  user.userName + " on: " + tablet.tabletId);
-                    }
+                    // Only process one login per user per tablet.
+                    // 
+                    if(!tabletLogins[user.userName]) {
 
-                    if(this.activeAccounts[user.userName]) {
+                        tabletLogins[user.userName] = true;
 
-                        // If this isn't a duplicate login on this tablet it represents a conflict that must be resolved.
+                        // Resolve Guest account usages to student accounts.
                         // 
-                        if(this.activeAccounts[user.userName] !== tablet.tabletId) {
-                            this.mergeErrors++;
-                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.activeAccounts[user.userName] + " : " + tablet.tabletId);
+                        if(user.userName.startsWith("GUEST")) {
+
+                            // If there is no resolution for the guest account - raise error
+                            // i.e. there must be a mapping for the guest account login on the specific tablet.
+                            // 
+                            if(!(this.guestFixups[daySfx][user.userName] && this.guestFixups[daySfx][user.userName][tablet.tabletId]) && !this.ignoreTablet[daySfx][tablet.tabletId]) {
+
+                                this.mergeErrors++;
+                                console.log("WARNING: Unresolved Guest Account: " +  user.userName + " used on: " + tablet.tabletId);
+                            }
                         }
-                        continue;
-                    }                    
-                    else 
-                        this.activeAccounts[user.userName] = tablet.tabletId;
+                        
+                        // Resolve normal user logins to a specific tablet image - check for conflicts in the process. i.e. logins on multiple 
+                        // tablets that have no conflict resolution 
+                        // 
+                        else {
+                            if(this.activeAccounts[daySfx][user.userName]) {
+
+                                // If this isn't a duplicate login on this tablet it represents a conflict that must be resolved.
+                                // 
+                                if((this.activeAccounts[daySfx][user.userName] !== tablet.tabletId) && !this.ignoreTablet[daySfx][tablet.tabletId]) {
+
+                                    // If there is no resolution for the multiple-login - raise error
+                                    // 
+                                    if(!this.conflictResolution[daySfx][user.userName]) {
+
+                                        this.mergeErrors++;
+                                        console.log("WARNING: MERGE CONFLICT: " + user.userName + " - " + this.activeAccounts[daySfx][user.userName] + " : " + tablet.tabletId);
+                                    }
+                                }
+                                continue;
+                            }                    
+                            else 
+                                this.activeAccounts[daySfx][user.userName] = tablet.tabletId;
+                        }
+                    }
                 }
             }
         }
 
         console.log("\n\n*********************\nStarting Merge\n\n");
+
         // {"acctname":"guestnc_Jan_1",  "tablet":3,  "username":"briennesh_jan_1",},
-        // acctFixups
+        // guestFixups
 
         // Each tablet has a set of user accounts some new - some old - they may not all be
         // extant on all tablets. We need to merge these into a single image so any user
@@ -603,135 +1263,150 @@ export class DataManager
             // determine tablet users
             // 
             if(tablet.tabletId) {
-
-                // private acctFixups:any = {
-                //     "GUESTNC_JAN_1": {"tablet_17":{"username":"briennesh_jan_1",  "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
-                //     "GUESTC_JAN_1":  {"tablet_3": {"username":"calebke_jan_1",    "condition":"tutor_seq_DL_CHOICE.json"},
-                //                       "tablet_7": {"username":"ericku_jan_1",     "condition":"tutor_seq_DL_NOCHOICE_SODA.json"},
-                //                       "tablet_11":{"username":"jasonca_jan_1",    "condition":"tutor_seq_DL_BASELINE_SODA.json"}},
-                //     "GUESTBL_JAN_2": {"tablet_5": {"username":"genevieveza_jan_1","condition":"tutor_seq_DL_BASELINE_SODA.json"}},
-                //     "GUESTBL_JAN_3": {"tablet_22":{"username":"laneybe_jan_1",    "condition":"tutor_seq_DL_NOCHOICE_SODA.json"}}
-                // }                                
-            
-                // private conflictResolution:any = {
-                //     "TANNERHA_OCT_1":"tablet_10",
-                //     "CALEBKE_FEB_17":"none"
-                // }
-                            
                 
+                let tabletLogins:any = {};
+
                 // Enumerate the actual logins to tablets.
                 // 
                 for(let user of tablet.userLogins) {                    
 
                     rename = false;
 
-                    if(this.conflictResolution[user.userName]) {
-                        
-                        if(this.conflictResolution[user.userName] !== tablet.tabletId) {
-                            console.log("Skipping Conflict: " + user.userName + " on:" + tablet.tabletId);
-                            continue;
-                        }
-                        else {
-                            // Resolve one copy - might be multiple logins by same user on tablet.
-                            // 
-                            console.log("Resolving Conflict: " + user.userName + " using:" + tablet.tabletId);
-                            this.conflictResolution[user.userName] = "done";
-                        }
-                    }
-                    if(this.acctFixups[user.userName]) {
+                    // Only process one login per user per tablet.
+                    // 
+                    if(!tabletLogins[user.userName]) {
 
-                        if(this.acctFixups[user.userName][tablet.tabletId]) {
+                        tabletLogins[user.userName] = true;
+
+                        if(this.ignoreMastery[user.userName]) {
+
+                            // console.log("Ignoring Mastery Account: " + user.userName + " on " + tablet.tabletId);
+                            // continue;
+                            console.log("Mastery");
+                        }
+
+                        //  Resolve users logged in as another - rename login and user data record.
+                        // 
+                        else if(this.userFixups[daySfx][user.userName] && this.userFixups[daySfx][user.userName][tablet.tabletId]) {
 
                             rename    = true;
-                            newname   = this.acctFixups[user.userName][tablet.tabletId].username.toUpperCase();
-                            condition = this.acctFixups[user.userName][tablet.tabletId].condition;             
+                            newname   = this.userFixups[daySfx][user.userName][tablet.tabletId].username.toUpperCase();
+                            condition = this.userFixups[daySfx][user.userName][tablet.tabletId].condition;             
                             
-                            console.log("Fixing Account: " + user.userName + "on:" + tablet.tabletId + " to:" + newname + " : " + condition);      
-                        }
-                        else 
-                            console.log("Skipping: " + user.userName + " on:" + tablet.tabletId);
-                    }
+                            console.log("Fixing Aliased Account: " + user.userName + " on: " + tablet.tabletId + " to: " + newname + " : " + condition);      
+                        }   
 
-
-                    userData = null;
-
-                    // Locate the user data for the login.  The user array keeps the actual student state info
-                    // which is what we want to merge.  We throw away the userLogins.
-                    // 
-                    for(let entry of tablet.users) {
-
-                        if(entry.userName === user.userName) {
-                            userData = entry;
-                            break;
-                        }
-                    }
-
-                    // If the user state data is found we add it to the merged image
-                    // 
-                    if(userData) {
-
-                        this.masterAccountList[userData.userName].active = true;
-
-                        // Tag the users Tablet Id for data processing
+                        // Resolve multiple login conflicts - Users logged into multuple tablets.
+                        // Ignore all but one.
                         // 
-                        userData.tabletId = tablet.tabletId;
-
-                        if(rename) {
-                            userData.userName       = newname;
-                            userData.instructionSeq = condition;
+                        else if(this.conflictResolution[daySfx][user.userName]) {
+                            
+                            if(this.conflictResolution[daySfx][user.userName] !== tablet.tabletId) {
+                                // console.log("Skipping Conflict: " + user.userName + " on: " + tablet.tabletId);
+                                continue;
+                            }
+                            else {
+                                // Resolve one copy - might be multiple logins by same user on tablet.
+                                // 
+                                console.log("Resolving Conflict: " + user.userName + " using: " + tablet.tabletId);
+                                this.conflictResolution[daySfx][user.userName] = "done";
+                            }
                         }
 
-                        // TODO: REMOVE
-                        // Dec 3 2018 One time force to account for bug in homeScreen module
-                        // This should not be used after this date !!!!!!!   
+                        if(this.guestFixups[daySfx][user.userName]) {
+
+                            if(this.guestFixups[daySfx][user.userName][tablet.tabletId]) {
+
+                                if(this.guestFixups[daySfx][user.userName][tablet.tabletId].username.toUpperCase() !== "NONE") {
+                                    rename    = true;
+                                    newname   = this.guestFixups[daySfx][user.userName][tablet.tabletId].username.toUpperCase();
+                                    condition = this.guestFixups[daySfx][user.userName][tablet.tabletId].condition;             
+                                    
+                                    console.log("Fixing Guest Account::: " + user.userName + " on: " + tablet.tabletId + " to: " + newname + " : " + condition);      
+                                }
+                                else {
+                                    console.log("Skipping Unused Guest: " + user.userName + " on: " + tablet.tabletId);
+                                    continue;    
+                                }
+                            }
+                            else 
+                                console.log("NOTICE: Skipping: " + user.userName + " on: " + tablet.tabletId);
+                        }
+
+
+                        userData = null;
+
+                        // Locate the user data for the login.  The user array keeps the actual student state info
+                        // which is what we want to merge.  We throw away the userLogins.
                         // 
-                        else 
-                            userData.currSessionNdx = 1;
+                        for(let entry of tablet.users) {
 
-                        //Skip Guest Accounts.
+                            if(entry.userName === user.userName) {
+                                userData = entry;
+                                break;
+                            }
+                        }
+
+                        // If the user state data is found we add it to the merged image
                         // 
-                        if(userData.userName.startsWith("GUEST")) {
-                            console.log("skipping GUEST");
+                        if(userData) {
+
+                            // Tag the users Tablet Id for processing the folder merge
+                            // 
+                            userData.tabletId = tablet.tabletId;
+
+                            if(rename) {
+                                userData.userName       = newname;
+                                userData.instructionSeq = condition;
+
+                                this.masterAccountList[newname] = {};
+                                this.sessionAccountList[daySfx][newname] = {"tablet":tablet.tabletId, "active": "" };
+                            }
+
+                            // Skip Guest Accounts.
+                            // 
+                            if(userData.userName.startsWith("GUEST")) {
+                                console.log("NOTICE: skipping GUEST: " + userData.userName + " on: " + tablet.tabletId);
+                            }
+
+                            // Note: Special processing @@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@
+                            // Skip created accounts on subsequent days.  default instruction was incorrect.
+                            // 
+                            else if((daySfx !== "_0") && userData.instructionSeq === "tutor_seq_dayone.json") {
+                                
+                                if(!this.ignoreMastery[user.userName] && !(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
+
+                                    console.log("WARNING: skipping bad Account Creation: " + userData.userName + " :: " +  userData.instructionSeq + " on: " + tablet.tabletId);
+                                }
+                            }
+                            else {
+                                try {
+                                    this.masterAccountList[userData.userName].active          = true;
+                                    this.masterAccountList[userData.userName].condition       = userData.instructionSeq;
+                                    this.masterAccountList[userData.userName][daySfx]         = true;
+
+                                    this.sessionAccountList[daySfx][userData.userName].active = true;
+
+                                    this.mergedAccts.users.push(userData);     
+                                }
+                                catch(err) {
+
+                                    console.log("INTERNAL ERROR: MasterList Account Missing!: " + user.userName + " on: " + tablet.tabletId);
+                                }
+                            }                   
                         }
-                        if(userData.instructionSeq === "tutor_seq_dayone.json") {
-                            console.log("skipping bad Account");
-                        }
+                        // Otherwise it represents a merge error which must be resolved
+                        // 
                         else {
-                            this.mergedAccts.users.push(userData);     
-                        }                   
-                    }
-                    // Otherwise it represents a merge error which must be resolved
-                    // 
-                    else {
-                        this.mergeErrors++;
-                        console.log("ERROR: Account Missing!");
+                            this.mergeErrors++;
+                            console.log("ERROR: Account Missing!: " + user.userName + " on: " + tablet.tabletId);
+                        }
                     }
                 }
             }
             else {
 
                 console.log("!!!!!!!!!!!!!!!!! ERROR: OLD VERSION FOUND");
-
-                // enumerate the users to find individuals that used this tablet. In the Beta this is 
-                // the best means to identify tablets that were actually used.
-                //             
-                for(let user of tablet.users) {
-
-                    if(user.currScene != "") {
-
-                        if(this.activeAccounts[user.userName]) {
-
-                            console.log("MERGE CONFLICT: " + user.userName + " - " + this.activeAccounts[user.userName] + " : " + tablet.tabletId);
-                        }
-                        else
-                            this.activeAccounts[user.userName] = tablet.tabletId;
-
-                        // Tag the users Tablet Id for data processing
-                        // 
-                        user.tabletId = tablet.tabletId;
-                        this.mergedAccts.users.push(user);
-                    }
-                }
             }
         }
 
@@ -743,36 +1418,53 @@ export class DataManager
             // 
             if(tablet.tabletId) {
 
-                for(let user of tablet.users) {                    
+                for(let user of tablet.users) {        
+
                     try {
+
+                        if(this.ignoreMastery[user.userName]) {
+
+                            // console.log("Ignoring Mastery Account: " + user.userName + " on " + tablet.tabletId);
+                            continue;
+                        }
+
                         // Only merge one copy of dormant accounts.
                         // 
-                        if(!this.masterAccountList[user.userName].active) {
+                        if(!this.sessionAccountList[daySfx][user.userName].active) {
 
-                            this.masterAccountList[user.userName].active = true;
+                            this.sessionAccountList[daySfx][user.userName].active = true;
 
                             if(!user.userName.startsWith("GUEST")) {
 
                                 if(user.instructionSeq !== "tutor_seq_dayone.json") {
 
-                                    user.tabletId = tablet.tabletId;
-                                    this.mergedAccts.users.push(user);
+                                    if(this.ignoreDormant[daySfx][user.userName]) {
 
-                                    console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);
+                                        console.log("Ignoring Dormant Account: " + user.userName + " on " + tablet.tabletId);
+                                    } 
+                                    else {
+                                        user.tabletId = tablet.tabletId;
+                                        this.mergedAccts.users.push(user);
+
+                                        console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);
+                                    }
                                 }
                                 else {
-                                    console.log("Skipping Bad Account: " + user.userName + " : " + user.instructionSeq);    
+                                    if(!(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
+
+                                        console.log("WARNING: Skipping Unresolved Account Error: " + user.userName + " :: " + user.instructionSeq + " on: " + tablet.tabletId);    
+                                    }
                                 }                                
                             }
                             else {
-                                console.log("Skipping Guest Account: " + user.userName);
+                                // console.log("Skipping Guest Account: " + user.userName + " on: " + tablet.tabletId);
                             }
                         }                    
                     }
                     catch(err) {
                         // TODO : enumerate the fixups to ensure we didn't miss anything
                         // 
-                        console.log("Skipping Fixup: " + user.userName);
+                        console.log("WARNING: Skipping Fixup: " + user.userName  + " on " + tablet.tabletId + " ::: " + err);
                     }
                 }
             }
@@ -782,9 +1474,11 @@ export class DataManager
 
     // Load all the tablet specific beta1 isp_userdata.json files into an array
     // 
-    private loadAcctImages() {
+    private loadAcctImages(daySfx:string) {
 
-        let userDataFolder:string  = path.join(this.cwd, this.USER_DATA);  
+        let userDataFolder:string  = path.join(this.cwd, this.USER_DATA + daySfx);  
+
+        this.tabletImages = []; // reset the image 
 
         try {
 
@@ -811,6 +1505,14 @@ export class DataManager
 
                             if(match.length > 0)
                                 accts.tabletId = match[0];
+
+                            // Keep a copy of the original source folder name for 
+                            // the user data.  The USER may be renamed. e.g. it is a 
+                            // guest account.  
+                            //
+                            for(let user of accts.users) {
+                                user.userFolder = user.userName;
+                            }
 
                             this.tabletImages.push(accts);
                         }
@@ -842,6 +1544,7 @@ export class DataManager
 
         // We don't want tablet ID's in the merge image
         // TODO: use this in V1 merged accounts
+        // 
         for(let user of this.mergedAccts.users) {
 
             let srcPath:string = path.join(this.cwd, this.USER_DATA, user.userName);      
@@ -934,7 +1637,7 @@ export class DataManager
                             let pathParts:string[] = srcPath.split("/");
                             let dupTutor:string    = pathParts[1] + "|" + pathParts[2];
 
-                            console.log("WARNING DUPLICATE: " + dupTutor + " : " + this.fileSource[tarPath] + " : " + this.tabletID);
+                            console.log("WARNING: DUPLICATE:: " + dupTutor + " : " + this.fileSource[tarPath] + " : " + this.tabletID);
                         }
 
                         // indicate that this is a duplicate entry - tag it for possible 
@@ -994,9 +1697,11 @@ export class DataManager
 
                     let tarFolder:string = srcArr[srcArr.length-2];
 
-                    if(tarFolder.startsWith("GUEST")) {
-                        tarFolder = "_" + tarFolder + "__" + this.tabletID;
-                    }
+                    // NOTE: Use file level labelling with tabletid instead of this
+                    // 
+                    // if(tarFolder.startsWith("GUEST")) {
+                    //     tarFolder = "_" + tarFolder + "__" + this.tabletID;
+                    // }
 
                     dstPath = Utils.validatePath(dst, tarFolder);
                     zipPath = path.join(zipBase, srcArr[srcArr.length-2]);
@@ -1013,54 +1718,162 @@ export class DataManager
         }
     }
 
-    private unpackUserAccts() {
+
+    //****************************************************
+    //****************************************************
+    //****************************************************
+    // Unpacking tablet data.
+    // 
+
+    private checkUserLogin(userID:string) {
+
+        let result:boolean = false;
+
+        for(let user of this.tabletAccts.userLogins) {
+
+            if(user.userName === userID) {
+                result = true;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+
+    // load isp_userdata.json images 
+    // 
+    private loadAcctImage(daySfx:string) {
+
+        let acctData:string = path.join(this.cwd, this.USER_DATA + daySfx, this.ACCT_FILENAME);  
+
+        this.tabletAccts = JSON.parse(fs.readFileSync(acctData));
+    }
+
+
+    private unpackUserData(zipBase:string, dst:string, recurse:boolean) {
+
+        let srcPath:string;
+        let dstPath:string;
+        let zipPath:string;
+        let srcArr:string[];
+
+        for(let entry of this.zipEntries) {
+
+            // trim the filename or last folder name off entryName
+            //
+            srcPath = path.dirname(entry.entryName) + "/";
+
+            // If this matches the target folder process the file
+            // ( and folders if we are recursing)
+            // 
+            if(srcPath === zipBase) {
+                
+                if(entry.isDirectory) {
+
+                    srcArr = entry.entryName.split("/");
+
+                    let userFolder:string = srcArr[srcArr.length-2];
+
+                    // Only process data from accts that were actually logged into on 
+                    // this tablet image.
+                    // 
+                    if(this.checkUserLogin(userFolder)) {
+
+                        // NOTE: Use file level labelling with tabletid instead of this
+                        // 
+                        // if(userFolder.startsWith("GUEST")) {
+                        //     userFolder = "_" + userFolder + "__" + this.tabletID;
+                        // }
+
+                        dstPath = Utils.validatePath(dst, userFolder);
+                        zipPath = path.join(zipBase, srcArr[srcArr.length-2]);
+                        zipPath = zipPath.replace(/\\/g,"/") + "/";
+
+                        // We do the files in a separate loop to ensure the folder
+                        // is created before any of its enclosed files/folders
+                        // 
+                        this.unpackFiles(zipPath, dstPath);
+
+                        if(recurse)
+                            this.unpackSubFolders(zipPath, dstPath, this.RECURSE);
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Unpack the isp_userdata.json file from the tablet data image.
+    // 
+    private unpackUserAccts(daySfx:string) {
 
         let acctPath:string = path.join(this.ZIP_ROOT, this.ACCT_FILENAME);
         let zipEntry:AdmZip.IZipEntry = this.zipFile.getEntry(acctPath.replace("\\","/"));
 
         if(zipEntry) {
 
-            let outPath = path.join(this.cwd, this.USER_DATA);
+            let outPath = path.join(this.cwd, this.USER_DATA + daySfx);
+
+            Utils.validatePath(outPath,null);
+
             if(!this.zipFile.extractEntryTo(zipEntry, outPath, false, false)) {
-                console.log("File Already Exists: " + outPath);
+                console.log("WARNING: File Already Exists: " + outPath);
             }
 
-            let oldPath = path.join(this.cwd, this.USER_DATA, zipEntry.name);
-            let newPath = path.join(this.cwd, this.USER_DATA, this.tabletID + "__" + this.ACCT_FILENAME);
+            // Load the Acct image so TabletUserAccts is available for 
+            // checkUserLogin during unpackUserData
+            //  
+            this.loadAcctImage(daySfx);
+
+            // Convert the filename to a tablet specific name - 
+            // e.g  tablet_#__isp_userdata.json
+            //
+            // Each tablet contains account images (users array entries) for all students known from the previous days
+            // work. along with guest account usages for the given tablet. 
+            // (these must be converted to student named accounts).
+            // 
+            let oldPath = path.join(this.cwd, this.USER_DATA + daySfx, zipEntry.name);
+            let newPath = path.join(this.cwd, this.USER_DATA + daySfx, this.tabletID + "__" + this.ACCT_FILENAME);
 
             fs.renameSync(oldPath, newPath);
         }
     }
 
-    private unpackTabletData(_tabletId:string, zipPath:string, dstPath:string) : void {
+
+    // Unpack the alldata.zip image for the given day on the given tablet
+    // 
+    private unpackTabletData(daySfx:string, _tabletId:string, zipPath:string, dstPath:string) : void {
 
         let fpath:string = path.join(zipPath, this.ARCHIVE_FILENAME);          
 
         this.tabletID = _tabletId;
 
-        console.log("Processing Tablet: " + this.tabletID);
+        console.log("Unpacking Tablet: " + this.tabletID);
 
-        try {
-            this.zipFile    = new AdmZip(fpath);
-            this.zipEntries = this.zipFile.getEntries(); 
+        // Selectively ignore tablets
+        // 
+        if(!this.ignoreArchive[daySfx][_tabletId]) {
 
-            this.zipEntry = this.zipFile.getEntry(this.ZIP_ROOT);
+            try {
+                this.zipFile    = new AdmZip(fpath);
+                this.zipEntries = this.zipFile.getEntries(); 
 
-            if(this.zipEntry) {
+                this.zipEntry = this.zipFile.getEntry(this.ZIP_ROOT);
 
-                this.unpackUserAccts();
-                this.unpackSubFolders(this.ZIP_ROOT, dstPath, this.RECURSE);
+                if(this.zipEntry) {
+
+                    this.unpackUserAccts(daySfx);
+                    this.unpackUserData(this.ZIP_ROOT, dstPath, this.RECURSE);
+                }
+            }
+            catch(error) {
+                console.log("Error = " + error);
             }
         }
-        catch(error) {
-            console.log("Error = " + error);
+        else {
+            console.log("NOTICE: Ignoring tablet - " + _tabletId);
         }
     }
-
-
-
-
-
-
 }
     

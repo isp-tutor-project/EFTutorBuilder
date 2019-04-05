@@ -39,12 +39,14 @@ export class ProductionManager
 
     private PROD_FULL:string          = "PRODUCTION/FULL/EdForge";
     private PROD_PART:string          = "PRODUCTION/PART/EdForge";
+    private PROD_TSEQ:string          = "PRODUCTION/TSEQ/EdForge";
     private ZIP_DATA:string           = "EFdata";
 
     private wrk_folders:string[]      = [];
 
     private PRODFILE_FULL:string  = "EdForge.zip";
     private PRODFILE_PART:string  = "EdForge_PART.zip";
+    private PRODFILE_TSEQ:string  = "EdForge_TSEQ.zip";
 
     private filesProcess:number;
     private filesSkipped:number;
@@ -61,12 +63,14 @@ export class ProductionManager
 
         this.PROD_FULL  = path.join(this.cwd, this.PROD_FULL);
         this.PROD_PART  = path.join(this.cwd, this.PROD_PART);
+        this.PROD_TSEQ  = path.join(this.cwd, this.PROD_TSEQ);
         this.ZIP_DATA   = path.join(this.cwd, this.ZIP_DATA);
 
         this.PRODFILE_FULL  = path.join(this.ZIP_DATA, this.PRODFILE_FULL);
         this.PRODFILE_PART  = path.join(this.ZIP_DATA, this.PRODFILE_PART);
+        this.PRODFILE_TSEQ  = path.join(this.ZIP_DATA, this.PRODFILE_TSEQ);
 
-        this.wrk_folders.push(this.PROD_FULL,this.PROD_PART);
+        this.wrk_folders.push(this.PROD_FULL,this.PROD_PART,this.PROD_TSEQ);
     }
 
 
@@ -98,6 +102,36 @@ export class ProductionManager
 
         console.log("\n\n******************************************************");
     }
+
+
+    public generateTSEQImage() {
+
+        this.filesProcess = 0;
+        this.filesSkipped = 0;
+
+        this.loadEFInclude();
+
+        this.rmdirSync(this.PROD_TSEQ, true);
+        this.validateFolders(this.wrk_folders);
+
+        for(let path of this.efInclude.tutor_seq) {
+
+            this.processElement(this.PROD_SRC, this.PROD_FULL, this.PROD_PART, path.split(":"));
+        }
+        
+        process.stdout.write("                                                                                                                                                 ");
+
+        console.log("\n\n******************************************************");
+        console.log("**************** Production Image Complete:");
+
+        this.zipImage(this.PROD_TSEQ, this.PRODFILE_TSEQ, "\nCompressing Tutor Sequence Image");
+    
+        console.log("Files Processed: " + this.filesProcess);
+        console.log("Files Unchanged: " + this.filesSkipped);
+
+        console.log("\n\n******************************************************");
+    }
+
 
     private zipImage(srcfolder:string, tarfile:string, msg:string) {
 
@@ -309,7 +343,8 @@ export class ProductionManager
             console.log("TERMINAL ERROR: " + err);
         }
 
-        // we assume files and folders will never morph into each other.
+        // we assume files and folders names will never morph into the other. i.e. a folder (by name) is always
+        // a folder and file (by name) is always a file.
         // 
         if(statSrc.isDirectory()) {
 

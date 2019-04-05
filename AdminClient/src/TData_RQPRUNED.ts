@@ -1,4 +1,4 @@
-import { TutorData } from "./IAcctData";
+import { TutorDataDescr } from "./IAcctData";
 
 //*********************************************************************************
 //
@@ -22,7 +22,7 @@ import { TutorData } from "./IAcctData";
 export class TData_RQPRUNED
 {
 
-    public static readonly tutorDataSpec:TutorData = {
+    public static readonly tutorDataSpec:TutorDataDescr = {
 
         "tutorName":"RQMOD",
 

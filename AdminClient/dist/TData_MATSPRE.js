@@ -20,8 +20,20 @@ class TData_MATSPRE {
 TData_MATSPRE.tutorDataSpec = {
     "tutorName": "MATSPRE",
     "dataDescr": [
-        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_START", "dataValue": "", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" },
-        { "Cond": "EG_A1|EG_A2", "dataName": "SCENE1_END", "dataValue": "", "sceneId": "SScene1", "dataSrc": "scene.$seq.prop|complete", "dataConstr": "scene.$seq.value|false" }
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q1", "dataValue": "PreTest:Sg1", "dataSrc": "sceneState.SMatsPre1", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q2", "dataValue": "PreTest:Sg2", "dataSrc": "sceneState.SMatsPre1", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q3", "dataValue": "PreTest:Sg3", "dataSrc": "sceneState.SMatsPre1", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q4", "dataValue": "PreTest:Sg4", "dataSrc": "sceneState.SMatsPre1", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q5", "dataValue": "PreTest:Sg1", "dataSrc": "sceneState.SMatsPre2", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q6", "dataValue": "PreTest:Sg2", "dataSrc": "sceneState.SMatsPre2", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q7", "dataValue": "PreTest:Sg3", "dataSrc": "sceneState.SMatsPre2", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q8", "dataValue": "PreTest:Sg4", "dataSrc": "sceneState.SMatsPre2", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q9", "dataValue": "PreTest:Sg1", "dataSrc": "sceneState.SMatsPre3", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q10", "dataValue": "PreTest:Sg2", "dataSrc": "sceneState.SMatsPre3", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q11", "dataValue": "PreTest:Sg3", "dataSrc": "sceneState.SMatsPre3", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q12", "dataValue": "PreTest:Sg4", "dataSrc": "sceneState.SMatsPre3", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q13", "dataValue": "PreTest:Sg1", "dataSrc": "sceneState.SMatsPre4", "dataConstr": "" },
+        { "Cond": "EG_A1|EG_A2|EG_A3|any", "dataName": "MATS_Q14", "dataValue": "PreTest:Sg2", "dataSrc": "sceneState.SMatsPre4", "dataConstr": "" }
     ]
 };
 exports.TData_MATSPRE = TData_MATSPRE;

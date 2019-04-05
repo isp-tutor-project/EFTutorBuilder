@@ -133,6 +133,15 @@ function processCommandLine() {
                     rl.close();
                     break;
 
+                case MERGEACCTS:
+                    console.log("||** NOTICE: Merging Accounts In Progress");
+
+                    dataManager.mergeUserAccts();
+
+                    logManager.close();
+                    rl.close();
+                    break;
+
                 case EXTRACTDATA:
                     console.log("||** NOTICE: Data Extraction In Progress");
 
@@ -149,15 +158,6 @@ function processCommandLine() {
 
                     // logManager.close();
                     // rl.close();
-                    break;
-
-                case MERGEACCTS:
-                    console.log("||** NOTICE: Merging Accounts In Progress");
-
-                    dataManager.mergeUserAccts();
-
-                    logManager.close();
-                    rl.close();
                     break;
 
                 // This produces the EdForge.zip EdForge_PART.zip tutor images 
@@ -192,7 +192,7 @@ function processCommandLine() {
                 case CLEAN:
 
                     // This is kept alive by the client socket which will continually process the 
-                    // tablet queue until it is exhausted when the process will terminate as there 
+                    // tablet queue until it is exhausted at which point the process will terminate as there 
                     // are no background queues waiting.
                     //
                     if(process.argv[3]) {
