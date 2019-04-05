@@ -3,7 +3,7 @@
         {
             "command": "PUSH",
             "from": "/EFdata/EdForge_TSEQ.zip",
-            "to": "/EdForge_DATA/",
+            "to": "/EdForge/",
             "compress": false,
             "extract": true,
             "recurse": true
