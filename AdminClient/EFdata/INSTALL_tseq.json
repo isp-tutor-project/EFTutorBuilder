@@ -1,0 +1,14 @@
+{
+    "commands": [            
+        {
+            "command": "PUSH",
+            "from": "/EFdata/EdForge_TSEQ.zip",
+            "to": "/EdForge_DATA/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        }        
+    ],
+    "targets": "all",
+    "tabletIDs": []
+}

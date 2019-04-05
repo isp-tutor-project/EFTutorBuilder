@@ -278,6 +278,22 @@
         },
 
         {
+            "name":"TUTORSEQ_INSTALLER",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","INSTALL_tseq"
+			]
+        },
+
+        {
             "name":"PARTIAL_INSTALLER",
             "sourceMaps": true,
             "type": "node",
