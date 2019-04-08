@@ -22,6 +22,22 @@
         },
 
         {
+            "name":"PULL DATA",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "PULL","pull_DATA"
+			]
+        },
+
+        {
             "name":"CLEAN DATA",
             "sourceMaps": true,
             "type": "node",
@@ -86,6 +102,22 @@
         },
 
         {
+            "name":"PUSH MERGED ACCTS",
+            "sourceMaps": true,
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}\\src\\admin.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "console": "externalTerminal",
+            "outFiles": [
+                "${workspaceFolder}/dist/*.js"
+            ],
+            "args": [
+                "SEND","INSTALL_merged"
+			]
+        },
+
+        {
             "name":"EXTRACT DATA",
             "sourceMaps": true,
             "type": "node",
@@ -146,22 +178,6 @@
             ],
             "args": [
                 "SEND","test_setup"
-			]
-        },
-
-        {
-            "name":"PULL DATA",
-            "sourceMaps": true,
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceFolder}\\src\\admin.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "console": "externalTerminal",
-            "outFiles": [
-                "${workspaceFolder}/dist/*.js"
-            ],
-            "args": [
-                "PULL","pull_DATA"
 			]
         },
 

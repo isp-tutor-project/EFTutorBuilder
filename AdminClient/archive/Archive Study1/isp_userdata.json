@@ -1,0 +1,1575 @@
+{
+	"version": "1.0.0",
+	"userLogins": [],
+	"users": [
+		{
+			"userName": "BRITTNEYSC_MAR_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543842292438,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "AIDENFL_SEP_6",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543844596922,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "GIANNAAL_JUL_3",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543847203449,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "TANNERHA_OCT_1",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543848113063,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "MADISONBR_JUN_26",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543849824313,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "KENDRABA_APR_28",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543860132895,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "JASONCA_JAN_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842152520,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "BELLADA_JUN_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543844441470,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "ANTHONYDI_MAR_30",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543847001173,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "MCKENZIEHO_APR_18",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543849679241,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "JILLIANOR_DEC_18",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543854894273,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "NICOLASRO_SEP_19",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543857327079,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "JACOBTO_OCT_19",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543860000907,
+			"tabletId": "tablet_11"
+		},
+		{
+			"userName": "COURTNEYOR_DEC_30",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543842342815,
+			"tabletId": "tablet_12"
+		},
+		{
+			"userName": "ZACHSA_OCT_5",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849695708,
+			"tabletId": "tablet_12"
+		},
+		{
+			"userName": "DEIRDRECL_JUN_7",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543854966122,
+			"tabletId": "tablet_12"
+		},
+		{
+			"userName": "DANIELMC_JUL_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543857548626,
+			"tabletId": "tablet_12"
+		},
+		{
+			"userName": "LEAHLY_FEB_17",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543842240260,
+			"tabletId": "tablet_14"
+		},
+		{
+			"userName": "ALEXISBISH_OCT_3",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849737555,
+			"tabletId": "tablet_14"
+		},
+		{
+			"userName": "ETHANAL_SEP_7",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543857533986,
+			"tabletId": "tablet_14"
+		},
+		{
+			"userName": "JACKZA_JUN_5",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543842341129,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "BRENDANGE_OCT_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543844481613,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "ZACHKR_SEP_9",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543847126819,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "KAILEYME_DEC_24",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849733708,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "KILEYBI_MAY_5",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543854945683,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "ANTHONYBE_MAY_13",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543857544438,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "AUSTINME_DEC_14",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543860062304,
+			"tabletId": "tablet_15"
+		},
+		{
+			"userName": "CAROLYNMC_APR_19",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543842449097,
+			"tabletId": "tablet_16"
+		},
+		{
+			"userName": "BROOKEYU_JUN_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543847114448,
+			"tabletId": "tablet_16"
+		},
+		{
+			"userName": "MADISONKE_MAR_9",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849759357,
+			"tabletId": "tablet_16"
+		},
+		{
+			"userName": "GRAHAMWA_SEP_9",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543854942215,
+			"tabletId": "tablet_16"
+		},
+		{
+			"userName": "JAMESMC_DEC_16",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543849731192,
+			"tabletId": "tablet_17"
+		},
+		{
+			"userName": "BRIENNESH_JAN_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543854921790,
+			"tabletId": "tablet_17"
+		},
+		{
+			"userName": "XANDERBA_OCT_19",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543857510402,
+			"tabletId": "tablet_17"
+		},
+		{
+			"userName": "CALEIGHKE_FEB_17",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543860082098,
+			"tabletId": "tablet_17"
+		},
+		{
+			"userName": "NICHOLASDE_JUN_18",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842425958,
+			"tabletId": "tablet_18"
+		},
+		{
+			"userName": "MADISONSA_OCT_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543844517517,
+			"tabletId": "tablet_18"
+		},
+		{
+			"userName": "CAMERONEI_JAN_25",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543847070152,
+			"tabletId": "tablet_18"
+		},
+		{
+			"userName": "JOSEPHKU_JAN_22",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543849785871,
+			"tabletId": "tablet_18"
+		},
+		{
+			"userName": "COLINMA_APR_15",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543854954865,
+			"tabletId": "tablet_18"
+		},
+		{
+			"userName": "VICTORIAHA_MAY_2",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543857416103,
+			"tabletId": "tablet_18"
+		},
+		{
+			"userName": "EMILYBL_MAR_8",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849722203,
+			"tabletId": "tablet_19"
+		},
+		{
+			"userName": "JULIABO_FEB_10",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543854920078,
+			"tabletId": "tablet_19"
+		},
+		{
+			"userName": "ELIOTBE_MAR_3",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543857348522,
+			"tabletId": "tablet_19"
+		},
+		{
+			"userName": "AYDENST_APR_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543860062210,
+			"tabletId": "tablet_19"
+		},
+		{
+			"userName": "CIARAOL_AUG_7",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849821526,
+			"tabletId": "tablet_21"
+		},
+		{
+			"userName": "MEGANYO_JUN_1",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543854989478,
+			"tabletId": "tablet_21"
+		},
+		{
+			"userName": "NICHOLASBE_MAY_30",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543857551191,
+			"tabletId": "tablet_21"
+		},
+		{
+			"userName": "PAIGEWA_JUN_13",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543860144726,
+			"tabletId": "tablet_21"
+		},
+		{
+			"userName": "LILYDU_NOV_28",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543842344666,
+			"tabletId": "tablet_22"
+		},
+		{
+			"userName": "DAKOTAWI_JUN_9",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543847119394,
+			"tabletId": "tablet_22"
+		},
+		{
+			"userName": "SAMUELTR_AUG_4",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849702207,
+			"tabletId": "tablet_22"
+		},
+		{
+			"userName": "LAYLAHMI_DEC_28",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543854966348,
+			"tabletId": "tablet_22"
+		},
+		{
+			"userName": "ALTONCA_JUN_14",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543857372781,
+			"tabletId": "tablet_22"
+		},
+		{
+			"userName": "LANEYBE_JAN_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543860121902,
+			"tabletId": "tablet_22"
+		},
+		{
+			"userName": "MORGANCO_MAR_31",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842198508,
+			"tabletId": "tablet_24"
+		},
+		{
+			"userName": "NICHOLASFR_JUN_16",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543847134284,
+			"tabletId": "tablet_24"
+		},
+		{
+			"userName": "JACKSONWA_AUG_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849760357,
+			"tabletId": "tablet_24"
+		},
+		{
+			"userName": "TYLERBI_FEB_7",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543860145355,
+			"tabletId": "tablet_24"
+		},
+		{
+			"userName": "ALEXMC_OCT_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543842236766,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "JAYNASC_APR_21",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543844598958,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "BRANDONBO_MAY_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543847095947,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "CIARATI_OCT_16",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849759711,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "VICTORIAHO_DEC_14",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543854951019,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "SERENASI_JUN_20",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543857442375,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "KYLIEMC_JAN_15",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543860132525,
+			"tabletId": "tablet_25"
+		},
+		{
+			"userName": "ANNAFU_OCT_12",
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842338074,
+			"tabletId": "tablet_26",
+			"currSessionNdx": 1
+		},
+		{
+			"userName": "AVERYRE_MAR_3",
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543844479707,
+			"tabletId": "tablet_26",
+			"currSessionNdx": 1
+		},
+		{
+			"userName": "PAIGEAT_DEC_10",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543849855656,
+			"tabletId": "tablet_27"
+		},
+		{
+			"userName": "ADAMSC_MAR_21",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543842314485,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "CAMERONME_APR_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543844480613,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "TIMOTHYPI_MAY_8",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543847091238,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "ANNAHL_JAN_25",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543848344709,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "MADISONWI_DEC_25",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849706840,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "EVANMU_SEP_26",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543854914507,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "ALIVIAAD_JUN_27",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543857472048,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "NOAHCO_FEB_5",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543860044469,
+			"tabletId": "tablet_29"
+		},
+		{
+			"userName": "LEVITA_MAR_22",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543842147175,
+			"tabletId": "tablet_2"
+		},
+		{
+			"userName": "JOEYCR_DEC_24",
+			"currSessionNdx": 1,
+			"currTutorNdx": 0,
+			"currScene": "{\"currNode\":{\"index\":\"0\"}}",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849730095,
+			"tabletId": "tablet_2"
+		},
+		{
+			"userName": "JAHLASI_AUG_1",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543844442445,
+			"tabletId": "tablet_30"
+		},
+		{
+			"userName": "ZACHARYKN_AUG_30",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543847037770,
+			"tabletId": "tablet_30"
+		},
+		{
+			"userName": "JADYNKU_APR_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849753958,
+			"tabletId": "tablet_30"
+		},
+		{
+			"userName": "KAITLYNLO_JUN_5",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543842228543,
+			"tabletId": "tablet_31"
+		},
+		{
+			"userName": "JEFFREYMI_JAN_15",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543847330739,
+			"tabletId": "tablet_31"
+		},
+		{
+			"userName": "MARIAWA_SEP_14",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543849735792,
+			"tabletId": "tablet_31"
+		},
+		{
+			"userName": "LILLEYAU_JUL_17",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543855021308,
+			"tabletId": "tablet_31"
+		},
+		{
+			"userName": "JAREDYO_AUG_25",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543857466802,
+			"tabletId": "tablet_31"
+		},
+		{
+			"userName": "ZACHARYBE_MAY_13",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543859976531,
+			"tabletId": "tablet_31"
+		},
+		{
+			"userName": "CALEBKE_JAN_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842339596,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "EMILYMC_AUG_13",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543844645154,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "LOGANDA_APR_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543847060232,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "ELIZABETHKN_SEP_28",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849855578,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "PAYTONCE_MAR_2",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543854944082,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "ABIGAILAS_DEC_13",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543857521108,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "VINCENTRU_MAR_4",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543860019615,
+			"tabletId": "tablet_3"
+		},
+		{
+			"userName": "ABIGAILTH_MAR_7",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842213182,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "ALEXISLO_AUG_2",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_PLANTS.json",
+			"timeStamp": 1543844582007,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "WAYNELO_MAY_10",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543847138733,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "EMMALIECR_MAY_1",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543849713813,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "FRANCESCASA_JUL_7",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543854938078,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "RYANDU_SEP_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543857580141,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "GENEVIEVEZA_JAN_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543860129168,
+			"tabletId": "tablet_5"
+		},
+		{
+			"userName": "RYLEEGR_SEP_21",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543842392418,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "JACKCR_FEB_12",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543844429457,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "BROOKEKO_JAN_20",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543847048343,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "AVAHA_JAN_25",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543849736794,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "DAVIDGRONDWALSKI_DEC_10",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543855087407,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "GUESTC_JAN_2",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543857605147,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "DEREKBU_SEP_4",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543860044883,
+			"tabletId": "tablet_6"
+		},
+		{
+			"userName": "ERICKU_JAN_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543849992423,
+			"tabletId": "tablet_7"
+		},
+		{
+			"userName": "JADEN_OCT_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543855239664,
+			"tabletId": "tablet_7"
+		},
+		{
+			"userName": "AVALA_MAR_31",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543857435909,
+			"tabletId": "tablet_7"
+		},
+		{
+			"userName": "ZACHARYBU_AUG_11",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543860051090,
+			"tabletId": "tablet_7"
+		},
+		{
+			"userName": "FA_SEP_29",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543855044801,
+			"tabletId": "tablet_8"
+		},
+		{
+			"userName": "RYANCO_MAR_23",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543857337741,
+			"tabletId": "tablet_8"
+		},
+		{
+			"userName": "ABIGAILAT_JUN_9",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543860105364,
+			"tabletId": "tablet_8"
+		},
+		{
+			"userName": "LOGANLA_JUL_6",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543842184762,
+			"tabletId": "tablet_9"
+		},
+		{
+			"userName": "ISABELLABO_MAR_21",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543844559216,
+			"tabletId": "tablet_9"
+		},
+		{
+			"userName": "SAMANTHADI_MAY_27",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543849771649,
+			"tabletId": "tablet_9"
+		},
+		{
+			"userName": "GABRIELDA_JAN_28",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543854890844,
+			"tabletId": "tablet_9"
+		},
+		{
+			"userName": "MACKWI_DEC_20",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543857529021,
+			"tabletId": "tablet_9"
+		},
+		{
+			"userName": "ADENES_JUL_13",
+			"currSessionNdx": 1,
+			"currTutorNdx": 2,
+			"currScene": "",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543859978759,
+			"tabletId": "tablet_9"
+		},
+		{
+			"userName": "ROBBIEGU_APR_21",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585375165,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "BROOKEDI_APR_26",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543590674615,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "JENNAHO_JUN_11",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585304280,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "LUKERI_OCT_16",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543595638115,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ANITAZH_SEP_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585375417,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ANGELOTR_DEC_14",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543587946831,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "CALEBCH_OCT_5",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585405555,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "RYDERTA_JUL_10",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543582876145,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "OWENNE_APR_17",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585369786,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "TAYLORPE_MAY_4",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543595671695,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "TRISTANNE_JAN_3",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543598379724,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "JACOBWA_AUG_17",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543600933911,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "GEORGEGE_JUN_6",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+			"timeStamp": 1543587999336,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "BLAKEGO_APR_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585533739,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "QWAYLENDO_JAN_15",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543598250040,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "KATELYNZE_MAY_24",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585360758,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "EMILYCA_SEP_2",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543595738463,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "EMMAFE_SEP_28",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543600842146,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ZACHWA_DEC_4",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543590566783,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "DAMIANCR_APR_6",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543595680252,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "CHRISTIANDI_AUG_29",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543598334299,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "DAYANNASH_JAN_28",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543595699753,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "RACHAELHA_JUN_4",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543586786790,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "GRACEHA_FEB_20",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543590588456,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "DYLANSC_JUL_26",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543595790400,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "GIOVANNIPO_DEC_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543598278919,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ALEXISSV_SEP_13",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543590531454,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "LAYNELO_DEC_20",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543582813966,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "MACKENZIEBU_JAN_7",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_BASELINE_PLANTS.json",
+			"timeStamp": 1543590534084,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "BROOKEM_DEC_1",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543598313989,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "BENJAMINFO_APR_23",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543600864783,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ELIASHU_NOV_26",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+			"timeStamp": 1543600819820,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "CHRISTIANAWI_JUN_21",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "tutor_seq_DL_CHOICE.json",
+			"timeStamp": 1543585396789,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "GIANNAFI_MAY_25",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543598301050,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ALYSSAWE_NOV_5",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543585381262,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "JACKSONLY_OCT_28",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543587978856,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ADAMLI_APR_17",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543600829877,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "WILLIAMSC_NOV_21",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543590528113,
+			"tabletId": "tablet_10"
+		},
+		{
+			"userName": "ELIZABETHST_SEP_30",
+			"currSessionNdx": 0,
+			"currTutorNdx": 2,
+			"currScene": "SSceneEnd",
+			"instructionSeq": "MASTERY",
+			"timeStamp": 1543595703852,
+			"tabletId": "tablet_10"
+		},
+        {
+            "userName": "GUESTC_JAN_1",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_CHOICE.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTC_JAN_2",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_CHOICE.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTC_JAN_3",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_CHOICE.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTC_JAN_4",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_CHOICE.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTC_JAN_5",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_CHOICE.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTNC_JAN_1",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTNC_JAN_2",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTNC_JAN_3",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTNC_JAN_4",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTNC_JAN_5",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_NOCHOICE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTBL_JAN_1",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTBL_JAN_2",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTBL_JAN_3",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTBL_JAN_4",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+            "timeStamp": 1543598258109
+        },
+        {
+            "userName": "GUESTBL_JAN_5",
+            "currSessionNdx": 0,
+            "currTutorNdx": 0,
+            "currScene": "",
+            "instructionSeq": "tutor_seq_DL_BASELINE_SODA.json",
+            "timeStamp": 1543598258109
+        }
+	]
+}

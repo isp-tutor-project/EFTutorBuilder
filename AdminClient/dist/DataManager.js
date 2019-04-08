@@ -73,30 +73,10 @@ class DataManager {
             "_0": {},
             // Dec 3 DeerLake guest fixups
             // 
-            "_1": {
-                "GUESTNC_JAN_1": { "tablet_17": { "username": "jasonca_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
-                "GUESTC_JAN_1": { "tablet_11": { "username": "calebke_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" },
-                    "tablet_7": { "username": "ericku_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" },
-                    "tablet_3": { "username": "briennesh_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
-                "GUESTC_JAN_2": { "tablet_6": { "username": "natalinatr_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
-                "GUESTBL_JAN_2": { "tablet_5": { "username": "genevieveza_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } },
-                "GUESTBL_JAN_3": { "tablet_22": { "username": "laneybe_jan_1", "condition": "tutor_seq_DL_BASELINE_SODA.json" } }
-            },
+            "_1": {},
             // Dec 4 DeerLake guest fixups
             // 
-            "_2": {
-                "GUESTBL_JAN_1": { "tablet_25": { "username": "briennesh_jan_2", "condition": "tutor_seq_DL_BASELINE_SODA.json" },
-                    "tablet_16": { "username": "ANGELOTR_jan_2", "condition": "tutor_seq_DL_BASELINE_SODA.json" },
-                    "tablet_28": { "username": "none", "condition": "" },
-                    "tablet_3": { "username": "none", "condition": "" } },
-                "GUESTNC_JAN_1": { "tablet_5": { "username": "ericku_jan_2", "condition": "tutor_seq_DL_NOCHOICE_SODA.json" },
-                    "tablet_31": { "username": "none", "condition": "" } },
-                "GUESTC_JAN_1": { "tablet_26": { "username": "natalinatr_jan_2", "condition": "tutor_seq_DL_CHOICE.json" } },
-                "GUESTC_JAN_2": { "tablet_14": { "username": "none", "condition": "" },
-                    "tablet_26": { "username": "none", "condition": "" },
-                    "tablet_29": { "username": "none", "condition": "" },
-                    "tablet_7": { "username": "none", "condition": "" } }
-            }
+            "_2": {}
         };
         // Map students to other student accounts - i.e. One student was logged in as another.
         // 
@@ -109,9 +89,7 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake guest fixups
             // 
-            "_2": {
-                "ADAMSC_MAR_21": { "tablet_12": { "username": "CALEBKE_FEB_17", "condition": "tutor_seq_DL_CHOICE_SODA.json" } }
-            }
+            "_2": {}
         };
         // resolve which tablet to use when students login on multiple tablets.
         // 
@@ -121,42 +99,10 @@ class DataManager {
             "_0": {},
             // Dec 3 DeerLake conflicts
             // 
-            "_1": {
-                "TANNERHA_OCT_1": "tablet_10",
-                "CALEBKE_FEB_17": "none",
-                "STEPHSI_JAN_1": "none"
-            },
+            "_1": {},
             // Dec 4 DeerLake conflicts
             // 
-            "_2": {
-                "JASONCA_JAN_1": "tablet_3",
-                "XANDERBA_OCT_19": "tablet_3",
-                "ELIASHU_NOV_26": "tablet_3",
-                "ANNAFU_OCT_12": "tablet_6",
-                "COURTNEYOR_DEC_30": "tablet_7",
-                "ADAMSC_MAR_21": "tablet_16",
-                "ALTONCA_JUN_14": "tablet_12",
-                "NICHOLASDE_JUN_18": "tablet_18",
-                "ABIGAILAT_JUN_9": "tablet_16",
-                "ABIGAILTH_MAR_7": "tablet_26",
-                "ADENES_JUL_13": "tablet_19",
-                "ALEXMC_OCT_12": "tablet_14",
-                "ANNAHL_JAN_25": "tablet_14",
-                "BRITTNEYSC_MAR_11": "tablet_24",
-                "BROOKEDI_APR_26": "tablet_2",
-                "BROOKEYU_JUN_11": "tablet_19",
-                "CAROLYNMC_APR_19": "tablet_19",
-                "COLINMA_APR_15": "tablet_12",
-                "JACKZA_JUN_5": "tablet_27",
-                "KAILEYME_DEC_24": "tablet_18",
-                "KILEYBI_MAY_5": "tablet_11",
-                "ZACHSA_OCT_5": "tablet_25",
-                "GENEVIEVEZA_JAN_1": "tablet_23",
-                "LANEYBE_JAN_1": "tablet_11",
-                "GABRIELDA_JAN_28": "tablet_20",
-                "MACKENZIEBU_JAN_7": "tablet_14",
-                "AYDENST_APR_12": "tablet_8"
-            }
+            "_2": {}
         };
         // Ignore tablets in their entirety
         // 
@@ -188,43 +134,20 @@ class DataManager {
         this.ignoreDormant = {
             // Nov 30 DeerLake ignores
             // 
-            "_0": {
-                "ERFGTT_FEB_1": true
-            },
+            "_0": {},
             // Dec 3 DeerLake ignores
             // 
             "_1": {
-                // ABSENT
-                "ROBBIEGU_APR_21": true,
-                "BROOKEDI_APR_26": true,
-                "ANGELOTR_DEC_14": true,
-                "RYDERTA_JUL_10": true,
-                "TAYLORPE_MAY_4": true,
-                "MACKENZIEBU_JAN_7": true,
-                "ELIASHU_NOV_26": true,
-                "GEORGEGE_JUN_6": true,
-                "CHRISTIANAWI_JUN_21": true,
-                // UNKNOWN USER
-                "ERFGTT_FEB_1": true,
-                "TEST_JAN_1": true
+            // ABSENT
+            // UNKNOWN USER
             },
             // Dec 4 DeerLake ignores
             // 
             // These were logged in as GUESTS again
             //
             "_2": {
-                // ABSENT
-                "EMILYBL_MAR_8": true,
-                "LAYLAHMI_DEC_28": true,
-                "CALEBKE_JAN_1": true,
-                "PAYTONCE_MAR_2": true,
-                "GEORGEGE_JUN_6": true,
-                "ERICKU_JAN_1": true,
-                "BRIENNESH_JAN_1": true,
-                "ANGELOTR_DEC_14": true,
-                // UNKNOWN USER
-                "ERFGTT_FEB_1": true,
-                "TEST_JAN_1": true
+            // ABSENT
+            // UNKNOWN USER
             }
         };
         this.ignoreLogin = {
@@ -234,78 +157,19 @@ class DataManager {
             // Dec 3 DeerLake ignores
             // These accounts were all created in error instead of using GUEST accounts.        
             // 
-            "_1": {
-                "CALEBKE_FEB_17": "tablet_11",
-                "JASONCA_NOV_18": "tablet_17",
-                "LANEYBE_MAR_14": "tablet_22",
-                "ERICKU_FEB_10": "tablet_26",
-                "STEHSI_JAN_1": "tablet_29",
-                "STEPHSI_JAN_1": "tablet_16",
-                "ALVIAAD_JUN_27": "tablet_29",
-                "ALIVIAAA_JUN_27": "tablet_29",
-                "BRIENNESH_JUL_1": "tablet_3",
-                "ABBYAS_DEC_13": "tablet_3",
-                "NATALINATR_AUG_4": "tablet_6",
-                "TEST_JAN_1": "tablet_10"
-            },
+            "_1": {},
             // Dec 4 DeerLake ignores
             // 
-            "_2": {
-                "ELIMC_MAY_22": "tablet_16",
-                "BRIENNESH_JUL_1": "tablet_3",
-                "BRIENNESH_JAN_2": "tablet_3" // Logged in as guestbl_jan_1 tablet 25
-            }
+            "_2": {}
         };
         // Ignore dormant accounts where students have used guest logins 
         //
         this.ignoreMastery = {
-            // mastery students
-            "LAYNELO_DEC_20": true,
-            "ALYSSAWE_NOV_5": true,
-            "ANITAZH_SEP_1": true,
-            "BLAKEGO_APR_1": true,
-            "CALEBCH_OCT_5": true,
-            "JENNAHO_JUN_11": true,
-            "KATELYNZE_MAY_24": true,
-            "OWENNE_APR_17": true,
-            "RACHAELHA_JUN_4": true,
-            "ROBERTGU_APR_21": true,
-            "JACKSONLY_OCT_28": true,
-            "GRACEHA_FEB_20": true,
-            "ALEXISSV_SEP_13": true,
-            "WILLIAMSC_NOV_21": true,
-            "ZACHWA_DEC_4": true,
-            "DAMIANCR_APR_6": true,
-            "ELIZABETHST_SEP_30": true,
-            "LUKERI_OCT_16": true,
-            "DAYANNASH_JAN_28": true,
-            "DYLANSC_JUL_26": true,
-            "EMILYCA_SEP_2": true,
-            "GIANNAFI_MAY_25": true,
-            "CHRISTIANDI_AUG_29": true,
-            "GIOVANNIPO_DEC_1": true,
-            "TRISTANNE_JAN_3": true,
-            "BROOKEM_DEC_1": true,
-            "QWAYLENDO_JAN_15": true,
-            "BENJAMINFO_APR_23": true,
-            "EMMAFE_SEP_28": true,
-            "ADAMLI_APR_17": true,
-            "JACOBWA_AUG_17": true
+        // mastery students
         };
         // These ID's are equivalent (i.e. denote the same individual)
         // 
-        this.IDConflict = {
-            "ANGELOTR_DEC_14": "ANGELOTR_JAN_2",
-            "ANGELOTR_JAN_2": "ANGELOTR_DEC_14",
-            "BRIENNESH_JAN_1": "BRIENNESH_JAN_2",
-            "BRIENNESH_JAN_2": "BRIENNESH_JAN_1",
-            "CALEBKE_FEB_17": "CALEBKE_JAN_1",
-            "CALEBKE_JAN_1": "CALEBKE_FEB_17",
-            "ERICKU_JAN_1": "ERICKU_JAN_2",
-            "ERICKU_JAN_2": "ERICKU_JAN_1",
-            "NATALINATR_JAN_1": "NATALINATR_JAN_2",
-            "NATALINATR_JAN_2": "NATALINATR_JAN_1"
-        };
+        this.IDConflict = {};
         this.activeAccounts = {
             // Nov 30 DeerLake ignores
             // 
