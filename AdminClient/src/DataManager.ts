@@ -218,7 +218,7 @@ export class DataManager
         // 
         "_1":{
             // ABSENT
-
+            "CARDELLHI_MAY_13":true
             // UNKNOWN USER
         },
 
@@ -237,7 +237,9 @@ export class DataManager
 
         // Nov 30 DeerLake ignores
         // 
-        "_0":{},
+        "_0":{
+            "SAG_FEB_1":"tablet_14"
+        },
 
         // Dec 3 DeerLake ignores
         // These accounts were all created in error instead of using GUEST accounts.        
@@ -256,6 +258,9 @@ export class DataManager
     private ignoreMastery:any = {
 
         // mastery students
+        "MATTHEWAD_OCT_30":true,
+        "ROYCEBR_FEB_8":true,
+        "BAILEYSM_SEP_27":true
     };
     
 
@@ -1230,16 +1235,16 @@ export class DataManager
                                 console.log("NOTICE: skipping GUEST: " + userData.userName + " on: " + tablet.tabletId);
                             }
 
-                            // Note: Special processing @@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@
+                            // Note: Special processing - DEERE LAKE ONLY @@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@
                             // Skip created accounts on subsequent days.  default instruction was incorrect.
                             // 
-                            else if((daySfx !== "_0") && userData.instructionSeq === "tutor_seq_dayone.json") {
+                            // else if((daySfx !== "_0") && userData.instructionSeq === "tutor_seq_dayone.json") {
                                 
-                                if(!this.ignoreMastery[user.userName] && !(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
+                            //     if(!this.ignoreMastery[user.userName] && !(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
 
-                                    console.log("WARNING: skipping bad Account Creation: " + userData.userName + " :: " +  userData.instructionSeq + " on: " + tablet.tabletId);
-                                }
-                            }
+                            //         console.log("WARNING: skipping bad Account Creation: " + userData.userName + " :: " +  userData.instructionSeq + " on: " + tablet.tabletId);
+                            //     }
+                            // }
                             else {
                                 try {
                                     this.masterAccountList[userData.userName].active          = true;
