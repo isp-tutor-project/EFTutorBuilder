@@ -1,0 +1,19 @@
+{
+    "tutors": [
+        {
+            "launcher": "/rq_bl.html",
+			"logfolder": "RQMOD_SCITECH",
+            "features": "FTR_BASELINE"
+        },
+        {
+            "launcher": "/intro.html",
+			"logfolder": "INTRO_SCITECH",
+            "features": "FTR_BASELINE"
+        },
+        {
+            "launcher": "/ted_nb.html",
+			"logfolder": "TED_SCITECH",
+            "features": "FTR_BASELINE"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "tutors": [
+        {
+            "launcher": "/mats.html",
+			"logfolder": "MATS_PRE_NC",
+            "features": "FTR_PRE"
+        },
+        {
+            "launcher": "/dr.html",
+			"logfolder": "DR_NC",
+            "features": ""
+        },
+        {
+            "launcher": "/rq.html",
+			"logfolder": "RQ_NC",
+            "features": "FTR_NOCHOICE"
+        },
+        {
+            "launcher": "/intro.html",
+			"logfolder": "INTRO_NC",
+            "features": "FTR_NOCHOICE"
+        },
+        {
+            "launcher": "/ted.html",
+			"logfolder": "TED_NC",
+            "features": "FTR_NOCHOICE"
+        },
+        {
+            "launcher": "/mats.html",
+			"logfolder": "MATS_POST_NC",
+            "features": "FTR_POST"
+        }
+    ]
+}

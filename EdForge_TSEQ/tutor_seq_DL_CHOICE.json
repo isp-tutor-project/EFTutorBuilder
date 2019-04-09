@@ -1,0 +1,55 @@
+{
+    "comment":"TED Instruction for DEERLAKE - CHOICE Condition",
+    "sessions": [
+        {
+            "comment":"Day one - MATS Survey PRE and Deductive Reasoning",
+            "tutors": [
+                {
+                    "launcher" : "/mats.html",
+                    "logfolder": "MATSPRE_STBCA2",
+                    "features" : "FTR_PRE"
+                },
+                {
+                    "launcher": "/dr.html",
+                    "logfolder": "DEDR_STBCA2",
+                    "features": ""
+                }
+            ]
+        },
+        {
+            "comment":"Day two - RQ selection and TED Experiment Design - <= scene7",
+            "tutors": [
+                {
+                    "launcher" : "/rq_c.html",
+                    "logfolder": "RQSELECT_STBCA2",
+                    "features" : "FTR_CHOICE:FTR_TED_1_6"
+                },
+                {
+                    "launcher": "/ted_c.html",
+                    "logfolder": "TED_STBCA2",
+                    "features" : "FTR_CHOICE:FTR_TED_1_6"
+                }
+            ]
+        },
+        {
+            "comment":"Day three - TED Experiment A,B / FTR FOCUS / POSTTEST - scene7-end",
+            "tutors": [
+                {
+                    "launcher": "/ted_c.html",
+                    "logfolder": "TED_STBCA2",
+                    "features": "FTR_CHOICE:FTR_TED_720"
+                }
+            ]
+        },
+        {
+            "comment":"Day four - MATS Survey POST",
+            "tutors": [
+                {
+                    "launcher" : "/mats.html",
+                    "logfolder": "MATSPST_STBCA2",
+                    "features" : "FTR_POST"
+                }
+            ]
+        }        
+    ]
+}
