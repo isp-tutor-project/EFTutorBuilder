@@ -131,6 +131,8 @@ class DataManager {
             "_2": {},
         };
         // Ignore dormant accounts where students have used guest logins 
+        // Don't use this when default instructionseq are valid.  
+        // 
         this.ignoreDormant = {
             // Nov 30 DeerLake ignores
             // 
@@ -147,8 +149,11 @@ class DataManager {
             // These were logged in as GUESTS again
             //
             "_2": {
-            // ABSENT
-            // UNKNOWN USER
+                // ABSENT         
+                "JAFFESC_JAN_31": true,
+                "JAYSHAMI_APR_1": true,
+                "KRISTAHO_AUG_11": true
+                // UNKNOWN USER
             }
         };
         this.ignoreLogin = {
@@ -863,14 +868,9 @@ class DataManager {
                             if (userData.userName.startsWith("GUEST")) {
                                 console.log("NOTICE: skipping GUEST: " + userData.userName + " on: " + tablet.tabletId);
                             }
-                            // Note: Special processing - DEERE LAKE ONLY @@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@@@
-                            // Skip created accounts on subsequent days.  default instruction was incorrect.
-                            // 
-                            // else if((daySfx !== "_0") && userData.instructionSeq === "tutor_seq_dayone.json") {
-                            //     if(!this.ignoreMastery[user.userName] && !(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
-                            //         console.log("WARNING: skipping bad Account Creation: " + userData.userName + " :: " +  userData.instructionSeq + " on: " + tablet.tabletId);
-                            //     }
-                            // }
+                            else if (this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId) {
+                                console.log("WARNING: skipping bad Account Creation: " + userData.userName + " :: " + userData.instructionSeq + " on: " + tablet.tabletId);
+                            }
                             else {
                                 try {
                                     this.masterAccountList[userData.userName].active = true;
@@ -914,20 +914,13 @@ class DataManager {
                         if (!this.sessionAccountList[daySfx][user.userName].active) {
                             this.sessionAccountList[daySfx][user.userName].active = true;
                             if (!user.userName.startsWith("GUEST")) {
-                                if (user.instructionSeq !== "tutor_seq_dayone.json") {
-                                    if (this.ignoreDormant[daySfx][user.userName]) {
-                                        console.log("Ignoring Dormant Account: " + user.userName + " on " + tablet.tabletId);
-                                    }
-                                    else {
-                                        user.tabletId = tablet.tabletId;
-                                        this.mergedAccts.users.push(user);
-                                        console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);
-                                    }
+                                if (this.ignoreDormant[daySfx][user.userName]) {
+                                    console.log("Ignoring Dormant Account: " + user.userName + " on " + tablet.tabletId);
                                 }
-                                else {
-                                    if (!(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
-                                        console.log("WARNING: Skipping Unresolved Account Error: " + user.userName + " :: " + user.instructionSeq + " on: " + tablet.tabletId);
-                                    }
+                                else if (!(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
+                                    user.tabletId = tablet.tabletId;
+                                    this.mergedAccts.users.push(user);
+                                    console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);
                                 }
                             }
                             else {
