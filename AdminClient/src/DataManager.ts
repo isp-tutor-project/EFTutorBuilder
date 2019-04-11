@@ -235,7 +235,7 @@ export class DataManager
         // 
         "_1":{
             // ABSENT
-            "CARDELLHI_MAY_13":true
+            // "CARDELLHI_MAY_13":true
 
             // UNKNOWN USER
         },
@@ -246,17 +246,17 @@ export class DataManager
         //
         "_2":{
             // ABSENT         
-            "JAFFESC_JAN_31":true,
-            "JAYSHAMI_APR_1":true,
-            "KRISTAHO_AUG_11":true
+            // "JAFFESC_JAN_31":true,
+            // "JAYSHAMI_APR_1":true,
+            // "KRISTAHO_AUG_11":true
 
             // UNKNOWN USER
         },
         
         "_3": {
-            "NEEKJO_MAR_24":true,
-            "JALILMO_JUL_30":true,
-            "JAHZARATH_SEP_24":true
+            // "NEEKJO_MAR_24":true,
+            // "JALILMO_JUL_30":true,
+            // "JAHZARATH_SEP_24":true
         }
     }
 

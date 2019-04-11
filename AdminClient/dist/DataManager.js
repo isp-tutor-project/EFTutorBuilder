@@ -145,25 +145,25 @@ class DataManager {
             // Dec 3 DeerLake ignores
             // 
             "_1": {
-                // ABSENT
-                "CARDELLHI_MAY_13": true
-                // UNKNOWN USER
+            // ABSENT
+            // "CARDELLHI_MAY_13":true
+            // UNKNOWN USER
             },
             // Dec 4 DeerLake ignores
             // 
             // These were logged in as GUESTS again
             //
             "_2": {
-                // ABSENT         
-                "JAFFESC_JAN_31": true,
-                "JAYSHAMI_APR_1": true,
-                "KRISTAHO_AUG_11": true
-                // UNKNOWN USER
+            // ABSENT         
+            // "JAFFESC_JAN_31":true,
+            // "JAYSHAMI_APR_1":true,
+            // "KRISTAHO_AUG_11":true
+            // UNKNOWN USER
             },
             "_3": {
-                "NEEKJO_MAR_24": true,
-                "JALILMO_JUL_30": true,
-                "JAHZARATH_SEP_24": true
+            // "NEEKJO_MAR_24":true,
+            // "JALILMO_JUL_30":true,
+            // "JAHZARATH_SEP_24":true
             }
         };
         this.ignoreLogin = {
