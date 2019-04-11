@@ -50,7 +50,7 @@ class DataManager {
         this.NORECURSE = false;
         this.tabletImages = []; // account for each tablet 
         this.stateImages = []; // state data for each tablet
-        this.daySuffix = ["_0", "_1", "_2"];
+        this.daySuffix = ["_0", "_1", "_2", "_3"];
         this.mergedAccts = {
             "version": this.USERDATA_VERSION1,
             "userLogins": [],
@@ -76,7 +76,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake guest fixups
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         // Map students to other student accounts - i.e. One student was logged in as another.
         // 
@@ -89,7 +90,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake guest fixups
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         // resolve which tablet to use when students login on multiple tablets.
         // 
@@ -102,7 +104,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake conflicts
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         // Ignore tablets in their entirety
         // 
@@ -115,7 +118,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake ignores
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         // Ignore tablets in their entirety
         // 
@@ -129,6 +133,7 @@ class DataManager {
             // Dec 4 DeerLake conflicts
             // 
             "_2": {},
+            "_3": {}
         };
         // Ignore dormant accounts where students have used guest logins 
         // Don't use this when default instructionseq are valid.  
@@ -154,6 +159,11 @@ class DataManager {
                 "JAYSHAMI_APR_1": true,
                 "KRISTAHO_AUG_11": true
                 // UNKNOWN USER
+            },
+            "_3": {
+                "NEEKJO_MAR_24": true,
+                "JALILMO_JUL_30": true,
+                "JAHZARATH_SEP_24": true
             }
         };
         this.ignoreLogin = {
@@ -168,7 +178,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake ignores
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         // Ignore dormant accounts where students have used guest logins 
         //
@@ -190,7 +201,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake conflicts
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         this.sessionAccountList = {
             // Nov 30 DeerLake ignores
@@ -201,7 +213,8 @@ class DataManager {
             "_1": {},
             // Dec 4 DeerLake conflicts
             // 
-            "_2": {}
+            "_2": {},
+            "_3": {}
         };
         this.masterAccountList = {};
         this.cwd = _cwd;

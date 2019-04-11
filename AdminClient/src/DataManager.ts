@@ -83,7 +83,7 @@ export class DataManager
     private state:stateData;
 
     private tabletAccts:tabletData;
-    private daySuffix:string[] = ["_0","_1","_2"];
+    private daySuffix:string[] = ["_0","_1","_2","_3"];
 
     private mergedAccts:tabletData = {
                                     "version":this.USERDATA_VERSION1,
@@ -123,6 +123,9 @@ export class DataManager
         // Dec 4 DeerLake guest fixups
         // 
         "_2": {
+        },
+
+        "_3": {
         }
     }                                
 
@@ -144,6 +147,9 @@ export class DataManager
         // Dec 4 DeerLake guest fixups
         // 
         "_2": {
+        },
+        
+        "_3": {
         }
     }                                
 
@@ -165,6 +171,9 @@ export class DataManager
         // Dec 4 DeerLake conflicts
         // 
         "_2": {
+        },
+        
+        "_3": {
         }
     }
 
@@ -186,6 +195,9 @@ export class DataManager
         // Dec 4 DeerLake ignores
         // 
         "_2": {
+        },
+        
+        "_3": {
         }
     };
 
@@ -204,6 +216,9 @@ export class DataManager
         // Dec 4 DeerLake conflicts
         // 
         "_2":{},
+        
+        "_3": {
+        }
     };
 
     // Ignore dormant accounts where students have used guest logins 
@@ -236,6 +251,12 @@ export class DataManager
             "KRISTAHO_AUG_11":true
 
             // UNKNOWN USER
+        },
+        
+        "_3": {
+            "NEEKJO_MAR_24":true,
+            "JALILMO_JUL_30":true,
+            "JAHZARATH_SEP_24":true
         }
     }
 
@@ -256,6 +277,9 @@ export class DataManager
         // Dec 4 DeerLake ignores
         // 
         "_2":{
+        },
+        
+        "_3": {
         }
     }
 
@@ -289,7 +313,10 @@ export class DataManager
 
         // Dec 4 DeerLake conflicts
         // 
-        "_2":{}
+        "_2":{},
+        
+        "_3": {
+        }
 
     };                                    
     private sessionAccountList:any = {
@@ -304,7 +331,10 @@ export class DataManager
 
         // Dec 4 DeerLake conflicts
         // 
-        "_2":{}
+        "_2":{},
+        
+        "_3": {
+        }
     };
     private masterAccountList:any = {};
 
