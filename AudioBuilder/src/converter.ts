@@ -112,11 +112,14 @@ function trim(audioSource:Int16Array, minSilenceHead:number, minSilenceTail:numb
 
     // Update the cue points from ratio to segment relative timings.
     // in ms
-    seg.duration = audioTrimmed.length / 24;    // return trimmed duration in ms
+    // Note: Manual scripts don't have segments (seg)
+    if(seg) {
+        seg.duration = audioTrimmed.length / 24;    // return trimmed duration in ms
 
-    for(let cuePnt of seg.cues) {
+        for(let cuePnt of seg.cues) {
 
-        cuePnt.relTime = cuePnt.offset * seg.duration;
+            cuePnt.relTime = cuePnt.offset * seg.duration;
+        }
     }
 
     return audioTrimmed;

@@ -76,6 +76,7 @@ const GLOBALLIBRARY_SELECTOR = "$EFG_";
 const FOREIGNMODULE_SELECTOR = "$EFFM_";
 const TYPE_MP3 = ".mp3";
 const TYPE_WAV = ".wav";
+const MANUALSCRIPT = "MANUALSCRIPT";
 const MODULETHIS = "MODULETHIS";
 // Maintain a global template flag to avoid template duplication
 // 
@@ -120,7 +121,12 @@ function getModuleToBuild() {
     calcTutorFolder();
     listModules();
     try {
-        if (process.argv[2] && process.argv[2] === MODULETHIS) {
+        if (process.argv[2] && process.argv[2] === MANUALSCRIPT) {
+            module_name = "EFMod_ManualScript";
+            console.log(`Building: ${module_name}`);
+            buildManualScript();
+        }
+        else if (process.argv[2] && process.argv[2] === MODULETHIS) {
             if (!modName) {
                 console.info("Error: command must be run from Root folder of Module.");
             }
@@ -164,6 +170,7 @@ function getModuleToBuild() {
         }
     }
     catch (err) {
+        console.error(err);
     }
 }
 function buildScript() {
@@ -193,6 +200,37 @@ function buildScript() {
         currRequest = 0;
         generateSynthesisRequests(scripts, voices, requests);
         console.log(_duplicates + "Templates Ignored.");
+        // This was set at request.length > 290 which would be the most in a minute but Google seems to have changed
+        // there calcs to not ever allowing a rate that would exceed the threshold not actually exceeding it.
+        // 
+        if (requests.length) {
+            if (requests.length > 0)
+                reqDelay = 240;
+            else
+                reqDelay = 0;
+            setTimeout(renderRequest, 0, currRequest);
+        }
+        else
+            setTimeout(terminate, 3000);
+    }
+    catch (err) {
+        console.error("AUDIO ERROR: " + err);
+    }
+}
+function buildManualScript() {
+    let segID = ZERO_SEGID;
+    let promises;
+    voicesPath = path.join(twd, module_name, VOICES);
+    scriptPath = path.join(twd, module_name, SCRIPT);
+    scriptOutPath = path.join(twd, module_name, SCRIPTOUT);
+    assetsPath = path.join(twd, module_name, ASSETS_PATH);
+    try {
+        voices = JSON.parse(fs.readFileSync(voicesPath));
+        scripts = JSON.parse(fs.readFileSync(scriptPath));
+        rmdirSync(assetsPath, false);
+        requests = [];
+        currRequest = 0;
+        generateManualSynthesisRequests(scripts, voices, requests);
         // This was set at request.length > 290 which would be the most in a minute but Google seems to have changed
         // there calcs to not ever allowing a rate that would exceed the threshold not actually exceeding it.
         // 
@@ -734,6 +772,36 @@ function generateSynthesisRequests(input, languages, requests) {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+// \\ISP_TUTOR\\<moduleName>\\EFaudio\\EFassets\\<Lang>\\<<trackName>_v<voiceId>>[.mp3]
+// 
+function generateManualSynthesisRequests(script, languages, requests) {
+    for (let language in languages) {
+        for (let track of script[language]) {
+            for (let voice in languages[language]) {
+                let _request = clone(languages[language][voice].request);
+                let filePath;
+                let fileName;
+                filePath = path.join(twd, module_name, ASSETS_PATH, language);
+                fileName = track[0] + "_v" + voice;
+                validatePath(filePath, null);
+                if (track[1].startsWith("<speak>")) {
+                    _request.input.ssml = track[1];
+                }
+                else {
+                    _request.input.ssml = TAG_SPEAKSTART + track[1] + TAG_SPEAKEND;
+                }
+                filesRequested++;
+                requests.push({
+                    "request": _request,
+                    "path": path.join(filePath, fileName),
+                    "seg": null,
+                    "src": track[0],
+                    "tar": fileName
+                });
             }
         }
     }

@@ -84,9 +84,12 @@ function trim(audioSource, minSilenceHead, minSilenceTail, dbSilence, seg) {
     // console.log("Audio Length: " + ((audioTrimmed.length - trimStart - (audioTrimmed.length - trimEnd))/ 24000));
     // Update the cue points from ratio to segment relative timings.
     // in ms
-    seg.duration = audioTrimmed.length / 24; // return trimmed duration in ms
-    for (let cuePnt of seg.cues) {
-        cuePnt.relTime = cuePnt.offset * seg.duration;
+    // Note: Manual scripts don't have segments (seg)
+    if (seg) {
+        seg.duration = audioTrimmed.length / 24; // return trimmed duration in ms
+        for (let cuePnt of seg.cues) {
+            cuePnt.relTime = cuePnt.offset * seg.duration;
+        }
     }
     return audioTrimmed;
 }

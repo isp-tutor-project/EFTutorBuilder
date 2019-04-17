@@ -19,7 +19,7 @@
 			]
         },
         {
-            "name":"Build EFMod_CodeTest Audio",
+            "name":"Build Manually Scripted Audio",
             "sourceMaps": true,
             "type": "node",
             "request": "launch",
@@ -30,7 +30,7 @@
                 "${workspaceFolder}/dist/*.js"
             ],
             "args": [
-                "EFMod_RQSelect"
+                "MANUALSCRIPT"
 			]
         },
         {
