@@ -68,13 +68,13 @@ class DataManager {
         // Map students to guest accounts
         // 
         this.guestFixups = {
-            // Nov 30 DeerLake conflicts
+            //  conflicts
             // 
             "_0": {},
-            // Dec 3 DeerLake guest fixups
+            //  guest fixups
             // 
             "_1": {},
-            // Dec 4 DeerLake guest fixups
+            //  guest fixups
             // 
             "_2": {},
             "_3": {}
@@ -82,13 +82,13 @@ class DataManager {
         // Map students to other student accounts - i.e. One student was logged in as another.
         // 
         this.userFixups = {
-            // Nov 30 DeerLake conflicts
+            //  conflicts
             // 
             "_0": {},
-            // Dec 3 DeerLake guest fixups
+            //  guest fixups
             // 
             "_1": {},
-            // Dec 4 DeerLake guest fixups
+            //  guest fixups
             // 
             "_2": {},
             "_3": {}
@@ -96,13 +96,15 @@ class DataManager {
         // resolve which tablet to use when students login on multiple tablets.
         // 
         this.conflictResolution = {
-            // Nov 30 DeerLake conflicts
+            //  conflicts
             // 
-            "_0": {},
-            // Dec 3 DeerLake conflicts
+            "_0": {
+                "ROMANAL_JUL_25": "tablet_13",
+            },
+            //  conflicts
             // 
             "_1": {},
-            // Dec 4 DeerLake conflicts
+            //  conflicts
             // 
             "_2": {},
             "_3": {}
@@ -110,13 +112,13 @@ class DataManager {
         // Ignore tablets in their entirety
         // 
         this.ignoreTablet = {
-            // Nov 30 DeerLake ignores
+            //  ignores
             // 
             "_0": {},
-            // Dec 3 DeerLake ignores
+            //  ignores
             // 
             "_1": {},
-            // Dec 4 DeerLake ignores
+            //  ignores
             // 
             "_2": {},
             "_3": {}
@@ -124,13 +126,13 @@ class DataManager {
         // Ignore tablets in their entirety
         // 
         this.ignoreArchive = {
-            // Nov 30 DeerLake ignores
+            //  ignores
             // 
             "_0": {},
-            // Dec 3 DeerLake ignores
+            //  ignores
             // 
             "_1": {},
-            // Dec 4 DeerLake conflicts
+            //  conflicts
             // 
             "_2": {},
             "_3": {}
@@ -139,17 +141,17 @@ class DataManager {
         // Don't use this when default instructionseq are valid.  
         // 
         this.ignoreDormant = {
-            // Nov 30 DeerLake ignores
+            //  ignores
             // 
             "_0": {},
-            // Dec 3 DeerLake ignores
+            //  ignores
             // 
             "_1": {
             // ABSENT
             // "CARDELLHI_MAY_13":true
             // UNKNOWN USER
             },
-            // Dec 4 DeerLake ignores
+            //  ignores
             // 
             // These were logged in as GUESTS again
             //
@@ -167,16 +169,16 @@ class DataManager {
             }
         };
         this.ignoreLogin = {
-            // Nov 30 DeerLake ignores
+            //  ignores
             // 
             "_0": {
-                "SAG_FEB_1": "tablet_14"
+            // "SAG_FEB_1":"tablet_14"
             },
-            // Dec 3 DeerLake ignores
+            //  ignores
             // These accounts were all created in error instead of using GUEST accounts.        
             // 
             "_1": {},
-            // Dec 4 DeerLake ignores
+            //  ignores
             // 
             "_2": {},
             "_3": {}
@@ -184,34 +186,34 @@ class DataManager {
         // Ignore dormant accounts where students have used guest logins 
         //
         this.ignoreMastery = {
-            // mastery students
-            "MATTHEWAD_OCT_30": true,
-            "ROYCEBR_FEB_8": true,
-            "BAILEYSM_SEP_27": true
+        // mastery students
+        // "MATTHEWAD_OCT_30":true,
+        // "ROYCEBR_FEB_8":true,
+        // "BAILEYSM_SEP_27":true
         };
         // These ID's are equivalent (i.e. denote the same individual)
         // 
         this.IDConflict = {};
         this.activeAccounts = {
-            // Nov 30 DeerLake ignores
+            //  ignores
             // 
             "_0": {},
-            // Dec 3 DeerLake ignores
+            //  ignores
             // 
             "_1": {},
-            // Dec 4 DeerLake conflicts
+            //  conflicts
             // 
             "_2": {},
             "_3": {}
         };
         this.sessionAccountList = {
-            // Nov 30 DeerLake ignores
+            //  ignores
             // 
             "_0": {},
-            // Dec 3 DeerLake ignores
+            //  ignores
             // 
             "_1": {},
-            // Dec 4 DeerLake conflicts
+            //  conflicts
             // 
             "_2": {},
             "_3": {}

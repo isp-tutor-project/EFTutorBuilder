@@ -110,17 +110,17 @@ export class DataManager
     // 
     private guestFixups:any = {
 
-        // Nov 30 DeerLake conflicts
+        //  conflicts
         // 
         "_0":{            
         },
 
-        // Dec 3 DeerLake guest fixups
+        //  guest fixups
         // 
         "_1": {
         },
 
-        // Dec 4 DeerLake guest fixups
+        //  guest fixups
         // 
         "_2": {
         },
@@ -134,17 +134,17 @@ export class DataManager
     // 
     private userFixups:any = {
 
-        // Nov 30 DeerLake conflicts
+        //  conflicts
         // 
         "_0":{            
         },
 
-        // Dec 3 DeerLake guest fixups
+        //  guest fixups
         // 
         "_1": {
         },
 
-        // Dec 4 DeerLake guest fixups
+        //  guest fixups
         // 
         "_2": {
         },
@@ -158,17 +158,18 @@ export class DataManager
     // 
     private conflictResolution:any = {
 
-        // Nov 30 DeerLake conflicts
+        //  conflicts
         // 
-        "_0":{            
+        "_0":{    
+            "ROMANAL_JUL_25":"tablet_13",       
         },
 
-        // Dec 3 DeerLake conflicts
+        //  conflicts
         // 
         "_1": {
         },
 
-        // Dec 4 DeerLake conflicts
+        //  conflicts
         // 
         "_2": {
         },
@@ -182,17 +183,17 @@ export class DataManager
     // 
     private ignoreTablet:any = {
 
-        // Nov 30 DeerLake ignores
+        //  ignores
         // 
         "_0":{            
         },
 
-        // Dec 3 DeerLake ignores
+        //  ignores
         // 
         "_1": {
         },
 
-        // Dec 4 DeerLake ignores
+        //  ignores
         // 
         "_2": {
         },
@@ -205,15 +206,15 @@ export class DataManager
     // 
     private ignoreArchive:any = {
 
-        // Nov 30 DeerLake ignores
+        //  ignores
         // 
         "_0":{},
 
-        // Dec 3 DeerLake ignores
+        //  ignores
         // 
         "_1":{},
 
-        // Dec 4 DeerLake conflicts
+        //  conflicts
         // 
         "_2":{},
         
@@ -226,12 +227,12 @@ export class DataManager
     // 
     private ignoreDormant:any = {
 
-        // Nov 30 DeerLake ignores
+        //  ignores
         // 
         "_0":{
         },
 
-        // Dec 3 DeerLake ignores
+        //  ignores
         // 
         "_1":{
             // ABSENT
@@ -240,7 +241,7 @@ export class DataManager
             // UNKNOWN USER
         },
 
-        // Dec 4 DeerLake ignores
+        //  ignores
         // 
         // These were logged in as GUESTS again
         //
@@ -262,19 +263,19 @@ export class DataManager
 
     private ignoreLogin:any = {
 
-        // Nov 30 DeerLake ignores
+        //  ignores
         // 
         "_0":{
-            "SAG_FEB_1":"tablet_14"
+            // "SAG_FEB_1":"tablet_14"
         },
 
-        // Dec 3 DeerLake ignores
+        //  ignores
         // These accounts were all created in error instead of using GUEST accounts.        
         // 
         "_1":{
         },
 
-        // Dec 4 DeerLake ignores
+        //  ignores
         // 
         "_2":{
         },
@@ -288,9 +289,9 @@ export class DataManager
     private ignoreMastery:any = {
 
         // mastery students
-        "MATTHEWAD_OCT_30":true,
-        "ROYCEBR_FEB_8":true,
-        "BAILEYSM_SEP_27":true
+        // "MATTHEWAD_OCT_30":true,
+        // "ROYCEBR_FEB_8":true,
+        // "BAILEYSM_SEP_27":true
     };
     
 
@@ -303,15 +304,15 @@ export class DataManager
 
     private activeAccounts:any  = {
 
-        // Nov 30 DeerLake ignores
+        //  ignores
         // 
         "_0":{},
 
-        // Dec 3 DeerLake ignores
+        //  ignores
         // 
         "_1":{},
 
-        // Dec 4 DeerLake conflicts
+        //  conflicts
         // 
         "_2":{},
         
@@ -321,15 +322,15 @@ export class DataManager
     };                                    
     private sessionAccountList:any = {
 
-        // Nov 30 DeerLake ignores
+        //  ignores
         // 
         "_0":{},
 
-        // Dec 3 DeerLake ignores
+        //  ignores
         // 
         "_1":{},
 
-        // Dec 4 DeerLake conflicts
+        //  conflicts
         // 
         "_2":{},
         
@@ -547,7 +548,7 @@ export class DataManager
                     switch(cond[0]) {
                         case "C":
                         features    = "FTR_CHOICE";
-                        instruction = "tutor_seq_DL_CHOICE.json";
+                        instruction = "tutor_seq_choice.json";
                         break;
 
                         case "NC":
@@ -559,7 +560,7 @@ export class DataManager
                         }
                         else {
                             features += ":FTR_NCSODA";
-                            instruction = "tutor_seq_DL_NOCHOICE_SODA.json";
+                            instruction = "tutor_seq_nochoice.json";
                         }
                         break;
 
@@ -572,7 +573,7 @@ export class DataManager
                         }
                         else {
                             features += ":FTR_NCSODA";
-                            instruction = "tutor_seq_DL_BASELINE_SODA.json";
+                            instruction = "tutor_seq_baseline.json";
                         }                    
                         break;
 
