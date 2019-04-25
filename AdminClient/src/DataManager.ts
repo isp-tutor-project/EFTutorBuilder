@@ -38,6 +38,7 @@ import { TData_DR }         from "./TData_DR";
 import { TData_MATSPRE }    from "./TData_MATSPRE";
 import { TData_RQTED1 }     from "./TData_RQTED1";
 import { TData_RQTED2 }     from "./TData_RQTED2";
+import { userInfo } from "os";
 
 
 
@@ -79,10 +80,14 @@ export class DataManager
     private tabletImages:tabletData[] = [];     // account for each tablet 
     private accts:tabletData;
 
-    private stateImages:stateData[] = [];   // state data for each tablet
+    private stateImages:stateData[] = [];       // state data for each tablet
     private state:stateData;
+    private passOne:boolean = true;             // One the first pass extract all the user folders - so we have a copy of absent students data 
 
     private tabletAccts:tabletData;
+    private absentAccts:tabletData[];
+    private absentAccounts:any;
+
     private daySuffix:string[] = ["_0","_1","_2","_3"];
 
     private mergedAccts:tabletData = {
@@ -355,6 +360,13 @@ export class DataManager
         // 
         for(let daySfx of this.daySuffix) {
 
+            // For each day unpack the first tablet image entirely to get all accounts... including absent students.
+            // The non-absent "present" student data will be replaced with that from the tablet they actually used.
+            //
+            this.passOne = true;
+            this.absentAccts = [];      // tabletData[]
+            this.absentAccounts = {};   // Associative array of students - true value for absent status
+
             let srcPath:string = path.join(this.cwd, srcBase + daySfx);  
             let dstPath:string = path.join(this.cwd, dst + daySfx);  
 
@@ -366,6 +378,38 @@ export class DataManager
                 // containing tablet ZIP data  (alldata.zip)
                 // 
                 let files:Array<string> = fs.readdirSync(srcPath);
+
+                // First load all the tablet accounts to find all the absent students
+                //
+                for(let folder of files) {
+
+                    // If this looks like a tablet folder then process it
+                    // 
+                    if(folder.startsWith(this.TABLET_BASE)) {
+                        
+                        let _path = path.join(srcPath, folder);  
+
+                        try {
+                            let stats:any = fs.statSync(_path);
+
+                            // If it is a folder check it for user data
+                            // reset passOne after 1st tablet image is extracted.
+                            // 
+                            if(stats.isDirectory()) {
+
+                                this.enumAbsentAccounts(daySfx, folder, _path);
+                            }
+                        }
+                        catch(error) {
+
+                            console.log("Error = " + error);
+                        }
+                    }
+                }
+                
+                this.enumAllAccounts();
+                this.enumUsedAccounts();
+
 
                 for(let folder of files) {
 
@@ -379,10 +423,12 @@ export class DataManager
                             let stats:any = fs.statSync(_path);
 
                             // If it is a folder check it for user data
+                            // reset passOne after 1st tablet image is extracted.
                             // 
                             if(stats.isDirectory()) {
 
                                 this.unpackTabletData(daySfx, folder, _path, dstPath);
+                                this.passOne = false;
                             }
                         }
                         catch(error) {
@@ -987,12 +1033,12 @@ export class DataManager
                 // Where there is a merge conflict we'll ignore all but the one selected to resolve
                 // the conflict. i.e. There may be multiple named files from different tablets.
                 // 
-                if(user.tabletId === nameParts[2]) {
+                // if(user.tabletId === nameParts[2]) {
                     fs.copyFileSync(path.join(src,entry),path.join(dest,nameParts[1]+".json"));
-                }
-                else {
-                    ignored[nameParts[2]] = true;
-                }
+                // }
+                // else {
+                //     ignored[nameParts[2]] = true;
+                // }
             }
         }
 
@@ -1631,6 +1677,16 @@ export class DataManager
     }
 
 
+    private checkAbsent(userID:string) {
+
+        let result:boolean = false;
+
+        if(this.passOne && this.absentAccounts[userID]) 
+                                                result = true;
+        return result;
+    }
+
+
     // load isp_userdata.json images 
     // 
     private loadAcctImage(daySfx:string) {
@@ -1668,7 +1724,7 @@ export class DataManager
                     // Only process data from accts that were actually logged into on 
                     // this tablet image.
                     // 
-                    if(this.checkUserLogin(userFolder)) {
+                    if(this.checkUserLogin(userFolder) || this.checkAbsent(userFolder)) {
 
                         // NOTE: Use file level labelling with tabletid instead of this
                         // 
@@ -1765,5 +1821,76 @@ export class DataManager
             console.log("NOTICE: Ignoring tablet - " + _tabletId);
         }
     }
+
+
+    private enumAllAccounts() {
+
+        for(let accounts of this.absentAccts) {
+
+            for(let user of accounts.users) {
+
+                this.absentAccounts[user.userName] = true;         
+            }
+        }
+    }
+
+
+    private enumUsedAccounts() {
+
+        for(let accounts of this.absentAccts) {
+
+            for(let user of accounts.userLogins) {
+
+                this.absentAccounts[user.userName] = false;         
+            }
+        }
+    }
+
+
+    // Unpack the isp_userdata.json file from the tablet data image.
+    // 
+    private loadAcctData() {
+
+        let acctPath:string = path.join(this.ZIP_ROOT, this.ACCT_FILENAME);
+        let zipEntry:AdmZip.IZipEntry = this.zipFile.getEntry(acctPath.replace("\\","/"));
+
+        if(zipEntry) {
+            this.absentAccts.push(JSON.parse(this.zipFile.readAsText(zipEntry )));
+        }
+    }
+
+
+    // Unpack the alldata.zip image for the given day on the given tablet
+    // 
+    private enumAbsentAccounts(daySfx:string, _tabletId:string, zipPath:string) : void {
+
+        let fpath:string = path.join(zipPath, this.ARCHIVE_FILENAME);          
+
+        this.tabletID = _tabletId;
+
+        // Selectively ignore tablets
+        // 
+        if(!this.ignoreArchive[daySfx][_tabletId]) {
+
+            try {
+                this.zipFile    = new AdmZip(fpath);
+                this.zipEntries = this.zipFile.getEntries(); 
+
+                this.zipEntry = this.zipFile.getEntry(this.ZIP_ROOT);
+
+                if(this.zipEntry) {
+
+                    this.loadAcctData();
+                }
+            }
+            catch(error) {
+                console.log("Error = " + error);
+            }
+        }
+        else {
+            console.log("NOTICE: Ignoring tablet - " + _tabletId);
+        }
+    }
+
 }
     
