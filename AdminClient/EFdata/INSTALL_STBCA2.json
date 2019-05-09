@@ -1,0 +1,25 @@
+{
+    "commands": [
+        {
+            "command": "INSTALL",
+            "from": "/EFdata/EFandroidHost.apk",
+            "to": "/EdForge_XFER/EFandroidHost.apk",
+            "app_package":"org.edforge.androidhost",
+            "compress": false,
+            "extract": false,
+            "recurse": true
+        },
+
+        {
+            "command": "PUSH",
+            "from": "/EFdata/EdForge.zip",
+            "to": "/EdForge/",
+            "compress": false,
+            "extract": true,
+            "recurse": true
+        }
+
+    ],
+    "targets": "some",
+    "tabletIDs": [31]
+}
