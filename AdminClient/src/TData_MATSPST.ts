@@ -28,6 +28,25 @@ export class TData_MATSPST
 
         "dataDescr": [
 
+
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q1",      "dataValue":"PostTest:Sg1",  "dataSrc":"sceneState.SMatsPost1",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q2",      "dataValue":"PostTest:Sg2",  "dataSrc":"sceneState.SMatsPost1",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q3",      "dataValue":"PostTest:Sg3",  "dataSrc":"sceneState.SMatsPost1",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q4",      "dataValue":"PostTest:Sg4",  "dataSrc":"sceneState.SMatsPost1",  "dataConstr":""},
+
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q5",      "dataValue":"PostTest:Sg1",  "dataSrc":"sceneState.SMatsPost2",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q6",      "dataValue":"PostTest:Sg2",  "dataSrc":"sceneState.SMatsPost2",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q7",      "dataValue":"PostTest:Sg3",  "dataSrc":"sceneState.SMatsPost2",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q8",      "dataValue":"PostTest:Sg4",  "dataSrc":"sceneState.SMatsPost2",  "dataConstr":""},
+
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q9",      "dataValue":"PostTest:Sg1",  "dataSrc":"sceneState.SMatsPost3",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q10",     "dataValue":"PostTest:Sg2",  "dataSrc":"sceneState.SMatsPost3",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q11",     "dataValue":"PostTest:Sg3",  "dataSrc":"sceneState.SMatsPost3",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q12",     "dataValue":"PostTest:Sg4",  "dataSrc":"sceneState.SMatsPost3",  "dataConstr":""},
+
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q13",     "dataValue":"PostTest:Sg1",  "dataSrc":"sceneState.SMatsPost4",  "dataConstr":""},
+            {"Cond":"EG_A1|EG_A2|EG_A3|any",  "dataName":"MATS_Q14",     "dataValue":"PostTest:Sg2",  "dataSrc":"sceneState.SMatsPost4",  "dataConstr":""},
+
             {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE1_START",  "dataValue":"", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"},
             {"Cond":"EG_A1|EG_A2",  "dataName":"SCENE1_END",    "dataValue":"", "sceneId":"SScene1", "dataSrc":"scene.$seq.prop|complete", "dataConstr":"scene.$seq.value|false"}
         ]

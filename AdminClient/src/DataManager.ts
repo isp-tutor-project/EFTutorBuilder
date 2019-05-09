@@ -36,6 +36,7 @@ import { isError }          from "util";
 import { COPYFILE_EXCL }    from "constants";
 import { TData_DR }         from "./TData_DR";
 import { TData_MATSPRE }    from "./TData_MATSPRE";
+import { TData_MATSPST }    from "./TData_MATSPST";
 import { TData_RQTED1 }     from "./TData_RQTED1";
 import { TData_RQTED2 }     from "./TData_RQTED2";
 import { userInfo } from "os";
@@ -102,10 +103,11 @@ export class DataManager
     private tutorFileSuffix:string[] = ["DEDR","MATS","RQTED"];          
     
     private tutorDataSpecs:any[] = [
-        {"suffixIn":"DEDR", "suffixOut":"DEDR",   "dataSpec":TData_DR.tutorDataSpec},
-        {"suffixIn":"MATS", "suffixOut":"MATS",   "dataSpec":TData_MATSPRE.tutorDataSpec},
-        {"suffixIn":"RQTED","suffixOut":"RQTED1", "dataSpec":TData_RQTED1.tutorDataSpec},
-        {"suffixIn":"RQTED","suffixOut":"RQTED2", "dataSpec":TData_RQTED2.tutorDataSpec}
+        {"suffixIn":"DEDR", "suffixOut":"DEDR",      "dataSpec":TData_DR.tutorDataSpec},
+        {"suffixIn":"MATS", "suffixOut":"MATSPRE",   "dataSpec":TData_MATSPRE.tutorDataSpec},
+        {"suffixIn":"RQTED","suffixOut":"RQTED1",    "dataSpec":TData_RQTED1.tutorDataSpec},
+        {"suffixIn":"RQTED","suffixOut":"RQTED2",    "dataSpec":TData_RQTED2.tutorDataSpec},
+        {"suffixIn":"MATS", "suffixOut":"MATSPST",   "dataSpec":TData_MATSPST.tutorDataSpec}
     ];
     
 
@@ -177,6 +179,9 @@ export class DataManager
         //  conflicts
         // 
         "_2": {
+            "ISAKBR_SEP_27":"tablet_22",       
+            "DINOHA_JAN_9":"tablet_2",       
+            "ADELEMO_OCT_24":"tablet_9"
         },
         
         "_3": {
@@ -294,9 +299,24 @@ export class DataManager
     private ignoreMastery:any = {
 
         // mastery students
-        // "MATTHEWAD_OCT_30":true,
-        // "ROYCEBR_FEB_8":true,
-        // "BAILEYSM_SEP_27":true
+        "ELIZABETHCA_DEC_31":true,
+        "MICHAELCH_JUN_13":true,
+        "FRANKCH_OCT_4":true,
+        "ROMANAL_JUL_25":true,
+        "GAVINDR_JUL_31":true,
+        "BRIANSE_JUN_17":true,
+        "BENKE_JUL_20":true,
+        "KAREEMSC_FEB_8":true,
+        "JASONAR_NOV_5":true,
+        "JAMESKR_MAR_17":true,
+        "PAIGEKO_SEP_16":true,
+        "CHRISAU_DEC_28":true,
+        "DANTEDU_FEB_5":true,
+        "YARAAL_JUN_3":true,
+        "KAILEYPA_APR_5":true,
+        "TEAGCL_JAN_16":true,
+        "NINACR_APR_13":true,
+        "EBENCO_APR_26":true
     };
     
 
@@ -1033,12 +1053,12 @@ export class DataManager
                 // Where there is a merge conflict we'll ignore all but the one selected to resolve
                 // the conflict. i.e. There may be multiple named files from different tablets.
                 // 
-                // if(user.tabletId === nameParts[2]) {
+                if((user.tabletId === "ABSENT") || (user.tabletId === nameParts[2])) {
                     fs.copyFileSync(path.join(src,entry),path.join(dest,nameParts[1]+".json"));
-                // }
-                // else {
-                //     ignored[nameParts[2]] = true;
-                // }
+                }
+                else {
+                    ignored[nameParts[2]] = true;
+                }
             }
         }
 
@@ -1386,7 +1406,7 @@ export class DataManager
                                 } 
                                 else if(!(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {                                
 
-                                    user.tabletId = tablet.tabletId;
+                                    user.tabletId = "ABSENT";
                                     this.mergedAccts.users.push(user);
 
                                     console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);

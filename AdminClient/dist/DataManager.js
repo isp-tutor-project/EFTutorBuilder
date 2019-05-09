@@ -25,6 +25,7 @@ const Utils_1 = require("./Utils");
 const constants_1 = require("constants");
 const TData_DR_1 = require("./TData_DR");
 const TData_MATSPRE_1 = require("./TData_MATSPRE");
+const TData_MATSPST_1 = require("./TData_MATSPST");
 const TData_RQTED1_1 = require("./TData_RQTED1");
 const TData_RQTED2_1 = require("./TData_RQTED2");
 class DataManager {
@@ -61,9 +62,10 @@ class DataManager {
         this.tutorFileSuffix = ["DEDR", "MATS", "RQTED"];
         this.tutorDataSpecs = [
             { "suffixIn": "DEDR", "suffixOut": "DEDR", "dataSpec": TData_DR_1.TData_DR.tutorDataSpec },
-            { "suffixIn": "MATS", "suffixOut": "MATS", "dataSpec": TData_MATSPRE_1.TData_MATSPRE.tutorDataSpec },
+            { "suffixIn": "MATS", "suffixOut": "MATSPRE", "dataSpec": TData_MATSPRE_1.TData_MATSPRE.tutorDataSpec },
             { "suffixIn": "RQTED", "suffixOut": "RQTED1", "dataSpec": TData_RQTED1_1.TData_RQTED1.tutorDataSpec },
-            { "suffixIn": "RQTED", "suffixOut": "RQTED2", "dataSpec": TData_RQTED2_1.TData_RQTED2.tutorDataSpec }
+            { "suffixIn": "RQTED", "suffixOut": "RQTED2", "dataSpec": TData_RQTED2_1.TData_RQTED2.tutorDataSpec },
+            { "suffixIn": "MATS", "suffixOut": "MATSPST", "dataSpec": TData_MATSPST_1.TData_MATSPST.tutorDataSpec }
         ];
         // private tutorFileNames:string[] = ["tutorstate_DEDR.json","tutorstate_MATS.json","tutorstate_RQTED.json"];                                
         // Map students to guest accounts
@@ -107,7 +109,11 @@ class DataManager {
             "_1": {},
             //  conflicts
             // 
-            "_2": {},
+            "_2": {
+                "ISAKBR_SEP_27": "tablet_22",
+                "DINOHA_JAN_9": "tablet_2",
+                "ADELEMO_OCT_24": "tablet_9"
+            },
             "_3": {}
         };
         // Ignore tablets in their entirety
@@ -187,10 +193,25 @@ class DataManager {
         // Ignore dormant accounts where students have used guest logins 
         //
         this.ignoreMastery = {
-        // mastery students
-        // "MATTHEWAD_OCT_30":true,
-        // "ROYCEBR_FEB_8":true,
-        // "BAILEYSM_SEP_27":true
+            // mastery students
+            "ELIZABETHCA_DEC_31": true,
+            "MICHAELCH_JUN_13": true,
+            "FRANKCH_OCT_4": true,
+            "ROMANAL_JUL_25": true,
+            "GAVINDR_JUL_31": true,
+            "BRIANSE_JUN_17": true,
+            "BENKE_JUL_20": true,
+            "KAREEMSC_FEB_8": true,
+            "JASONAR_NOV_5": true,
+            "JAMESKR_MAR_17": true,
+            "PAIGEKO_SEP_16": true,
+            "CHRISAU_DEC_28": true,
+            "DANTEDU_FEB_5": true,
+            "YARAAL_JUN_3": true,
+            "KAILEYPA_APR_5": true,
+            "TEAGCL_JAN_16": true,
+            "NINACR_APR_13": true,
+            "EBENCO_APR_26": true
         };
         // These ID's are equivalent (i.e. denote the same individual)
         // 
@@ -699,12 +720,12 @@ class DataManager {
                 // Where there is a merge conflict we'll ignore all but the one selected to resolve
                 // the conflict. i.e. There may be multiple named files from different tablets.
                 // 
-                // if(user.tabletId === nameParts[2]) {
-                fs.copyFileSync(path.join(src, entry), path.join(dest, nameParts[1] + ".json"));
-                // }
-                // else {
-                //     ignored[nameParts[2]] = true;
-                // }
+                if ((user.tabletId === "ABSENT") || (user.tabletId === nameParts[2])) {
+                    fs.copyFileSync(path.join(src, entry), path.join(dest, nameParts[1] + ".json"));
+                }
+                else {
+                    ignored[nameParts[2]] = true;
+                }
             }
         }
         return ignored;
@@ -965,7 +986,7 @@ class DataManager {
                                     console.log("Ignoring Dormant Account: " + user.userName + " on " + tablet.tabletId);
                                 }
                                 else if (!(this.ignoreLogin[daySfx][user.userName] && this.ignoreLogin[daySfx][user.userName] === tablet.tabletId)) {
-                                    user.tabletId = tablet.tabletId;
+                                    user.tabletId = "ABSENT";
                                     this.mergedAccts.users.push(user);
                                     console.log("Merging Dormant Account: " + user.userName + " on " + tablet.tabletId);
                                 }
