@@ -178,9 +178,7 @@ class DataManager {
         this.ignoreLogin = {
             //  ignores
             // 
-            "_0": {
-            // "SAG_FEB_1":"tablet_14"
-            },
+            "_0": {},
             //  ignores
             // These accounts were all created in error instead of using GUEST accounts.        
             // 

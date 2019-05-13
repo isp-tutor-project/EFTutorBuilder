@@ -276,7 +276,6 @@ export class DataManager
         //  ignores
         // 
         "_0":{
-            // "SAG_FEB_1":"tablet_14"
         },
 
         //  ignores
