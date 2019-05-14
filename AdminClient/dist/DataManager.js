@@ -106,7 +106,13 @@ class DataManager {
             },
             //  conflicts
             // 
-            "_1": {},
+            "_1": {
+                "CAILAHHA_APR_27": "tablet_2",
+                "OLIVIAWA_OCT_19": "tablet_12",
+                "SAMIRWA_DEC_6": "tablet_1",
+                "BROOKEGO_JUN_26": "tablet_30",
+                "SURRAYARO_MAR_25": "tablet_21"
+            },
             //  conflicts
             // 
             "_2": {
