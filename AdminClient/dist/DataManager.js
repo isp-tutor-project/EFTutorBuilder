@@ -116,9 +116,22 @@ class DataManager {
             //  conflicts
             // 
             "_2": {
-                "ISAKBR_SEP_27": "tablet_22",
-                "DINOHA_JAN_9": "tablet_2",
-                "ADELEMO_OCT_24": "tablet_9"
+                "ANNIAHWH_DEC_16": "tablet_5",
+                "CAILAHHA_APR_27": "tablet_19",
+                "OLIVIAWA_OCT_19": "tablet_16",
+                "MIYATO_MAR_11": "tablet_7",
+                "JAINOAHMA_APR_25": "tablet_9",
+                "LYRICMU_JAN_28": "tablet_28",
+                "JANIYAHJO_JUN_9": "tablet_27",
+                "BROOKEGO_JUN_26": "tablet_24",
+                "DAQUANKE_JUN_4": "tablet_21",
+                "IMANIHA_JAN_8": "tablet_20",
+                "PHILIPPTO_DEC_7": "tablet_14",
+                "MADISONDA_AUG_23": "tablet_4",
+                "LEONARDAI_DEC_25": "tablet_10",
+                "KYHACA_JAN_24": "tablet_18",
+                "GORDONMI_FEB_27": "tablet_11",
+                "SURRAYARO_MAR_25": "tablet_14"
             },
             "_3": {}
         };
@@ -351,7 +364,7 @@ class DataManager {
                 this.saveMergedAcctImage(daySfx);
                 if (this.mergeErrors === 0 || forceMerge) {
                     console.log("\n\n***********************************************");
-                    console.log("MERGING FOLDERS\n\n");
+                    console.log("MERGING FOLDERS for Day" + daySfx + "\n\n");
                     this.mergeTutorStateData(daySfx);
                     console.log("\n\n***********************************************");
                     console.log("MERGE COMPLETE!\n\n");
@@ -848,7 +861,7 @@ class DataManager {
                 }
             }
         }
-        console.log("\n\n*********************\nStarting Merge\n\n");
+        console.log("\n\n*********************\nStarting Merge for Day" + daySfx + "\n\n");
         // {"acctname":"guestnc_Jan_1",  "tablet":3,  "username":"briennesh_jan_1",},
         // guestFixups
         // Each tablet has a set of user accounts some new - some old - they may not all be
