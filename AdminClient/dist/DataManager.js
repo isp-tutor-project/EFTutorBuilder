@@ -99,41 +99,60 @@ class DataManager {
         // resolve which tablet to use when students login on multiple tablets.
         // 
         this.conflictResolution = {
+            /// CONFLICT SET FOR STBCA2
             //  conflicts
             // 
             "_0": {
-                "ROMANAL_JUL_25": "tablet_13",
+                "IZIEMEIP_AUG_26": "tablet_15",
+                "CAMRYNDA_OCT_12": "tablet_15",
+                "HAVENMC_SEP_19": "tablet_26"
             },
             //  conflicts
             // 
-            "_1": {
-                "CAILAHHA_APR_27": "tablet_2",
-                "OLIVIAWA_OCT_19": "tablet_12",
-                "SAMIRWA_DEC_6": "tablet_1",
-                "BROOKEGO_JUN_26": "tablet_30",
-                "SURRAYARO_MAR_25": "tablet_21"
-            },
+            "_1": {},
             //  conflicts
             // 
-            "_2": {
-                "ANNIAHWH_DEC_16": "tablet_5",
-                "CAILAHHA_APR_27": "tablet_19",
-                "OLIVIAWA_OCT_19": "tablet_16",
-                "MIYATO_MAR_11": "tablet_7",
-                "JAINOAHMA_APR_25": "tablet_9",
-                "LYRICMU_JAN_28": "tablet_28",
-                "JANIYAHJO_JUN_9": "tablet_27",
-                "BROOKEGO_JUN_26": "tablet_24",
-                "DAQUANKE_JUN_4": "tablet_21",
-                "IMANIHA_JAN_8": "tablet_20",
-                "PHILIPPTO_DEC_7": "tablet_14",
-                "MADISONDA_AUG_23": "tablet_4",
-                "LEONARDAI_DEC_25": "tablet_10",
-                "KYHACA_JAN_24": "tablet_18",
-                "GORDONMI_FEB_27": "tablet_11",
-                "SURRAYARO_MAR_25": "tablet_14"
-            },
-            "_3": {}
+            "_2": {},
+            "_3": {
+                "KRISTAHO_AUG_11": "tablet_14"
+            }
+            /// CONFLICT SET FOR SBM2
+            // //  conflicts
+            // // 
+            // "_0":{    
+            //     "ROMANAL_JUL_25":"tablet_13",       
+            // },
+            // //  conflicts
+            // // 
+            // "_1": {
+            //     "CAILAHHA_APR_27":"tablet_2",
+            //     "OLIVIAWA_OCT_19":"tablet_12",      
+            //     "SAMIRWA_DEC_6":"tablet_1",
+            //     "BROOKEGO_JUN_26":"tablet_30",
+            //     "SURRAYARO_MAR_25":"tablet_21"
+            // },
+            // //  conflicts
+            // // 
+            // "_2": {
+            //     "ANNIAHWH_DEC_16":"tablet_5",
+            //     "CAILAHHA_APR_27":"tablet_19",
+            //     "OLIVIAWA_OCT_19":"tablet_16",
+            //     "MIYATO_MAR_11":"tablet_7",
+            //     "JAINOAHMA_APR_25":"tablet_9",
+            //     "LYRICMU_JAN_28":"tablet_28",
+            //     "JANIYAHJO_JUN_9":"tablet_27",
+            //     "BROOKEGO_JUN_26":"tablet_24",
+            //     "DAQUANKE_JUN_4":"tablet_21",
+            //     "IMANIHA_JAN_8":"tablet_20",
+            //     "PHILIPPTO_DEC_7":"tablet_14",
+            //     "MADISONDA_AUG_23":"tablet_4",
+            //     "LEONARDAI_DEC_25":"tablet_10",
+            //     "KYHACA_JAN_24":"tablet_18",
+            //     "GORDONMI_FEB_27":"tablet_11",
+            //     "SURRAYARO_MAR_25":"tablet_14"
+            // },
+            // "_3": {
+            // }
         };
         // Ignore tablets in their entirety
         // 
@@ -210,6 +229,10 @@ class DataManager {
         // Ignore dormant accounts where students have used guest logins 
         //
         this.ignoreMastery = {
+            // STBCA2 
+            "ROYCEBR_FEB_8": true,
+            "BAILEYSM_SEP_27": true,
+            "CARDELLHI_MAY_13": true,
             // mastery students
             "ELIZABETHCA_DEC_31": true,
             "MICHAELCH_JUN_13": true,
