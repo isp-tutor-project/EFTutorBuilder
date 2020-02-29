@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "description": "",
   "main": "builder.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "author": "Kevin Willows",
   "license": "none",
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^10.5.2"
+    "@types/node": "^10.17.16",
+    "typescript": "^3.8.3"
   }
 }
