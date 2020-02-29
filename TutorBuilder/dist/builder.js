@@ -181,6 +181,8 @@ function terminate() {
 // `code ${code} and signal ${signal}`);
 function buildMixinResources(moduleName) {
     mixinsPath = path.join(twd, moduleName, TUTORMIXINS, TSCONFIG);
+    let foo = path.join(twd, moduleName, TUTORMIXINS);
+    console.log("buildMixinResources", foo);
     try {
         const child = spawn(`tsc --project ${mixinsPath}`, { stdio: 'inherit', shell: true });
         child.on('exit', function (code, signal) {
