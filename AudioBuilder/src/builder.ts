@@ -82,10 +82,10 @@ const TUTORBASEFOLDER:string = "../../../";
 const TUTORRELPATH:string    = "EFTutors";
 const MODULEPROMPT:string    = "\nEdForge Tutor Script-Asset Compiler.\n\nSelect Module To Build:\n=======================\n"
 
-const VOICES:string      = "EFAudio/EFscripts/languagevoice.json";
-const SCRIPT:string      = "EFAudio/EFscripts/script.json";
-const SCRIPTOUT:string   = "EFAudio/EFscripts/script_assets.json";
-const ASSETS_PATH        = "EFAudio/EFassets";
+const VOICES:string      = "EFaudio/EFscripts/languagevoice.json";
+const SCRIPT:string      = "EFaudio/EFscripts/script.json";
+const SCRIPTOUT:string   = "EFaudio/EFscripts/script_assets.json";
+const ASSETS_PATH        = "EFaudio/EFassets";
 const LIBRARY:string     = "EFbuild/_EFLIBRARYDATA.json";
 const ONTOLOGY:string    = "EFbuild/_EFTUTORDATA.json";
 const COMMONASSET:string = "common";
