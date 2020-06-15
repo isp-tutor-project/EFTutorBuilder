@@ -806,20 +806,21 @@ function generateManualSynthesisRequests(script, languages, requests) {
         }
     }
 }
-function validatePath(path, folder) {
-    let pathArray = path.split("\\");
+function validatePath(filePath, folder) {
+    let pathArray = filePath.split(path.sep);
+    filePath = path.join(path.sep, ...pathArray);
     try {
-        let stat = fs.statSync(path);
+        let stat = fs.statSync(filePath);
         if (stat.isDirectory) {
             if (folder)
-                fs.mkdirSync(path + "\\" + folder);
+                fs.mkdirSync(path.join(filePath, folder));
         }
     }
     catch (err) {
         let last = pathArray.pop();
-        validatePath(pathArray.join("\\"), last);
+        validatePath(path.join(...pathArray), last);
         if (folder)
-            fs.mkdirSync(path + "\\" + folder);
+            fs.mkdirSync(path.join(filePath, folder));
     }
 }
 function rmdirSync(dir, delRoot) {
