@@ -76,7 +76,7 @@ function getTutorToBuild() {
                 let target = lModules.indexOf(modName[0]);
                 if (target >= 0) {
                     modulePath = lModules[target];
-                    // console.log(`\n\nBuilding: ${MODULE_PATH}\n`);
+                    console.log(`\n\nBuilding: ${modulePath}\n`);
                     buildMixinResources(modulePath);
                     buildClassExtResources(modulePath);
                     buildDataResources(modulePath);
@@ -87,7 +87,6 @@ function getTutorToBuild() {
             }
         }
         // If there is just one Module -- build it
-        // 
         else {
             if (process.argv[2] || process.argv[2] === MODULEONLY) {
                 listModules();
@@ -100,7 +99,7 @@ function getTutorToBuild() {
                     let target = parseInt(answer) - 1;
                     if (target >= 0 && target < lModules.length) {
                         modulePath = lModules[target];
-                        // console.log(`\n\nBuilding: ${MODULE_PATH}\n`);
+                        // console.log(`\n\nBuilding: ${modulePath}\n`);
                         buildMixinResources(modulePath);
                         buildClassExtResources(modulePath);
                         buildDataResources(modulePath);
@@ -113,15 +112,13 @@ function getTutorToBuild() {
                 });
             }
             // If there is just one tutor -- build it
-            // 
             else {
                 listTutors();
                 if (lTutors.length === 1) {
                     buildTutor(0);
                 }
-                // Otherwise if there is no argument to ID build target 
+                // Otherwise if there is no argument to ID build target
                 // query the user
-                // 
                 else if (!process.argv[2] || !lTutors.includes(process.argv[2])) {
                     let queryText = TUTORPROMPT;
                     lTutors.forEach((element, index) => {
@@ -181,8 +178,6 @@ function terminate() {
 // `code ${code} and signal ${signal}`);
 function buildMixinResources(moduleName) {
     mixinsPath = path.join(twd, moduleName, TUTORMIXINS, TSCONFIG);
-    let foo = path.join(twd, moduleName, TUTORMIXINS);
-    console.log("buildMixinResources", foo);
     try {
         const child = spawn(`tsc --project ${mixinsPath}`, { stdio: 'inherit', shell: true });
         child.on('exit', function (code, signal) {
@@ -282,7 +277,7 @@ function listModules() {
     try {
         let files = fs.readdirSync(fpath);
         files.forEach(file => {
-            let _path = fpath + "/" + file;
+            let _path = path.join(fpath, file);
             try {
                 let stats = fs.statSync(_path);
                 if (stats.isDirectory()) {
