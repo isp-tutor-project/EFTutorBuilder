@@ -8,13 +8,16 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@google-cloud/text-to-speech": "^2.2.0",
     "lamejs": "^1.2.0"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "2.1.1",
-    "@types/node": "^10.17.16"
+    "@types/node": "^10.17.16",
+    "typescript": "^3.8.3"
   }
 }
