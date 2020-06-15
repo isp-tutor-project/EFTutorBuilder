@@ -76,34 +76,29 @@ let tutorConfig:ItutorConfig;
 
 
 /**
- * When debugging the Tutor may not be defined as an argument. 
+ * When debugging the Tutor may not be defined as an argument.
  * (You may use a vscode launch configuration to set args[] to define a target)
  *
  * This function will provide a realtime listing of modules which may be built.
  * and prompt the user to select a build target.
  */
 function getTutorToBuild() {
-   
     calcTutorFolder();
-
     try {
 
         if(process.argv[2] && process.argv[2] === MODULETHIS) {
             listModules();
-
             if(!modName) {
                 console.info("Error: command must be run from Root folder of Module.");
                 terminate();
             }
             else {
                 let target = lModules.indexOf(modName[0]);
-
                 if(target >= 0) {
                     modulePath = lModules[target];
-
-                    // console.log(`\n\nBuilding: ${MODULE_PATH}\n`);
+                    console.log(`\n\nBuilding: ${modulePath}\n`);
                     buildMixinResources(modulePath);
-                    buildClassExtResources(modulePath);        
+                    buildClassExtResources(modulePath);
                     buildDataResources(modulePath);
                     buildAudioResources(modulePath);
 
@@ -114,30 +109,29 @@ function getTutorToBuild() {
         }
 
         // If there is just one Module -- build it
-        // 
         else {
 
             if(process.argv[2] || process.argv[2] === MODULEONLY) {
                 listModules();
 
-                let queryText:string = MODULEPROMPT; 
-                
+                let queryText:string = MODULEPROMPT;
+
                 lModules.forEach((element:string, index:number) => {
                     queryText += (index+1) + ":\t" + element + "\n";
                 });
                 queryText += "\n>";
 
                 rl.question(queryText, (answer:string) => {
-                    
+
                     let target = parseInt(answer)-1;
 
                     if(target >= 0 && target < lModules.length) {
-                    
+
                         modulePath = lModules[target];
 
-                        // console.log(`\n\nBuilding: ${MODULE_PATH}\n`);
+                        // console.log(`\n\nBuilding: ${modulePath}\n`);
                         buildMixinResources(modulePath);
-                        buildClassExtResources(modulePath);        
+                        buildClassExtResources(modulePath);
                         buildDataResources(modulePath);
                         buildAudioResources(modulePath);
                     }
@@ -145,11 +139,10 @@ function getTutorToBuild() {
                         console.error("\n\nInvalid selection!\n");
                         terminate();
                     }
-                });                
+                });
             }
 
             // If there is just one tutor -- build it
-            // 
             else {
                 listTutors();
 
@@ -157,20 +150,19 @@ function getTutorToBuild() {
 
                     buildTutor(0);
                 }
-                // Otherwise if there is no argument to ID build target 
+                // Otherwise if there is no argument to ID build target
                 // query the user
-                // 
                 else if(!process.argv[2] || !lTutors.includes(process.argv[2])) {
-                    
-                    let queryText:string = TUTORPROMPT; 
-                    
+
+                    let queryText:string = TUTORPROMPT;
+
                     lTutors.forEach((element:string, index:number) => {
                         queryText += (index+1) + ":\t" + element + "\n";
                     });
                     queryText += "\n>";
 
                     rl.question(queryText, (answer:string) => {
-                        
+
                         let target = parseInt(answer)-1;
 
                         if(target >= 0 && target < lTutors.length) {
@@ -181,16 +173,16 @@ function getTutorToBuild() {
                             console.error("\n\nInvalid selection!\n");
                             setTimeout(terminate, 2000);
                         }
-                    });                
+                    });
                 }
                 else {
                     console.error("Error: invalid selection.");
                     setTimeout(terminate, 2000);
                 }
-            }        
+            }
         }
     }
-    catch(err) {                
+    catch(err) {
     }
 }
 
@@ -211,7 +203,7 @@ function buildTutor(tutorNdx:number) {
 
         try {
             buildMixinResources(moduleID);
-            buildClassExtResources(moduleID);        
+            buildClassExtResources(moduleID);
             buildDataResources(moduleID);
             buildAudioResources(moduleID);
         }
@@ -244,8 +236,7 @@ function terminate() {
 function buildMixinResources(moduleName:string) {
 
     mixinsPath = path.join(twd, moduleName, TUTORMIXINS, TSCONFIG);
-    let foo = path.join(twd, moduleName, TUTORMIXINS);
-    console.log("buildMixinResources", foo);
+
     try {
         const child = spawn(`tsc --project ${mixinsPath}`,{stdio: 'inherit', shell: true});
 
@@ -288,7 +279,7 @@ function buildDataResources(moduleName:string) {
     let dataBuilderPath = path.join(twd, DATABUILDER);
 
     try {
-        const child = spawn(`node ${dataBuilderPath} ${moduleName}`,{stdio: 'inherit', shell: true}); 
+        const child = spawn(`node ${dataBuilderPath} ${moduleName}`,{stdio: 'inherit', shell: true});
 
         child.on('exit', function (code:any, signal:any) {
             console.log(`${moduleName} - Data Resources Complete.`);
@@ -327,7 +318,7 @@ function buildAudioResources(moduleName:string) {
 function calcTutorFolder() : string {
 
     modName = RX_MODULENAME.exec(process.cwd());
-    
+
     rwd = path.relative(process.cwd(), __dirname);
     // console.log("Relative working Directory  = " + rwd);
 
@@ -340,7 +331,7 @@ function calcTutorFolder() : string {
 
 function listTutors() : Array<string>{
 
-    let fpath:string = path.join(twd, TUTORRELPATH); 
+    let fpath:string = path.join(twd, TUTORRELPATH);
 
     try {
         let files:Array<string> = fs.readdirSync(fpath);
@@ -361,7 +352,7 @@ function listTutors() : Array<string>{
                         //
                         fs.accessSync(configPath);
 
-                        lTutors.push(file);                        
+                        lTutors.push(file);
                     }
                    catch(err) {
                        // Ignore folder - not a tutor description folder
@@ -391,8 +382,7 @@ function listModules() : Array<string>{
 
         files.forEach(file => {
 
-            let _path = fpath +"/"+file;
-
+            let _path = path.join(fpath, file);
             try {
                 let stats:any = fs.statSync(_path);
 
