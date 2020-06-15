@@ -195,7 +195,7 @@ function getModuleToBuild() {
         else {
 
             if(!process.argv[2] || !lModules.includes(process.argv[2])) {
-                
+
                 let queryText:string = MODULEPROMPT; 
                 
                 lModules.forEach((element:string, index:number) => {
@@ -271,7 +271,7 @@ function buildScript() {
                 postProcessScript(scripts[scene].tracks[track].en, segID);
             }        
         }    
-        
+
         requests   = [];
         currRequest = 0;
 
@@ -685,7 +685,7 @@ function resolveSelector(inst:scriptInstance, template:string ) : any{
                 // 
                 let vArray:Array<string> = selectorVal[2].split("|");
                 let qArray:Array<string> = vArray[0].split("_");
-    
+
                 resolveOntologyCollection(vArray[0], ontology._ONTOLOGY, qArray, vArray[1], currTemplate, "");
                 break;   
 
@@ -1084,7 +1084,7 @@ function generateSynthesisRequests(input:any, languages:any, requests:Array<any>
                                     validatePath(filePath, null);
 
                                     _request.input.ssml = TAG_SPEAKSTART + seg[segVal].SSML + TAG_SPEAKEND;
-                                    
+
                                     filesRequested++;
 
                                     requests.push(
@@ -1155,26 +1155,27 @@ function generateManualSynthesisRequests(script:any, languages:any, requests:Arr
 
 
 
-function validatePath(path:string, folder:string) {
+function validatePath(filePath:string, folder:string) {
 
-    let pathArray:Array<string> = path.split("\\");
+    let pathArray:Array<string> = filePath.split(path.sep);
+    filePath = path.join(path.sep, ...pathArray);  
 
     try {
-        let stat = fs.statSync(path);
+        let stat = fs.statSync(filePath);
 
         if(stat.isDirectory) {
 
             if(folder)
-                fs.mkdirSync(path + "\\" + folder);
+                fs.mkdirSync(path.join(filePath, folder));
         }
     }
     catch(err) {
 
         let last = pathArray.pop();
-        validatePath(pathArray.join("\\"), last);
+        validatePath(path.join(...pathArray), last);
 
         if(folder)
-            fs.mkdirSync(path + "\\" + folder);
+            fs.mkdirSync(path.join(filePath, folder));
     }
 }
 
