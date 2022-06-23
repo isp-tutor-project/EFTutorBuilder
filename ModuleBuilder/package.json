@@ -10,7 +10,7 @@
   "author": "Kevin Willows",
   "license": "UNLICENSED",
   "devDependencies": {
-    "jsdom": "^11.11.0",
+    "jsdom": "^16.5.0",
     "@types/node": "^10.1.2",
     "@types/xmldom": "^0.1.29",
     "@types/json5": "0.0.29"
